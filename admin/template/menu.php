@@ -41,8 +41,15 @@ include_once("seccion/sesiones.php");
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-           
 
+            <li class="nav-item">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="principal.php">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <i class="bi bi-clipboard2-data"></i>
+                    </div>
+                    <div class="sidebar-brand-text mx-1"><?= NAME_PAGE ?></div>
+                </a>
+            </li>
             <br>
 
 
@@ -102,6 +109,15 @@ include_once("seccion/sesiones.php");
                         <a class="collapse-item" href="galeria.php?pagina=1">Galeria</a>
                     </div>
                 </div>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item ">
+                <a class="nav-link" href="seccion/logout.php">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Cerrar Sesion</span>
+                </a>
             </li>
 
             <!-- Divider -->
