@@ -1,5 +1,5 @@
 <?php
-
+include_once("../config/conexion.php");
 
 
 //insertar datos
@@ -20,7 +20,7 @@ if (isset($_REQUEST['btn_guardar'])) {
     //tratar imagen
     $imagen_temporal = $_FILES['imagen']['tmp_name'];
 
-    move_uploaded_file($imagen_temporal, "img/imagenesUsuarios/" . $imagen);
+    move_uploaded_file($imagen_temporal, "../img/imagenesUsuarios/" . $imagen);
 
     $tipo_usuario;
 
@@ -36,7 +36,7 @@ if (isset($_REQUEST['btn_guardar'])) {
 
     //si se ejecuta de manera eficiente
     if ($ejecutar) {
-        header("Location: usuarios.php");
+        header("Location: ../usuarios.php");
     }
 }
 
@@ -58,12 +58,12 @@ if (isset($_REQUEST['btn_eliminar'])) {
     while ($imagen = mysqli_fetch_array($imagenes)) {
         if (isset($imagen)) {
             $nombreImagen[] = $imagen[0];
-            if (file_exists("img/imagenesUsuarios/" . $nombreImagen[0])) {
-                unlink("img/imagenesUsuarios/" . $nombreImagen[0]);
+            if (file_exists("../img/imagenesUsuarios/" . $nombreImagen[0])) {
+                unlink("../img/imagenesUsuarios/" . $nombreImagen[0]);
                 $sql = ("DELETE FROM usuarios WHERE id_usuario = '$id_usuario'");
                 $ejecutar = mysqli_query($mysqli, $sql);
                 if ($ejecutar) {
-                    header("location: usuarios.php");
+                    header("location: ../usuarios.php");
                 } else {
                     echo "Error en la consulta";
                 }
@@ -100,11 +100,8 @@ if (isset($_REQUEST['btn_actualizar'])) {
      correo = '$correo', password = '$passwordNew' WHERE id_usuario = '$id_usuario'";
         $ejecutar = mysqli_query($mysqli, $sqlUser);
     } else {
-        header("location: perfilUsuario.php");
+        header("location: ../perfilUsuario.php");
     }
-
-
-
 
     if ($imagen != "") {
         //no se repita la imagen
@@ -112,7 +109,7 @@ if (isset($_REQUEST['btn_actualizar'])) {
         $nombreArchivo = $fecha->getTimestamp() . "_" . $_FILES['imagen']['name']; //para que no se repita
         //tratar imagen
         $imagen_temporal = $_FILES['imagen']['tmp_name'];
-        move_uploaded_file($imagen_temporal, "img/imagenesUsuarios/" . $nombreArchivo);
+        move_uploaded_file($imagen_temporal, "../img/imagenesUsuarios/" . $nombreArchivo);
         //borrar imagen
         $sqlImg = ("SELECT imagen FROM `usuarios` WHERE id_usuario = '$id_usuario'");
         $imagenes = mysqli_query($mysqli, $sqlImg);
@@ -125,8 +122,8 @@ if (isset($_REQUEST['btn_actualizar'])) {
 
 
         if (isset($nombreImagen[0])) {
-            if (file_exists("img/imagenesUsuarios/" . $nombreImagen[0])) {
-                unlink("img/imagenesUsuarios/" . $nombreImagen[0]);
+            if (file_exists("../img/imagenesUsuarios/" . $nombreImagen[0])) {
+                unlink("../img/imagenesUsuarios/" . $nombreImagen[0]);
                 $sql = "UPDATE usuarios SET imagen = '$nombreArchivo' WHERE id_usuario = '$id_usuario'";
                 $ejecutar2 = mysqli_query($mysqli, $sql);
             }

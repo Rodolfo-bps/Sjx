@@ -122,7 +122,7 @@ $rel = mysqli_query($mysqli, $sql2);
                         $fechaActual = date('d-m-Y');
 
                         ?>
-                        <input style="background: white;" type="text" class="form-control" name="fecha" id="fecha" value="<?= $fechaActual ?>">
+                        <input style="background: white;" type="hidden" class="form-control" name="fecha" id="fecha" value="<?= $fechaActual ?>">
 
                         <label for="">Localidades con menor plantas</label>
                         <textarea style="background: white;" type="text" readonly class="form-control" cols="30" rows="10" name="menor" id="menor"><?php foreach ($menor as $r) {

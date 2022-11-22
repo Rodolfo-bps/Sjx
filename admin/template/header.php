@@ -1,3 +1,24 @@
+<?php
+
+
+
+
+if (!isset($_SESSION['id_usuario'])) {
+    header("location: index.php");
+}
+
+$tipo_usuario = $_SESSION["tipo_usuario"];
+
+
+
+
+
+
+?>
+
+
+
+
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
     <!-- Main Content -->
@@ -41,10 +62,13 @@
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                             Perfil
                         </a>
-                        <a class="dropdown-item" href="usuarios.php">
-                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Ver Usuarios
-                        </a>
+
+                        <?php if ($tipo_usuario == 1) { ?>
+                            <a class="dropdown-item" href="usuarios.php">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Ver Usuarios
+                            </a>
+                        <?php } ?>
                         <a class="dropdown-item" href="seccion/blog.php">
                             <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                             Ir a blog

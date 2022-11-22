@@ -21,6 +21,14 @@ if ($sqlDanger = mysqli_query($mysqli, $sqlDanger)) {
     $numDanger = mysqli_num_rows($sqlDanger);
 }
 
+$estd = "activo";
+
+$sqlActive = "SELECT estado FROM mapa WHERE estado = '$estd'";
+if ($sqlActive = mysqli_query($mysqli, $sqlActive)) {
+    $sqlActive = mysqli_num_rows($sqlActive);
+}
+
+
 
 
 
@@ -32,7 +40,6 @@ while ($row = $usuario->fetch_assoc()) {
 
     $nombre_usuario = $row['nombre'];
     $apellidos = $row["apellidos"];
- 
 }
 
 
@@ -64,7 +71,7 @@ while ($row = $usuario->fetch_assoc()) {
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Bienvenido <strong><?= $nombre_usuario." ".$apellidos ?></strong></h1>
+                    <h1 class="h3 mb-0 text-gray-800">Bienvenido <strong><?= $nombre_usuario . " " . $apellidos ?></strong></h1>
                 </div>
 
                 <!-- Content Row -->
@@ -80,7 +87,9 @@ while ($row = $usuario->fetch_assoc()) {
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $numUser ?></div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="bi bi-people fa-2x text-gray-300"></i>
+                                        <h2>
+                                            <i class="bi bi-people fa-2x text-gray-300"></i>
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +107,9 @@ while ($row = $usuario->fetch_assoc()) {
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $numPlant ?></div>
                                     </div>
                                     <div class="col-auto">
+                                        <h2>
                                         <i class="bi bi-geo-alt fa-2x text-gray-300"></i>
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
@@ -111,12 +122,15 @@ while ($row = $usuario->fetch_assoc()) {
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                             Plantas Inactivas</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $numDanger ?></div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="bi bi-radioactive fa-2x text-gray-300"></i>
+                                        <h2>
+                                            <i class="bi bi-radioactive fa-2x text-gray-300"></i>
+
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
@@ -130,11 +144,13 @@ while ($row = $usuario->fetch_assoc()) {
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Estadisiticas</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                                            Plantas Activas</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $sqlActive ?></div>
                                     </div>
                                     <div class="col-auto">
+                                        <h2>
                                         <i class="bi bi-bar-chart fa-2x text-gray-300"></i>
+                                        </h2>
                                     </div>
                                 </div>
                             </div>

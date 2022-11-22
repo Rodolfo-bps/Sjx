@@ -184,7 +184,7 @@ $rel = mysqli_query($mysqli, $sql2);
                         </div>
                         <div class="form-group">
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                <input type="password" class="form-control" id="password" name="password" value="@Sjx101" placeholder="Password">
                             </div>
                         </div>
                         <div class="form-group">
