@@ -45,7 +45,7 @@
                             <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                             Ver Usuarios
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="seccion/blog.php">
                             <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                             Ir a blog
                         </a>
