@@ -5,6 +5,7 @@ $sqlMapa = "SELECT * FROM mapa";
 $rel = mysqli_query($mysqli, $sqlMapa);
 
 
+
 ?>
 
 <!-- Sidebar -->
@@ -30,7 +31,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
         <!-- Page Heading -->
         <div class=" d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800"><i class="bi bi-geo-alt" style="font-size: 2rem;"></i> Plantas</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#agregarPlanta"><i class="bi bi-geo-alt"></i> Agregar Nuevo Usuario</a>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#agregarPlanta"><i class="bi bi-geo-alt"></i> Agregar Planta</a>
         </div>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -98,7 +99,6 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                     <div class="row">
                         <?php
 
-                        include("config/conexion.php");
                         //saber numero de usuarios
                         $sqlUser = "SELECT * FROM mapa";
 
@@ -112,8 +112,14 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                             <h4>
                                 Numero de plantas <span class="text-success"><strong><?= $numUser ?></strong></span>
                             </h4>
+
+
+
+
                         </div>
                         <br><br>
+
+
 
                     </div>
 
@@ -204,6 +210,27 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                             <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
                         </div>
                         <input required type="text" class="form-control" id="lng" name="lng" placeholder="Longitud">
+
+                    </div>
+
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
+                        </div>
+                        <?php
+
+                        $sqlCategorias = ("SELECT * FROM `categorias`");
+                        $categorias = mysqli_query($mysqli, $sqlCategorias);
+
+                        ?>
+                        <select required name="categoria" id="categoria" class="form-control">
+                            <?php while ($row = $categorias->fetch_assoc()) { ?>
+
+                                <option value="<?php echo $row['nombre_categoria']; ?>"><?php echo $row['nombre_categoria']; ?></option>
+                            <?php } ?>
+
+                        </select>
+
 
                     </div>
 

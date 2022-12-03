@@ -129,7 +129,6 @@ while ($row = $usuario->fetch_assoc()) {
                                     <div class="col-auto">
                                         <h2>
                                             <i class="bi bi-radioactive fa-2x text-gray-300"></i>
-
                                         </h2>
                                     </div>
                                 </div>

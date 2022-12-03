@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2022 a las 04:14:53
+-- Tiempo de generación: 03-12-2022 a las 19:08:55
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bsmapas`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id_categoria` int(11) NOT NULL,
+  `nombre_categoria` varchar(250) NOT NULL,
+  `color_categoria` varchar(250) NOT NULL,
+  `fecha_creacion` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `color_categoria`, `fecha_creacion`) VALUES
+(1, 'Desconocido', 'red', '2022-12-03'),
+(2, 'Otro', 'black', '2022-12-04');
 
 -- --------------------------------------------------------
 
@@ -44,7 +65,6 @@ CREATE TABLE `mapa` (
 
 INSERT INTO `mapa` (`id_planta`, `localidad`, `direccion`, `descripcion`, `imagen`, `estado`, `lat`, `lng`) VALUES
 (46, 'Santo Domingo Tonahuixtla', 'Abarrotes Villa Mar', 'San Jeronimow', '1667426520_1664320454_biznaga1.jpg', 'activo', '18.209906622307617', '-97.9182392320247'),
-(47, 'Barranca Salda', 'Cuapiaxtla - Acatlán de Osorio, 74957 Pue.', 'Residencia Martínez', '1667952601_1664320454_biznaga1.jpg', 'activo', '18.22227091904301', '-97.94146273833886'),
 (48, 'Barranca Salda', '74957 San Jerónimo Xayacatlán, Puebla', 'Micheladas shoker', '1667952649_1366_2000.jpg', 'activo', '18.22263778714631', '-97.94708464841214'),
 (49, 'Barranca Salda', 'PUE 455, 74957 Acatlán, Pue.', 'Carnitas De Puerco/Tacos', '1667952715_1664926341_0002.jpg', 'inactivo', '18.226021089692765', '-97.93429587596268');
 
@@ -92,11 +112,19 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `nombre`, `apellidos`, `correo`, `password`, `rol`, `tipo_usuario`, `imagen`) VALUES
 (1, 'bps101', 'Adolfo', 'Dominguez Velazquez', 'rodolfo.bps@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d', 'Administrador Web', 1, '1666305181__n.jpg'),
-(5, '@Yosie', 'Adolfo', 'Dominguez Velazquez', 'adolfo.bps@gmail.com', 'fc008c7a6dcc617f8eb5823842631a1244e9d36f', 'Administrador Web', 1, '1666297866_68e9a694-e13e-43c6-8350-0d736af82dfd.jfif');
+(5, '@Yosie', 'Adolfo', 'Dominguez Velazquez', 'adolfo.bps@gmail.com', 'fc008c7a6dcc617f8eb5823842631a1244e9d36f', 'Administrador Web', 1, '1666297866_68e9a694-e13e-43c6-8350-0d736af82dfd.jfif'),
+(16, 'p4nd4', 'Julio Cesar', 'Rojas Nando', 'julio.bps@gmail.com', '080ef80493eb0edf0c7a266aa5a271ae25705944', 'Usuario Estandar', 2, '1669151359_1366_2000.jpg'),
+(17, '@chino', 'Marlon', 'A', 'marlon@gmail.com', '080ef80493eb0edf0c7a266aa5a271ae25705944', 'Administrador Web', 1, '1670090896_QATAR.jpg');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id_categoria`);
 
 --
 -- Indices de la tabla `mapa`
@@ -121,6 +149,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `mapa`
 --
 ALTER TABLE `mapa`
@@ -130,13 +164,13 @@ ALTER TABLE `mapa`
 -- AUTO_INCREMENT de la tabla `reporteindice`
 --
 ALTER TABLE `reporteindice`
-  MODIFY `id_mayor_indice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_mayor_indice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
