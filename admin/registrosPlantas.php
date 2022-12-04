@@ -49,6 +49,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                                 <th>Estado</th>
                                 <th>Latitud</th>
                                 <th>Longitud</th>
+                                <th>Categoria</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -60,6 +61,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                                 <th>Estado</th>
                                 <th>Latitud</th>
                                 <th>Longitud</th>
+                                <th>Categoria</th>
                                 <th>Acciones</th>
                             </tr>
                         </tfoot>
@@ -71,10 +73,14 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                                     <td><?php echo $row['descripcion']; ?></td>
                                     <td>
                                         <a href="verPlanta.php?id_planta=<?php echo $row['id_planta']; ?> " target="_blank" class="btn btn-sm   <?php echo $row['estado'] == 'activo' ? 'btn-success' : 'btn-danger'; ?>"><?php echo $row['estado']; ?></a>
-
                                     </td>
                                     <td><?php echo $row['lat']; ?></td>
                                     <td><?php echo $row['lng']; ?></td>
+
+                                    <td>
+                                        <p class="btn btn-sm" ><?php echo $row['categoria']; ?></p>
+
+                                    </td>
                                     <td>
                                         <div class="btn-group btn-group-toggle">
                                             <a href="editarPlanta.php?id_planta=<?php echo $row['id_planta']; ?> " class="btn btn-warning btn-circle">

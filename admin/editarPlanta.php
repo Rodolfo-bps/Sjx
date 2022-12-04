@@ -17,6 +17,7 @@ while ($row = mysqli_fetch_array($update)) {
     $estado = $row[5];
     $latitud = $row[6];
     $longitud = $row[7];
+    $categoria = $row[8];
 }
 
 ?>
@@ -60,7 +61,7 @@ while ($row = mysqli_fetch_array($update)) {
                         <div class="form-group">
 
                             <select name="localidad" id="localidad" class="form-control">
-                                <option value="<?php echo $localidad?>"><?php echo $localidad?></option>
+                                <option value="<?php echo $localidad ?>"><?php echo $localidad ?></option>
                                 <option value="Barranca Salda">Barranca Salda</option>
                                 <option value="Barrio San Pedro">Barrio San Pedro</option>
                                 <option value="Cañada Estaca">Cañada Estaca</option>
@@ -106,7 +107,29 @@ while ($row = mysqli_fetch_array($update)) {
                             <label for="inputEmail3" class="col-smd-2 control-label"><?php echo $imagen; ?></label>/
                             <input type="file" class="form-control" id="imagen" name="imagen" value="<?php echo $imagen; ?>">
                         </div>
+                        <div class="form-group">
+                            <?php
 
+                            $sqlCategorias = ("SELECT * FROM `categorias`");
+                            $categorias = mysqli_query($mysqli, $sqlCategorias);
+
+                            ?>
+                            <select name="categoria" id="categoria" class="form-control">
+                                <option value="<?= $categoria ?>"><?= $categoria ?></option>
+
+                                <?php while ($row = $categorias->fetch_assoc()) {
+                                    if ($categoria == $row['nombre_categoria']) {
+                                ?>
+
+                                    <?php
+                                    } else { ?>
+                                        <option value="<?php echo $row['nombre_categoria']; ?>"><?php echo $row['nombre_categoria']; ?></option>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">

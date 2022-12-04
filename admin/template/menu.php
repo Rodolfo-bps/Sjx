@@ -107,6 +107,7 @@ include_once("seccion/sesiones.php");
                         <a class="collapse-item" href="registrosPlantas.php">Registros</a>
                         <a class="collapse-item" href="estadisticas.php">Estadisiticas</a>
                         <a class="collapse-item" href="galeria.php?pagina=1">Galeria</a>
+                        <a class="collapse-item" href="categorias.php">Categorias</a>
                     </div>
                 </div>
             </li>

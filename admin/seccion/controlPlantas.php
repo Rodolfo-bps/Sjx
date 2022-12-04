@@ -11,6 +11,7 @@ if (isset($_REQUEST['btn_guardar'])) {
     $estado = $_POST['estado'];
     $lat = $_POST['lat'];
     $lng = $_POST['lng'];
+    $categoria = $_POST['categoria'];
 
     //no se repita la imagen
     $fecha = new DateTime();
@@ -20,8 +21,8 @@ if (isset($_REQUEST['btn_guardar'])) {
     move_uploaded_file($imagen_temporal, "../img/imagenesPlantas/" . $imagen);
 
     //insertar
-    $sql = "INSERT INTO mapa (id_planta, direccion, localidad ,descripcion, imagen, estado ,lat, lng) 
-                VALUES (NULL, '$direccion', '$localidad', '$descripcion', '$imagen', '$estado' , '$lat', '$lng');";
+    $sql = "INSERT INTO mapa (id_planta, direccion, localidad ,descripcion, imagen, estado ,lat, lng, categoria) 
+                VALUES (NULL, '$direccion', '$localidad', '$descripcion', '$imagen', '$estado' , '$lat', '$lng', '$categoria');";
     $ejecutar = mysqli_query($mysqli, $sql);
 
 
@@ -64,10 +65,11 @@ if (isset($_REQUEST['btn_actualizar'])) {
     $estado = $_POST['estado'];
     $lat = $_POST['lat'];
     $lng = $_POST['lng'];
+    $categoria = $_POST['categoria'];
     $imagen = $_FILES['imagen']['name'];
 
     $sqlUser = "UPDATE mapa SET direccion = '$direccion', localidad = '$localidad' ,descripcion = '$descripcion', estado = '$estado' , lat = '$lat', 
-     lng = '$lng' WHERE id_planta = '$id_planta'";
+     lng = '$lng', categoria = '$categoria' WHERE id_planta = '$id_planta'";
     $ejecutar = mysqli_query($mysqli, $sqlUser);
 
     if ($imagen != "") {
