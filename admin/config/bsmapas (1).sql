@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2022 a las 19:08:55
+-- Tiempo de generación: 05-12-2022 a las 21:05:05
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -40,7 +40,7 @@ CREATE TABLE `categorias` (
 
 INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `color_categoria`, `fecha_creacion`) VALUES
 (1, 'Desconocido', 'red', '2022-12-03'),
-(2, 'Otro', 'black', '2022-12-04');
+(4, 'Otro2', 'blue', '2022-12-02');
 
 -- --------------------------------------------------------
 
@@ -56,17 +56,21 @@ CREATE TABLE `mapa` (
   `imagen` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `estado` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `lat` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
-  `lng` varchar(100) COLLATE utf8_spanish2_ci NOT NULL
+  `lng` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
+  `categoria` varchar(250) COLLATE utf8_spanish2_ci NOT NULL,
+  `fecha_registro` date NOT NULL,
+  `fecha_baja` date NOT NULL,
+  `fecha_actualizacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `mapa`
 --
 
-INSERT INTO `mapa` (`id_planta`, `localidad`, `direccion`, `descripcion`, `imagen`, `estado`, `lat`, `lng`) VALUES
-(46, 'Santo Domingo Tonahuixtla', 'Abarrotes Villa Mar', 'San Jeronimow', '1667426520_1664320454_biznaga1.jpg', 'activo', '18.209906622307617', '-97.9182392320247'),
-(48, 'Barranca Salda', '74957 San Jerónimo Xayacatlán, Puebla', 'Micheladas shoker', '1667952649_1366_2000.jpg', 'activo', '18.22263778714631', '-97.94708464841214'),
-(49, 'Barranca Salda', 'PUE 455, 74957 Acatlán, Pue.', 'Carnitas De Puerco/Tacos', '1667952715_1664926341_0002.jpg', 'inactivo', '18.226021089692765', '-97.93429587596268');
+INSERT INTO `mapa` (`id_planta`, `localidad`, `direccion`, `descripcion`, `imagen`, `estado`, `lat`, `lng`, `categoria`, `fecha_registro`, `fecha_baja`, `fecha_actualizacion`) VALUES
+(46, 'Santo Domingo Tonahuixtla', 'Abarrotes Villa Mar', 'San Jeronimow', '1667426520_1664320454_biznaga1.jpg', 'activo', '18.209906622307617', '-97.9182392320247', 'Desconocido', '0000-00-00', '2021-02-20', '2021-02-20'),
+(48, 'Barranca Salda', '74957 San Jerónimo Xayacatlán, Puebla', 'Micheladas shoks', '1667952649_1366_2000.jpg', 'activo', '18.22263778714631', '-97.94708464841214', 'Desconocido', '0000-00-00', '0000-00-00', '2022-12-05'),
+(49, 'Barranca Salda', 'PUE 455, 74957 Acatlán, Pue.', 'Carnitas De Puerco/Taco', '1667952715_1664926341_0002.jpg', 'inactivo', '18.226021089692765', '-97.93429587596268', 'Otro2', '0000-00-00', '2022-12-05', '2022-12-05');
 
 -- --------------------------------------------------------
 
@@ -152,7 +156,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `mapa`
