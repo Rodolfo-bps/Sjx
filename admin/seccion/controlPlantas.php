@@ -66,10 +66,18 @@ if (isset($_REQUEST['btn_actualizar'])) {
     $lat = $_POST['lat'];
     $lng = $_POST['lng'];
     $categoria = $_POST['categoria'];
+    $fecha_actualizacion = $_POST['fecha_actualizacion'];
     $imagen = $_FILES['imagen']['name'];
 
+    $fecha_baja = date('Y-m-d');
+
+    if ($estado == 'inactivo') {
+        $sqlUser = "UPDATE mapa SET fecha_baja = '$fecha_baja' WHERE id_planta = '$id_planta'";
+        $ejecutar = mysqli_query($mysqli, $sqlUser);
+    }
+
     $sqlUser = "UPDATE mapa SET direccion = '$direccion', localidad = '$localidad' ,descripcion = '$descripcion', estado = '$estado' , lat = '$lat', 
-     lng = '$lng', categoria = '$categoria' WHERE id_planta = '$id_planta'";
+     lng = '$lng', categoria = '$categoria', fecha_actualizacion = '$fecha_actualizacion' WHERE id_planta = '$id_planta'";
     $ejecutar = mysqli_query($mysqli, $sqlUser);
 
     if ($imagen != "") {
@@ -128,6 +136,22 @@ if (isset($_REQUEST['btn_eliminar_reporte'])) {
 
     $sql = ("DELETE FROM reporteIndice WHERE id_mayor_indice = '$id_mayor_indice'");
     $ejecutar = mysqli_query($mysqli, $sql);
+
+
+    header("location: ../estadisticas.php");
+}
+
+
+
+//DAR DE BAJA A PLANTAS
+
+if (isset($_REQUEST['btn_guardar_estado'])) {
+    $fecha_baja = $_POST['fecha_baja'];
+    $fecha_actualizacion = $_POST['fecha_actualizacion'];
+    $estado = $_POST['estado'];
+
+    $sqlUser = "UPDATE mapa SET fecha_baja = '$fecha_baja', fecha_actualizacion = '$fecha_actualizacion' ,estado = '$estado' WHERE id_planta = '$id_planta'";
+    $ejecutar = mysqli_query($mysqli, $sqlUser);
 
 
     header("location: ../estadisticas.php");

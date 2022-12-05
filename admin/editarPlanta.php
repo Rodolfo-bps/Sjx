@@ -18,6 +18,9 @@ while ($row = mysqli_fetch_array($update)) {
     $latitud = $row[6];
     $longitud = $row[7];
     $categoria = $row[8];
+    $fecha_registro = $row[9];
+    $fecha_baja = $row[10];
+    $fecha_actualizacion = $row[11];
 }
 
 ?>
@@ -53,7 +56,7 @@ while ($row = mysqli_fetch_array($update)) {
                 <form class="form-horizontal" method="POST" action="seccion/controlPlantas.php" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
-                            <input type="text" readonly class="form-control" id="id_planta" name="id_planta" value="<?php echo $idPlanta ?>">
+                            <input type="text" style="background: #fff;" readonly class="form-control" id="id_planta" name="id_planta" value="<?php echo $idPlanta ?>">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="direccion" name="direccion" value="<?php echo $direccion; ?>">
@@ -130,6 +133,11 @@ while ($row = mysqli_fetch_array($update)) {
                                 ?>
                             </select>
                         </div>
+
+                    </div>
+                  
+                    <div class="form-group">
+                        <input type="text" hidden class="form-control" id="fecha_actualizacion" name="fecha_actualizacion" value="<?php echo $fecha_actualizacion = date('Y-m-d'); ?>">
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">

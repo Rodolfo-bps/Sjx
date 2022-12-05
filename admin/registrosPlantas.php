@@ -72,13 +72,13 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                                     <td><?php echo $row['localidad']; ?></td>
                                     <td><?php echo $row['descripcion']; ?></td>
                                     <td>
-                                        <a href="verPlanta.php?id_planta=<?php echo $row['id_planta']; ?> " target="_blank" class="btn btn-sm   <?php echo $row['estado'] == 'activo' ? 'btn-success' : 'btn-danger'; ?>"><?php echo $row['estado']; ?></a>
+                                        <p class="btn btn-sm <?php echo $row['estado'] == 'activo' ? 'btn-success' : 'btn-danger'; ?>"><?php echo $row['estado']; ?></p>
                                     </td>
                                     <td><?php echo $row['lat']; ?></td>
                                     <td><?php echo $row['lng']; ?></td>
 
                                     <td>
-                                        <p class="btn btn-sm" ><?php echo $row['categoria']; ?></p>
+                                        <p class="btn btn-sm"><?php echo $row['categoria']; ?></p>
 
                                     </td>
                                     <td>
@@ -243,6 +243,60 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
                         <button type="submit" class="btn btn-primary" name="btn_guardar"><i class="bi bi-check2-circle"></i> Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Agregar Usuarios-->
+<div class="modal fade" id="bajaPlanta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Quieres dar de baja esta planta?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="seccion/controlPlantas.php" enctype="multipart/form-data">
+                
+                    <input type="text" style="background: #fff;" name="id_planta" id="id_planta" value="<?= $id_planta ?>">
+                    <label for="">Dia de baja</label>
+
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
+                        </div>
+                        <?php $hora = date('Y-m-d'); ?>
+                        <input required type="text" readonly style="background: #fff;" class="form-control" id="fecha_baja" name="fecha_baja" placeholder="<?php echo $hora; ?>">
+                    </div>
+                    <label for="">Dia de actualizacion</label>
+
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
+                        </div>
+                        <?php $hora = date('Y-m-d'); ?>
+                        <input required type="text" readonly style="background: #fff;" class="form-control" id="fecha_actualizacion" name="fecha_actualizacion" placeholder="<?php echo $hora; ?>">
+                    </div>
+                    <label for="">Cambio a estado inactivo</label>
+
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
+                        </div>
+                        <select required name="estado" id="estado" class="form-control">
+                            <option value="inactivo">Inactivo</option>
+                        </select>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+                        <button type="submit" class="btn btn-primary" name="btn_guardar_estado"><i class="bi bi-check2-circle"></i> Aceptar</button>
                     </div>
                 </form>
             </div>
