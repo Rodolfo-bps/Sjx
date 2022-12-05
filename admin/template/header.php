@@ -30,8 +30,11 @@ $tipo_usuario = $_SESSION["tipo_usuario"];
                         <i class="bi bi-clipboard2-data"></i>
                     </div>
                     <div class="sidebar-brand-text mx-1"><?= NAME_PAGE ?></div>
+
                 </a>
+
             </h3>
+            
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
 

@@ -43,6 +43,22 @@ while ($row = $usuario->fetch_assoc()) {
 }
 
 
+$pass = "Sjx101";
+
+$pass_c = sha1($pass);
+
+$sqlPass = ("SELECT password FROM usuarios WHERE id_usuario='$id_usuario'");
+$resultado = $mysqli->query($sqlPass);
+
+//si hay usuario o no
+$num = $resultado->num_rows;
+//traer usuario de post y de la bd
+$row = $resultado->fetch_assoc();
+$password_bd = $row["password"];
+
+
+
+
 
 ?>
 
@@ -73,6 +89,17 @@ while ($row = $usuario->fetch_assoc()) {
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Bienvenido <strong><?= $nombre_usuario . " " . $apellidos ?></strong></h1>
                 </div>
+
+                <?php
+
+                if ($password_bd == $pass_c) { ?>
+                    <div class="alert alert-danger" role="alert">
+                        Cambia tu contraseña
+                    </div>
+
+                <?php } ?>
+
+
 
                 <!-- Content Row -->
                 <div class="row">
@@ -108,7 +135,7 @@ while ($row = $usuario->fetch_assoc()) {
                                     </div>
                                     <div class="col-auto">
                                         <h2>
-                                        <i class="bi bi-geo-alt fa-2x text-gray-300"></i>
+                                            <i class="bi bi-geo-alt fa-2x text-gray-300"></i>
                                         </h2>
                                     </div>
                                 </div>
@@ -148,7 +175,7 @@ while ($row = $usuario->fetch_assoc()) {
                                     </div>
                                     <div class="col-auto">
                                         <h2>
-                                        <i class="bi bi-bar-chart fa-2x text-gray-300"></i>
+                                            <i class="bi bi-bar-chart fa-2x text-gray-300"></i>
                                         </h2>
                                     </div>
                                 </div>

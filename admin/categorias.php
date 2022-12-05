@@ -47,7 +47,7 @@ $rel = mysqli_query($mysqli, $sql2);
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
                                 </div>
-                                <input required type="text" class="form-control" id="color_categoria" name="color_categoria" placeholder="Color">
+                                <input required type="color" class="form-control" id="color_categoria" name="color_categoria" placeholder="Color">
                             </div>
 
                             <div class="input-group mb-2 mr-sm-2">

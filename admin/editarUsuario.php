@@ -48,7 +48,7 @@ while ($row = mysqli_fetch_array($update)) {
                 <h6 class="m-0 font-weight-bold text-primary"></h6>
             </div>
             <div class="card-body">
-                <form class="form-horizontal" method="POST" action="controlUsuarios.php" enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" action="seccion/controlUsuarios.php" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <input type="text" readonly class="form-control" id="id_usuario" name="id_usuario" value="<?php echo $idUser ?>">

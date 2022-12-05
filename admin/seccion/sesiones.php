@@ -11,5 +11,4 @@ $rol = $_SESSION['rol'];
 $id_usuario = $_SESSION["id_usuario"];
 $tipo_usuario = $_SESSION["tipo_usuario"];
 $nombre_usuario = $_SESSION['nombre_usuario'];
-$id_usuario = $_SESSION['id_usuario'];
 $nombre = $_SESSION['nombre'];

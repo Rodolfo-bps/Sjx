@@ -2,6 +2,7 @@
 include_once("config/config.php");
 include_once("seccion/sesiones.php");
 
+
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +108,10 @@ include_once("seccion/sesiones.php");
                         <a class="collapse-item" href="registrosPlantas.php">Registros</a>
                         <a class="collapse-item" href="estadisticas.php">Estadisiticas</a>
                         <a class="collapse-item" href="galeria.php?pagina=1">Galeria</a>
-                        <a class="collapse-item" href="categorias.php">Categorias</a>
+                        <?php if ($tipo_usuario == 1) { ?>
+                            <a class="collapse-item" href="categorias.php">Categorias</a>
+                        <?php } ?>
+
                     </div>
                 </div>
             </li>

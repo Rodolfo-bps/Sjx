@@ -87,21 +87,9 @@ if (isset($_REQUEST['btn_actualizar'])) {
     $rol = $_POST['rol'];
     $imagen = $_FILES['imagen']['name'];
 
-
-    $sqlPass =  ("SELECT password FROM usuarios WHERE id_usuario = '$id_usuario'");
-    $resultadoPass = mysqli_query($mysqli, $sqlPass);
-
-    $row = $resultadoPass->fetch_assoc();
-    $password_bd = $row["password"];
-    $pass_c = sha1($password);
-
-    if ($password_bd == $pass_c) {
-        $sqlUser = "UPDATE usuarios SET nombre_usuario = '$nombre_usuario', nombre = '$nombre', apellidos = '$apellidos', 
-     correo = '$correo', password = '$passwordNew' WHERE id_usuario = '$id_usuario'";
-        $ejecutar = mysqli_query($mysqli, $sqlUser);
-    } else {
-        header("location: ../perfilUsuario.php");
-    }
+    $sqlUser = "UPDATE usuarios SET nombre_usuario = '$nombre_usuario', nombre = '$nombre', apellidos = '$apellidos', 
+    correo = '$correo' WHERE id_usuario = '$id_usuario'";
+    $ejecutar = mysqli_query($mysqli, $sqlUser);
 
     if ($imagen != "") {
         //no se repita la imagen
@@ -131,11 +119,18 @@ if (isset($_REQUEST['btn_actualizar'])) {
     }
 
 
-    if ($id_usuario == 1) {
-        header("location: usuarios.php");
-    } else {
-        header("location: perfilUsuario.php");
+    $sqlPass =  ("SELECT password FROM usuarios WHERE id_usuario = '$id_usuario'");
+    $resultadoPass = mysqli_query($mysqli, $sqlPass);
+
+    $row = $resultadoPass->fetch_assoc();
+    $password_bd = $row["password"];
+    $pass_c = sha1($password);
+
+    if ($password_bd == $pass_c) {
+        $sqlUser = "UPDATE usuarios password = '$passwordNew' WHERE id_usuario = '$id_usuario'";
+        $ejecutar = mysqli_query($mysqli, $sqlUser);
+        header("location: logout.php");
     }
 
-    echo $nombre_usuario;
+    header("location: ../perfilUsuario.php");
 }
