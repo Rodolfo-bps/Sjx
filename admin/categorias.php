@@ -114,7 +114,7 @@ $rel = mysqli_query($mysqli, $sql2);
 
                                         <td colspan="">
                                             <div class=" ">
-                                                <a href="categorias.php?id_categoria=<?php echo $row['id_categoria']; ?> " class="btn btn-warning btn-circle">
+                                                <a href="editarCategorias.php?id_categoria=<?php echo $row['id_categoria']; ?> " class="btn btn-warning btn-circle">
                                                     <i class="bi bi-arrow-repeat"></i>
                                                 </a>
                                                 <form method="post" action="seccion/controlCategorias.php">
