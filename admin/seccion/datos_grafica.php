@@ -89,3 +89,40 @@ foreach ($valores as $valor => $key) {
         $menor[] = $menorV;
     }
 }
+
+
+//obtener dia, mes y anio
+
+$fecha = date("y-m-d");
+
+//obtener los ultimos 7 dias
+$dia = date('Y-m-d', strtotime($fecha . '- 7 days'));
+$sqlDias = ("SELECT fecha_registro FROM mapa WHERE fecha_registro BETWEEN '$dia' AND '$fecha'");
+if ($sqlDias = mysqli_query($mysqli, $sqlDias)) {
+    $sqlDias = mysqli_num_rows($sqlDias);
+}
+
+//obtener los del mes
+$mes = date('Y-m-d', strtotime($fecha . '- 1 month'));
+$sqlMeses = ("SELECT fecha_registro FROM mapa WHERE fecha_registro BETWEEN '$mes' AND '$fecha'");
+if ($sqlMeses = mysqli_query($mysqli, $sqlMeses)) {
+    $sqlMeses = mysqli_num_rows($sqlMeses);
+}
+
+
+//obtener los del anio
+$anio = date('Y-m-d', strtotime($fecha . '- 1 year'));
+
+$sqlAnio = ("SELECT fecha_registro FROM mapa WHERE fecha_registro BETWEEN '$anio' AND '$fecha'");
+if ($sqlAnio = mysqli_query($mysqli, $sqlAnio)) {
+    $sqlAnio = mysqli_num_rows($sqlAnio);
+}
+
+//obtener los del anio
+$sqlNumero = ("SELECT * FROM mapa");
+if ($sqlNumero = mysqli_query($mysqli, $sqlNumero)) {
+    $sqlNumero = mysqli_num_rows($sqlNumero);
+}
+
+$etiquetas = ["Ultimos 7 dias", "Ultimo Mes", "Ultimo Anio"];
+$datosYmd = [$sqlDias, $sqlMeses, $sqlAnio];

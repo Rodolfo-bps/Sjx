@@ -52,8 +52,6 @@ $rel = mysqli_query($mysqli, $sql2);
 
                         <table id="example" class="table table-striped table-bordered tabla" cellspacing="0" width="100%">
 
-
-
                             <thead>
                                 <tr>
                                     <th>#</th>
