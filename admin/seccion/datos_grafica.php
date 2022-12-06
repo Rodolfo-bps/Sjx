@@ -90,7 +90,6 @@ foreach ($valores as $valor => $key) {
     }
 }
 
-
 //obtener dia, mes y anio
 
 $fecha = date("y-m-d");
