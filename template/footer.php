@@ -1,21 +1,25 @@
-<footer class="text-muted">
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Back to top</a>
-      </p>
-      <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-      <p>New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/4.6/getting-started/introduction/">getting started guide</a>.</p>
-    </div>
-  </footer>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script>
-    window.jQuery || document.write('<script src="/docs/4.6/assets/js/vendor/jquery.slim.min.js"><\/script>')
-  </script>
-  <script src="/docs/4.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-
-
-</body>
-
-</html>
+<footer class="bgDark">
+        <div class="container">
+            <img src="assets/images/logo-light.svg" class="logo-brand" alt="logo">
+            <ul class="list-inline">
+                <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">Portfolio</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">About us</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">Pricing</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">Contact</a></li>
+            </ul>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#"><img src="assets/images/instagram.svg" class="img-fluid"></a>
+                </li>
+                <li class="list-inline-item"><a href="#"><img src="assets/images/twitter.svg" class="img-fluid"></a>
+                </li>
+                <li class="list-inline-item"><a href="#"><img src="assets/images/youtube.svg" class="img-fluid"></a>
+                </li>
+                <li class="list-inline-item"><a href="#"><img src="assets/images/dribbble.svg" class="img-fluid"></a>
+                </li>
+                <li class="list-inline-item"><a href="#"><img src="assets/images/facebook.svg" class="img-fluid"></a>
+                </li>
+            </ul>
+            <small>©2020 All Rights Reserved. Created by <a href="https://themesbootstrap.com.mx/" class="font-weight-bold" target="_blank" rel="noopener">Themes Bootstrap</a></small>
+        </div>
+    </footer>

@@ -1,64 +1,38 @@
+
+
+<!doctype html>
+<html lang="es">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.101.0">
-  <title>Album example · Bootstrap v4.6</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Rodolfo Dominguez Velazquez">
+    <meta name="description" content="Smart Agency is a one page responsive Bootstrap 4 template. This is a free open source theme, you can use our theme for any purpose, even commercially. Create amazing websites with this easy to customize template.">
+    <title>Smart Agency Template | Themes Bootstrap</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/album/">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
 
-  <!-- Bootstrap core CSS -->
+    <!-- Ionic icons-->
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="admin/vendor/css/sb-admin-2.min.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images//favicon.png" />
 
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="manifest" href="/docs/4.6/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="/docs/4.6/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-  <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon.ico">
-  <meta name="msapplication-config" content="/docs/4.6/assets/img/favicons/browserconfig.xml">
-  <meta name="theme-color" content="#563d7c">
+    <!--Iconos-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
+    <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+    //or
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-
-    .btn_planta {
-      color: #fff;
-      letter-spacing: 2px;
-      background-color: #556ee6;
-      border: none;
-      border-radius: 12px;
-      width: 40%;
-      height: 100%;
-      padding: 12px 20px;
-    }
-
-    .btn_planta:hover {
-      transform: scale(1.05, 1.05);
-      background-color: skyblue;
-    }
-  </style>
-
-
-  <!-- Custom styles for this template -->
-  <link href="album.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
 </head>
