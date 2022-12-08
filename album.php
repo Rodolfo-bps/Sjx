@@ -1,65 +1,74 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.101.0">
-  <title>Album example · Bootstrap v4.6</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/album/">
-
-  <!-- Bootstrap core CSS -->
-
-  <link rel="stylesheet" href="admin/vendor/css/sb-admin-2.min.css">
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="manifest" href="/docs/4.6/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="/docs/4.6/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-  <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon.ico">
-  <meta name="msapplication-config" content="/docs/4.6/assets/img/favicons/browserconfig.xml">
-  <meta name="theme-color" content="#563d7c">
-
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-
-
-  <!-- Custom styles for this template -->
-  <link href="album.css" rel="stylesheet">
-</head>
+<?php include_once("template/head.php"); ?>
 <style>
-  .box:hover {
-    background: #eee;
+  .tabla {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .tabla td,
+  .tabla th {
+    border: 0px solid #ddd;
+    padding: 8px;
+  }
+
+  .tabla tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  .tabla tr:hover {
+    background-color: #ddd;
+  }
+
+  .tabla th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #000;
+    color: white;
   }
 </style>
-<body class="bg-light">
+<header>
 
-  <?php include("template/header.php"); ?>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <img src="assets/images/logo-dark.svg" class="logo-brand" alt="logo">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <img src="assets/images/menu.svg">
+        </button>
 
-  <main role="main">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link disable" href="admin/index.php">Iniciar Sesion</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-    <?php include("paginas/album.php"); ?>
 
-  </main>
 
-  <?php include("template/footer.php"); ?>
+</header>
+
+
+
+
+<?php include_once("paginas/album.php"); ?>
+
+
+<?php include_once("template/footer.php"); ?>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

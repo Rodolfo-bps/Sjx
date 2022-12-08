@@ -49,11 +49,11 @@ $rel = mysqli_query($mysqli, $sqlMapa);
 
 
 <!--TABLA DE RESULTADOS-->
-<?php include_once("paginas/resultados.php"); ?>
+<?php include_once("paginas/registros.php"); ?>
 
 
 <!--PENDIENTE-->
-<section id="testimonial" class="divider">
+<section id="testimonial" class=" bgLightGrey" >
     <div class="container">
         <div class="content-center">
             <h2>A few words from <b>our clients…</b></h2>
@@ -159,7 +159,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
 </section>
 
 <!--DATOS ESTADISTICOS-->
-<?php include_once("paginas/datos.php"); ?>
+<?php include_once("paginas/resultados.php"); ?>
 
 <?php include_once("template/footer.php"); ?>
 

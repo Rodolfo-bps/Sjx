@@ -1,10 +1,10 @@
-<section id="portfolio">
+<section id="mapa">
     <div class="container-fluid">
         <div class="content-center">
-            <h2>We work with exciting brands to build <b>amazing products.</b></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ea consequuntur, odit veniam mollitia
-                aliquam reiciendis dignissimos, vitae sapiente neque, cum dolorum. Suscipit expedita obcaecati
-                nesciunt error ut quidem autem.</p>
+            <h2>Mapa de registros de la <b>biznaga.</b></h2>
+            <p>
+                Es poco el conocimiento que existe referente a muchas especies mexicanas en lo que respecta al área de distribución geográfica, el tamaño de las poblaciones, las causas ambientales que determinan su distribución, así como el estado actual del hábitat del taxón debido al impacto de las actividades humanas (Ballesteros-Barrera et al. 2017, pág. 132).
+            </p>
         </div>
 
         <div class="row">
@@ -23,4 +23,3 @@
         </div>
     </div>
 </section>
-

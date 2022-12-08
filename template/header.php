@@ -3,30 +3,33 @@
     <body>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <img src="assets/images/logo-dark.svg" class="logo-brand" alt="logo">
+                <h3><strong>SJX</strong></h3>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <img src="assets/images/menu.svg">
+                    SJX
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#hero">Home</a>
+                            <a class="nav-link" href="#hero">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#portfolio">Portfolio</a>
+                            <a class="nav-link" href="#mapa">Mapa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#team">About us</a>
+                            <a class="nav-link" href="#team">Galeria</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#pricing">Pricing</a>
+                            <a class="nav-link" href="#registros">Registros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#testimonial">Testimonials</a>
+                            <a class="nav-link" href="#testimonial">Pricing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                            <a class="nav-link" href="#resultados">Resultados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin/index.php">Entrar</a>
                         </li>
                     </ul>
                 </div>

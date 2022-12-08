@@ -1,10 +1,8 @@
 <section id="team" class="bgLightGrey">
     <div class="container">
         <div class="content-center">
-            <h2>Keep calm, you're in a <b>good company</b></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ea consequuntur, odit veniam mollitia
-                aliquam reiciendis dignissimos, vitae sapiente neque, cum dolorum. Suscipit expedita obcaecati
-                nesciunt error ut quidem autem.</p>
+            <h2>Biznagas del Municipio de <b>San Jeronimo Xayacatlan</b></h2>
+            <p>Las tasas de crecimiento en estas plantas son muy bajas y que además el empobrecimiento biológico de las comunidades desérticas y semidesérticas de México es causado por la extracción ilegal de ejemplares adultos completos y a la comercialización de su parénquima para la elaboración del acitrón (Gomez et al. 2021, pág. 119).</p>
         </div>
         <div class="row">
             <?php
@@ -40,7 +38,7 @@
             </div>
             <div class="col-md-4 text-center">
                 <br><br>
-                <a href="album.php" class="btn btn-primary">Ver mas</a>
+                <a href="album.php" target="_blank" class="btn btn-primary">Ver mas</a>
             </div>
             <div class="col-md-4">
             </div>
