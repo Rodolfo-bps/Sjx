@@ -119,10 +119,12 @@ if (isset($_REQUEST['btn_reporte_planta'])) {
     $mayor = $_POST['mayor'];
     $fecha = $_POST['fecha'];
     $menor = $_POST['menor'];
-
+    $dia_ultimo = $_POST['dia_ultimo'];
+    $mes_ultimo = $_POST['mes_ultimo'];
+    $anio_ultimo = $_POST['anio_ultimo'];
     //insertar
-    $sql = "INSERT INTO reporteIndice (id_mayor_indice, mayor, fecha_reporte ,menor) 
-                VALUES (NULL, '$mayor', '$fecha', '$menor');";
+    $sql = "INSERT INTO reporteIndice (id_mayor_indice, mayor, fecha_reporte ,menor, dia_ultimo, mes_ultimo, anio_ultimo) 
+                VALUES (NULL, '$mayor', '$fecha', '$menor', '$dia_ultimo', '$mes_ultimo', '$anio_ultimo');";
     $ejecutar = mysqli_query($mysqli, $sql);
 
 

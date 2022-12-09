@@ -142,7 +142,7 @@ if ($sqlDanger = mysqli_query($mysqli, $sqlDanger)) {
         });
 
         var infoWindow = new google.maps.InfoWindow;
-        downloadUrl('http://localhost/sjx3/admin/xml.php', function(data) {
+        downloadUrl('http://localhost/sjx/admin/xml.php', function(data) {
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
@@ -204,9 +204,9 @@ if ($sqlDanger = mysqli_query($mysqli, $sqlDanger)) {
 
     function doNothing() {}
 </script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi_XXphyPu7eBBXEWbJYJNp79RkuJrEK4&callback=initMap" defer>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaOVTpren6ll6u11yVp4OMXe9e41Efsq0&callback=initMap" defer>
 </script>
+
 
 <!-- Agregar Usuarios-->
 <div class="modal fade" id="agregarPlanta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

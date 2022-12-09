@@ -219,7 +219,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
         });
 
         var infoWindow = new google.maps.InfoWindow;
-        downloadUrl('http://localhost/sjx3/admin/xml.php', function(data) {
+        downloadUrl('http://localhost/sjx/admin/xml.php', function(data) {
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
@@ -240,7 +240,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                     "<img alt='90'  class='rounded mx-auto d-block' src='admin/img/imagenesPlantas/" + imagen + "' >" + "<br>" +
                     "<form action='planta.php' method='post'>" +
                     "<input type='hidden' name='id_planta' value='" + id_planta + "'>" +
-                    "<input class='btn_planta'  type='submit' value='Ver mas'>" +
+                    "<input target='_blank' class='btn_planta'  type='submit' value='Ver mas'>" +
                     "</form>" +
                     "</div>" +
                     "</div>";
@@ -280,10 +280,11 @@ $rel = mysqli_query($mysqli, $sqlMapa);
         request.open('GET', url, true);
         request.send(null);
     }
-
+    //AIzaSyDaOVTpren6ll6u11yVp4OMXe9e41Efsq0
+    //AIzaSyBi_XXphyPu7eBBXEWbJYJNp79RkuJrEK4
     function doNothing() {}
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi_XXphyPu7eBBXEWbJYJNp79RkuJrEK4&callback=initMap" defer>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaOVTpren6ll6u11yVp4OMXe9e41Efsq0&callback=initMap" defer>
 </script>
 </body>
 

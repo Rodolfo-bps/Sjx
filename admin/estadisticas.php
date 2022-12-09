@@ -13,12 +13,8 @@ include("seccion/sesiones.php");
 
 <!-- End of Topbar -->
 
-<?php
 
-$sql2 = "SELECT * FROM reporteindice";
-$rel = mysqli_query($mysqli, $sql2);
 
-?>
 
 
 <div class="container">
@@ -43,59 +39,7 @@ $rel = mysqli_query($mysqli, $sql2);
 
 
             <!-- tabla -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Echinocactus platyacanthus</h6>
-                </div>
-                <div class="card-body">
-                    <div class="">
 
-                        <table id="example" class="table table-striped table-bordered tabla" cellspacing="0" width="100%">
-
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>localidad con Mayor Plantas</th>
-                                    <th>Fecha de Registro</th>
-                                    <th>localidad con Menor Plantas</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>#</th>
-                                    <th>localidad con Mayor Plantas</th>
-                                    <th>Fecha de Registro</th>
-                                    <th>localidad con Menor Plantas</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                <?php while ($row = $rel->fetch_assoc()) { ?>
-                                    <tr>
-                                        <td><?php echo $row['id_mayor_indice']; ?></td>
-                                        <td><?php echo $row['mayor']; ?></td>
-                                        <td><?php echo $row['fecha_reporte']; ?></td>
-                                        <td><?php echo $row['menor']; ?></td>
-
-                                        <td>
-                                            <form method="post" action="seccion/controlPlantas.php">
-                                                <input type="hidden" name="id_mayor_indice" id="id_mayor_indice" value="<?php echo $row['id_mayor_indice']; ?>" />
-                                                <button class="btn btn-danger btn-circle" type="submit" name="btn_eliminar_reporte"><i class="bi bi-trash3"></i></button>
-                                            </form>
-
-
-                                        </td>
-                                    </tr>
-                                <?php } ?>
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <hr>
-                    Resultados de recolecta de informacion.
-                </div>
-            </div>
         </div>
         <!-- Pie Chart -->
 
@@ -105,9 +49,11 @@ $rel = mysqli_query($mysqli, $sql2);
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Crear Reporte</h6>
                 </div>
                 <!-- Card Body -->
+                <?php include("seccion/datos_grafica.php") ?>
+
                 <div class="card-body">
                     <form action="seccion/controlPlantas.php" method="post">
                         <?php include("seccion/datos_grafica.php"); ?>
@@ -128,6 +74,23 @@ $rel = mysqli_query($mysqli, $sql2);
                                                                                                                                                     } ?></textarea>
                         <br>
 
+
+                        <label for="">Registros en los ultimos 7 dias</label>
+                        <input style="background: white;" type="text" readonly class="form-control" name="dia_ultimo" id="dia_ultimo" value="<?php echo $sqlDias; ?>">
+
+                        <br>
+
+                        <label for="">Registros en el ultimo mes</label>
+                        <input style="background: white;" type="text" readonly class="form-control" name="mes_ultimo" id="mes_ultimo" value="<?php echo $sqlMeses; ?>">
+
+                        <br>
+
+                        <label for="">Registros en el ultimo año</label>
+                        <input style="background: white;" type="text" readonly class="form-control" name="anio_ultimo" id="anio_ultimo" value="<?php echo $sqlAnio; ?>">
+
+                        <br>
+
+
                         <button type="submit" name="btn_reporte_planta" class="btn btn-primary pull-right">Crear Reporte</button>
                     </form>
 
@@ -140,6 +103,89 @@ $rel = mysqli_query($mysqli, $sql2);
 
 
 
+</div>
+
+
+
+
+
+
+
+<?php
+
+$sql2 = "SELECT * FROM reporteindice";
+$rel = mysqli_query($mysqli, $sql2);
+
+?>
+
+
+<div class="container">
+    <div class="row">
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Tabla de Reportes</h6>
+                </div>
+                <div class="card-body">
+                    <div class="">
+                        <table id="example" class="table table-striped table-bordered tabla" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Mayor Plantas</th>
+                                    <th>Fecha de Registro</th>
+                                    <th>Menor Plantas</th>
+                                    <th>Ultimo dia</th>
+                                    <th>Ultimo mes</th>
+                                    <th>Ultimo anio</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>#</th>
+                                    <th>localidad con Mayor Plantas</th>
+                                    <th>Fecha de Registro</th>
+                                    <th>localidad con Menor Plantas</th>
+                                    <th>Ultimo dia</th>
+                                    <th>Ultimo mes</th>
+                                    <th>Ultimo anio</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php while ($row = $rel->fetch_assoc()) { ?>
+                                    <tr>
+                                        <td><?php echo $row['id_mayor_indice']; ?></td>
+                                        <td><?php echo $row['mayor']; ?></td>
+                                        <td><?php echo $row['fecha_reporte']; ?></td>
+                                        <td><?php echo $row['menor']; ?></td>
+                                        <td><?php echo $row['dia_ultimo']; ?></td>
+                                        <td><?php echo $row['mes_ultimo']; ?></td>
+                                        <td><?php echo $row['anio_ultimo']; ?></td>
+
+                                        <td>
+                                            <form method="post" action="seccion/controlPlantas.php">
+                                                <input type="hidden" name="id_mayor_indice" id="id_mayor_indice" value="<?php echo $row['id_mayor_indice']; ?>" />
+                                                <button class="btn btn-danger btn-circle" type="submit" name="btn_eliminar_reporte"><i class="bi bi-trash3"></i></button>
+                                            </form>
+
+
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr>
+                    Resultados de recolecta de informacion.
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 
