@@ -1,6 +1,18 @@
 <?php
 
-include("seccion/sesiones.php");
+require_once("config/conexion.php");
+session_start();
+
+if (!isset($_SESSION['id_usuario'])) {
+    header("location: index.php");
+}
+
+$rol = $_SESSION['rol'];
+$id_usuario = $_SESSION["id_usuario"];
+$tipo_usuario = $_SESSION["tipo_usuario"];
+$nombre_usuario = $_SESSION['nombre_usuario'];
+$nombre = $_SESSION['nombre'];
+
 
 $id_planta = $_GET['id_planta'];
 
