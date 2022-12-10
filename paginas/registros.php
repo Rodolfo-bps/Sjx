@@ -1,10 +1,8 @@
 <section id="registros" class="divider">
     <div class="container">
         <div class="content-center">
-            <h2>Pricing built for <b>every business</b></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ea consequuntur, odit veniam mollitia
-                aliquam reiciendis dignissimos, vitae sapiente neque, cum dolorum. Suscipit expedita obcaecati
-                nesciunt error ut quidem autem.</p>
+            <h2>Registros de las <b>biznagas</b></h2>
+            <p>Aunque el acitrón es delicioso, su consumo está prohibido en México, pues las biznagas, plantas de donde se obtiene la pulpa para este alimento se encuentran en peligro de extinción.</p>
         </div>
         <div class="row">
             <div class="pricing-container">

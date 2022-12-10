@@ -20,14 +20,11 @@
                         <div class="member-details">
                             <h5><?php echo $proyecto['descripcion']; ?></h5>
                             <span><?php echo $proyecto['direccion']; ?></span>
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><a href="#"><img src="assets/images/instagram.svg" class="img-fluid"></a>
-                                </li>
-                                <li class="list-inline-item"><a href="#"><img src="assets/images/twitter.svg" class="img-fluid"></a></li>
-                                <li class="list-inline-item"><a href="#"><img src="assets/images/youtube.svg" class="img-fluid"></a></li>
-                                <li class="list-inline-item"><a href="#"><img src="assets/images/dribbble.svg" class="img-fluid"></a></li>
-                                <li class="list-inline-item"><a href="#"><img src="assets/images/facebook.svg" class="img-fluid"></a></li>
-                            </ul>
+                            <form action="planta.php" method="post">
+                                <input type="hidden" name="id_planta" id="id_planta" value="<?php echo $proyecto["id_planta"]; ?>">
+                                <input type="submit" target="_blank" class="btn btn-sm btn-success" style="opacity: 0.7;" value="Ver mas">
+                            </form>
+                            <br>
                         </div>
                         <img src="admin/img/imagenesPlantas/<?php echo $proyecto['imagen'] ?>" width="100%" height="225" class="img-fluid" alt="member 1">
                     </div>

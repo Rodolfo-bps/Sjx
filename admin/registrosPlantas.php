@@ -163,7 +163,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                             <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
                         </div>
                         <select required name="localidad" id="localidad" class="form-control">
-                            <option value="Barranca Salada">Barranca Salda</option>
+                            <option value="Barranca Salada">Barranca Salada</option>
                             <option value="Barrio San Pedro">Barrio San Pedro</option>
                             <option value="Cañada Estaca">Cañada Estaca</option>
                             <option value="Cañada San Miguel">Cañada San Miguel</option>
@@ -174,7 +174,6 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                             <option value="La Huertilla">La Huertilla</option>
                             <option value="San Jeronimo Primera Seccion">San Jeronimo Primera Seccion</option>
                             <option value="San Jeronimo Segunda Seccion">San Jeronimo Segunda Seccion</option>
-                            <option value="San Pedro">San Pedro</option>
                             <option value="Santo Domingo Tonahuixtla">Santo Domingo Tonahuixtla</option>
                             <option value="Cañada Sandia">Cañada Sandia</option>
                         </select>

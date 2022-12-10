@@ -53,7 +53,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
 
 
 <!--PENDIENTE-->
-<section id="testimonial" class=" bgLightGrey" >
+<!--<section id="testimonial" class=" bgLightGrey" >
     <div class="container">
         <div class="content-center">
             <h2>A few words from <b>our clients…</b></h2>
@@ -156,7 +156,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
             </a>
         </div>
     </div>
-</section>
+</section>-->
 
 <!--DATOS ESTADISTICOS-->
 <?php include_once("paginas/resultados.php"); ?>

@@ -1,23 +1,38 @@
 <?php
 
+$estado = "inactivo";
+
+$sqlDanger = "SELECT estado FROM mapa WHERE estado = '$estado'";
+if ($sqlDanger = mysqli_query($mysqli, $sqlDanger)) {
+    $numDanger = mysqli_num_rows($sqlDanger);
+}
+
+$estd = "activo";
+
+$sqlActive = "SELECT estado FROM mapa WHERE estado = '$estd'";
+if ($sqlActive = mysqli_query($mysqli, $sqlActive)) {
+    $sqlActive = mysqli_num_rows($sqlActive);
+}
+
+
 
 $localidades = ("SELECT * FROM reporteIndice LIMIT 1");
 $rel = mysqli_query($mysqli, $localidades);
 while ($row = $rel->fetch_assoc()) {
 
-  
-    
-    
-    
+
+
+
+
 ?>
     <section id="resultados">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mt-4">
-                    <h3>Ready to accelerate your project? <b>just let us know.</b></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ea consequuntur, odit veniam
-                        mollitia aliquam reiciendis dignissimos, vitae sapiente neque, cum dolorum.
-                        contact@smartagency.com</p>
+                    <h3>Informacion recolectada de las <b>biznagas</b></h3>
+                    <p>
+                        Se debe ampliar el conocimiento de las cactáceas y demás plantas suculentas mediante diversas estrategias educativas dirigidas a los diferentes sectores de la población, realizando actividades orientadas a conservar el hábitat, fomentar la formación de jardines de cactáceas, concientizar a la sociedad mexicana sobre la importancia de la conservación de la riqueza de esta flora de Nuevo León y integrar archivos fotográficos y de localidades de las plantas en su hábitat. (Sánchez et al. 2010, pág. 3).
+                    </p>
                 </div>
                 <div class="col-md-6 mt-4">
                     <div class="row">
@@ -25,7 +40,7 @@ while ($row = $rel->fetch_assoc()) {
                             <div class="form-group">
                                 <label for="">Localidad con mayor registros</label>
 
-                                <input type="text" class="form-control"value="<?php echo $row['mayor']; ?>">
+                                <input style="background: white; color: green;" type="text" readonly class="form-control" value="<?php echo $row['mayor']; ?>">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -43,36 +58,34 @@ while ($row = $rel->fetch_assoc()) {
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Plantas Activas</label>
-                                <input type="text" class="form-control" id="" placeholder="Name">
+                                <input style="background: white; color: green;" type="text" readonly class="form-control" id="" value="<?php echo $sqlActive; ?>">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Plantas Inactivas</label>
-                                <input type="text" class="form-control" id="" placeholder="Last name">
+                                <input style="background: white; color: green;" type="text" readonly class="form-control" id="" value="<?php echo $numDanger; ?>">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Registros en el ultimo dia</label>
-                                <input type="email" class="form-control" id=""  value="<?php echo $row['dia_ultimo']; ?>">
+                                <input style="background: white; color: green;" type="text" readonly class="form-control" id="" value="<?php echo $row['dia_ultimo']; ?>">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Registros en el ultimo mes</label>
-                                <input type="text" class="form-control" id="" value="<?php echo $row['mes_ultimo']; ?>">
+                                <input style="background: white; color: green;" type="text" readonly class="form-control" id="" value="<?php echo $row['mes_ultimo']; ?>">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Registros en el ultimo anio</label>
-                                <input type="number" class="form-control" id="" value="<?php echo $row['anio_ultimo']; ?>">
+                                <input style="background: white; color: green;" type="text" readonly class="form-control" id="" value="<?php echo $row['anio_ultimo']; ?>">
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <a href="" class="btn btn-primary full-width">Contact sales</a>
-                        </div>
+
                     </div>
                 </div>
             </div>

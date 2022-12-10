@@ -40,6 +40,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+              <a class="nav-link disable" href="index.php">Inicio</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link disable" href="admin/index.php">Iniciar Sesion</a>
             </li>

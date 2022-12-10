@@ -21,7 +21,7 @@ if (isset($_POST)) {
                 </div>
                 <div class="col-md-8">
                     <br><br><br>
-                    <h3>Planta Num</h3>
+                    <h3>Planta ID <?php echo $plantaInf["id_planta"] ?></h3>
 
 
                     <form class="row g-3" style="background: #fff; padding: 12px;">
@@ -59,7 +59,6 @@ if (isset($_POST)) {
                         </div>
                         <div class="col-md-4"><br>
                             <a href="index.php" class="btn btn-danger">Regresar</a>
-                            <button type="submit" class="btn btn-primary">Imprimir</button>
                         </div>
                     </form>
                     <br><br><br><br>

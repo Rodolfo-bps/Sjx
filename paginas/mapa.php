@@ -17,9 +17,10 @@
                 </div>
             </div>
         </div>
+        <!--
         <div class="text-center mt-4">
             <p class="">Ready to accelerate your project?</p>
             <a href="#" class="text-dark"><b>Just let us know.</b></a>
-        </div>
+        </div>-->
     </div>
 </section>
