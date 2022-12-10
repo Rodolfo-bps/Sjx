@@ -1,1 +1,3 @@
 Options All -Indexes
+
+ErrorDocument 404 /sjx/admin/404.php
