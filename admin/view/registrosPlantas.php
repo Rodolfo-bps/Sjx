@@ -1,5 +1,4 @@
 <?php
-include("seccion/sesiones.php");
 
 $sqlMapa = "SELECT * FROM mapa";
 $rel = mysqli_query($mysqli, $sqlMapa);
@@ -8,13 +7,6 @@ $rel = mysqli_query($mysqli, $sqlMapa);
 
 ?>
 
-<!-- Sidebar -->
-<?php include("template/menu.php") ?>
-<!-- End of Sidebar -->
-
-<!-- Topbar -->
-<?php include("template/header.php") ?>
-<!-- End of Topbar -->
 <style>
     .rojo {
         color: red;
@@ -83,7 +75,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                                     </td>
                                     <td>
                                         <div class="btn-group btn-group-toggle">
-                                            <a href="editarPlanta.php?id_planta=<?php echo $row['id_planta']; ?> " class="btn btn-warning btn-circle">
+                                            <a href="editarPlanta?id_planta=<?php echo $row['id_planta']; ?> " class="btn btn-warning btn-circle">
                                                 <i class="bi bi-arrow-repeat"></i>
                                             </a>
 
@@ -303,5 +295,3 @@ $rel = mysqli_query($mysqli, $sqlMapa);
     </div>
 </div>
 
-
-<?php include("template/footer.php"); ?>

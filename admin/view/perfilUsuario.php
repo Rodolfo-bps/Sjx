@@ -1,6 +1,4 @@
 <?php
-include("seccion/sesiones.php");
-
 
 if (isset($_SESSION['id_usuario'])) {
 
@@ -25,14 +23,6 @@ if (isset($_SESSION['id_usuario'])) {
 
 ?>
 
-<!-- Sidebar -->
-<?php include("template/menu.php") ?>
-<!-- End of Sidebar -->
-
-<!-- Topbar -->
-<?php include("template/header.php") ?>
-<!-- End of Topbar -->
-
 <div class="tabcontent">
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -47,7 +37,7 @@ if (isset($_SESSION['id_usuario'])) {
                     <div class="card-body">
                         <form class="needs-validation" novalidate>
                             <div class="col-md-3 mb-">
-                                <img src="<?= "img/imagenesUsuarios/" . $imagen ?>" alt="" width="50%" height="50%">
+                                <img src="<?= SERVERURL . "img/imagenesUsuarios/" . $imagen ?>" alt="" width="50%" height="50%">
                             </div><br>
                             <div class="form-row">
                                 <div class="col-md-6 mb-3">
@@ -74,7 +64,11 @@ if (isset($_SESSION['id_usuario'])) {
                                 </div>
                             </div>
 
-                            <a style="color: #fff;" href="editarUsuario.php?id_usuario=<?php echo $id; ?> " class="btn btn-primary">Editar Usuario</a>
+
+                        </form>
+                        <form action="<?=SERVERURL?>editarUsuario" method="post">
+                            <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $id; ?> ">
+                            <button class="btn btn-primary" type="submit" name="btn_editar_perfil">Editar</button>
                         </form>
                     </div>
                 </div>
@@ -83,5 +77,3 @@ if (isset($_SESSION['id_usuario'])) {
     </div>
     <!-- End of Main Content -->
 </div>
-
-<?php include("template/footer.php"); ?>

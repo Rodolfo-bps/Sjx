@@ -2,6 +2,9 @@
 
 include("seccion/sesiones.php");
 
+include("config/config.php");
+
+
 //saber numero de usuarios
 $sqlUser = "SELECT * FROM usuarios";
 
@@ -81,111 +84,15 @@ $password_bd = $row["password"];
     <!-- Main Content -->
     <div id="content">
 
-        <div class="tabcontent">
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
+        <?php
+        if (isset($_GET['view'])) {
+            $views = explode("/", $_GET['view']);
+            include 'view/' . $views[0] . '.php';
+        } else {
 
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Bienvenido <strong><?= $nombre_usuario . " " . $apellidos ?></strong></h1>
-                </div>
+        }
 
-                <?php
-
-                if ($password_bd == $pass_c) { ?>
-                    <div class="alert alert-danger" role="alert">
-                        Cambia tu contraseña
-                    </div>
-
-                <?php } ?>
-
-
-
-                <!-- Content Row -->
-                <div class="row">
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Numero de Usuarios</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $numUser ?></div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <h2>
-                                            <i class="bi bi-people fa-2x text-gray-300"></i>
-                                        </h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Numero de Plantas</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $numPlant ?></div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <h2>
-                                            <i class="bi bi-geo-alt fa-2x text-gray-300"></i>
-                                        </h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pending Requests Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-danger shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                            Plantas Inactivas</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $numDanger ?></div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <h2>
-                                            <i class="bi bi-radioactive fa-2x text-gray-300"></i>
-                                        </h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pending Requests Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Plantas Activas</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $sqlActive ?></div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <h2>
-                                            <i class="bi bi-bar-chart fa-2x text-gray-300"></i>
-                                        </h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Content Row -->
-            </div>
-        </div>
+        ?>
     </div>
     <!-- /.container-fluid -->
 </div>
@@ -193,6 +100,121 @@ $password_bd = $row["password"];
 
 
 
+
+
+
+
+
+
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function() {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = '//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+</script>
+
+<script>
+    var customLabel = {
+        restaurant: {
+            label: 'R'
+        },
+        bar: {
+            label: 'B'
+        }
+    };
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map-container-google-2'), {
+            center: new google.maps.LatLng(18.217500519058405, -97.92094397486888),
+            zoom: 14,
+            heading: 90,
+            tilt: 45
+        });
+
+        var infoWindow = new google.maps.InfoWindow;
+        downloadUrl('http://localhost/sjx/admin/xml.php', function(data) {
+            var xml = data.responseXML;
+            var markers = xml.documentElement.getElementsByTagName('marker');
+            Array.prototype.forEach.call(markers, function(markerElem) {
+                var id_planta = markerElem.getAttribute('id_planta');
+                var direccion = markerElem.getAttribute('direccion');
+                var descripcion = markerElem.getAttribute('descripcion');
+                var imagen = markerElem.getAttribute('imagen');
+
+                var point = new google.maps.LatLng(
+                    parseFloat(markerElem.getAttribute('lat')),
+                    parseFloat(markerElem.getAttribute('lng')),
+                );
+                const contentString =
+                    '<div id="content" style="width: 300px;height: 300px; text-align:center;">' +
+
+                    '<p style="color: #495057; font-size: 22px;"><i class="fa fa-fw fa-map-marker"></i>' + direccion + '</p>' +
+
+                    '<div>' +
+                    "<img alt='90' width='300' class='rounded mx-auto d-block' src='http://localhost/sjx/admin/img/imagenesPlantas/" + imagen + "' >" + "<br>" +
+                    '<button id="boton1" value="cilck" type="button" style="border: none; border-radius: 12px; font-size: 16px;padding: 12px 12px; width: 80%;color: #fff; background-color: #556ee6; border-color: #556ee6;">Ver mas</button>" ' +
+                    "</div>" +
+                    "</div>";
+
+                //const image = "img/soldadoss.png";
+                //  var icon = customLabel[codigo] || {};
+
+
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: point,
+                    //icon: image
+                });
+                marker.addListener('click', function() {
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+            });
+        });
+
+        // Una matriz con las coordenadas de los límites de Bucaramanga, extraídas manualmente de la base de datos GADM
+
+
+    }
+
+    function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+        request.onreadystatechange = function() {
+            if (request.readyState == 4) {
+                request.onreadystatechange = doNothing;
+                callback(request, request.status);
+            }
+        };
+        request.open('GET', url, true);
+        request.send(null);
+    }
+
+    function doNothing() {}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaOVTpren6ll6u11yVp4OMXe9e41Efsq0&callback=initMap" defer>
+</script>
 
 
 <?php include("template/footer.php"); ?>

@@ -36,7 +36,7 @@ if (isset($_REQUEST['btn_guardar'])) {
 
     //si se ejecuta de manera eficiente
     if ($ejecutar) {
-        header("Location: ../usuarios.php");
+        header("Location: http://localhost/sjx/admin/usuarios");
     }
 }
 
@@ -63,7 +63,7 @@ if (isset($_REQUEST['btn_eliminar'])) {
                 $sql = ("DELETE FROM usuarios WHERE id_usuario = '$id_usuario'");
                 $ejecutar = mysqli_query($mysqli, $sql);
                 if ($ejecutar) {
-                    header("location: ../usuarios.php");
+                    header("location: http://localhost/sjx/admin/usuarios");
                 } else {
                     echo "Error en la consulta";
                 }
@@ -132,5 +132,5 @@ if (isset($_REQUEST['btn_actualizar'])) {
         header("location: logout.php");
     }
 
-    header("location: ../perfilUsuario.php");
+    header("location: http://localhost/sjx/admin/principal");
 }

@@ -1,6 +1,5 @@
 <?php
 
-include("seccion/sesiones.php");
 
 $id_planta = $_GET['id_planta'];
 
@@ -20,17 +19,6 @@ while ($row = $update->fetch_assoc()) {
 }
 
 ?>
-
-
-<!-- Sidebar -->
-<?php include("template/menu.php") ?>
-<!-- End of Sidebar -->
-
-
-
-<!-- Topbar -->
-<?php include("template/header.php") ?>
-<!-- End of Topbar -->
 
 
 
@@ -84,8 +72,8 @@ while ($row = $update->fetch_assoc()) {
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-smd-2 control-label">Imagen</label><br>
-                            <img src="<?= "img/imagenesPlantas/".$imagen ?>" width="50%" height="50%">
-                            <?php echo "Imagen:  ".$imagen; ?>
+                            <img src="<?= SERVERURL."img/imagenesPlantas/".$imagen ?>" width="50%" height="50%">
+                            <?= SERVERURL. "Imagen:  ".$imagen; ?>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -97,4 +85,3 @@ while ($row = $update->fetch_assoc()) {
 </div>
 
 
-<?php include("template/footer.php"); ?>

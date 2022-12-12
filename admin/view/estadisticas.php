@@ -1,18 +1,3 @@
-<?php
-include("seccion/sesiones.php");
-
-
-?>
-
-<!-- Sidebar -->
-<?php include("template/menu.php") ?>
-<!-- End of Sidebar -->
-
-<!-- Topbar -->
-<?php include("template/header.php") ?>
-
-<!-- End of Topbar -->
-
 
 
 
@@ -192,6 +177,3 @@ $rel = mysqli_query($mysqli, $sql2);
 
 
 
-
-
-<?php include("template/footer.php"); ?>

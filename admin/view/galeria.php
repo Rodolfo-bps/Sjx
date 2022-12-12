@@ -1,12 +1,3 @@
-<?php include("seccion/sesiones.php"); ?>
-
-<!-- Sidebar -->
-<?php include("template/menu.php") ?>
-<!-- End of Sidebar -->
-
-<!-- Topbar -->
-<?php include("template/header.php") ?>
-<!-- End of Topbar -->
 
 <?php
 
@@ -51,7 +42,6 @@ if ($sqlDanger = mysqli_query($mysqli, $sqlDanger)) {
                             <div class="container">
                                 <div class="row">
                                     <?php
-                                    include("config/conexion.php");
 
                                     $sqlImage = ("SELECT * FROM mapa");
                                     $resultadoImg = mysqli_query($mysqli, $sqlImage);
@@ -68,7 +58,7 @@ if ($sqlDanger = mysqli_query($mysqli, $sqlDanger)) {
                                     $paginas = ceil($paginas);
 
                                     /*============================ */
-                                    if (!$_GET) {
+                                    if (!$_GET['galeria.php?pagina=1']) {
                                         header("location:galeria.php?pagina=1");
                                     }
 
@@ -142,5 +132,3 @@ if ($sqlDanger = mysqli_query($mysqli, $sqlDanger)) {
 </div>
 
 
-
-<?php include("template/footer.php"); ?>

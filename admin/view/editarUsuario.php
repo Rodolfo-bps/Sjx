@@ -1,35 +1,28 @@
 <?php
 
-include("seccion/sesiones.php");
 
 
-$id = $_GET['id_usuario'];
 
-$updateSQL = "SELECT * FROM usuarios WHERE id_usuario = '$id' ";
-$update = mysqli_query($mysqli, $updateSQL);
+if (isset($_REQUEST['btn_editar_perfil'])) {
 
-while ($row = mysqli_fetch_array($update)) {
+    $id = $_POST['id_usuario'];
 
-    $idUser = $row[0];
-    $nombre_usuario = $row[1];
-    $nombre = $row[2];
-    $apellidos = $row[3];
-    $correo = $row[4];
-    $img = $row[8];
+    $updateSQL = "SELECT * FROM usuarios WHERE id_usuario = '$id' ";
+    $update = mysqli_query($mysqli, $updateSQL);
+    
+    while ($row = mysqli_fetch_array($update)) {
+    
+        $idUser = $row[0];
+        $nombre_usuario = $row[1];
+        $nombre = $row[2];
+        $apellidos = $row[3];
+        $correo = $row[4];
+        $img = $row[8];
+    }
+    
 }
 
 ?>
-
-
-<!-- Sidebar -->
-<?php include("template/menu.php") ?>
-<!-- End of Sidebar -->
-
-
-
-<!-- Topbar -->
-<?php include("template/header.php") ?>
-<!-- End of Topbar -->
 
 
 
@@ -48,7 +41,7 @@ while ($row = mysqli_fetch_array($update)) {
                 <h6 class="m-0 font-weight-bold text-primary"></h6>
             </div>
             <div class="card-body">
-                <form class="form-horizontal" method="POST" action="seccion/controlUsuarios.php" enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" action="<?=SERVERURL?>seccion/controlUsuarios.php" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <input type="text" readonly class="form-control" id="id_usuario" name="id_usuario" value="<?php echo $idUser ?>">
@@ -83,7 +76,7 @@ while ($row = mysqli_fetch_array($update)) {
                         <div class="form-group">
                             <label for="inputEmail3" class="col-smd-2 control-label">Imagen <br> <small>Solo se aceptan archivos .png y .jpg</small></label><br>
 
-                            <img src="<?= "img/imagenesUsuarios/" . $img ?>" alt="" height="70">
+                            <img src="<?= SERVERURL."img/imagenesUsuarios/" . $img ?>" alt="" height="70">
                             <input type="file" class="form-control" id="imagen" name="imagen" value="<?php echo $img; ?>">
                         </div>
 
@@ -100,5 +93,3 @@ while ($row = mysqli_fetch_array($update)) {
     </div>
 </div>
 
-
-<?php include("template/footer.php"); ?>

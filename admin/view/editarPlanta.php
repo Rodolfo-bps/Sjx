@@ -1,17 +1,5 @@
 <?php
 
-require_once("config/conexion.php");
-session_start();
-
-if (!isset($_SESSION['id_usuario'])) {
-    header("location: index.php");
-}
-
-$rol = $_SESSION['rol'];
-$id_usuario = $_SESSION["id_usuario"];
-$tipo_usuario = $_SESSION["tipo_usuario"];
-$nombre_usuario = $_SESSION['nombre_usuario'];
-$nombre = $_SESSION['nombre'];
 
 
 $id_planta = $_GET['id_planta'];
@@ -36,17 +24,6 @@ while ($row = mysqli_fetch_array($update)) {
 }
 
 ?>
-
-
-<!-- Sidebar -->
-<?php include("template/menu.php") ?>
-<!-- End of Sidebar -->
-
-
-
-<!-- Topbar -->
-<?php include("template/header.php") ?>
-<!-- End of Topbar -->
 
 
 
@@ -117,7 +94,7 @@ while ($row = mysqli_fetch_array($update)) {
 
                         <div class="form-group">
                             <label for="inputEmail3" class="col-smd-2 control-label">Imagen</label><br>
-                            <img src="<?php echo "img/imagenesPlantas/" . $imagen ?>" alt="" height="70">
+                            <img src="<?= SERVERURL."img/imagenesPlantas/" . $imagen ?>" alt="" height="70">
 
                             <label for="inputEmail3" class="col-smd-2 control-label"><?php echo $imagen; ?></label>/
                             <input type="file" class="form-control" id="imagen" name="imagen" value="<?php echo $imagen; ?>">
@@ -163,5 +140,3 @@ while ($row = mysqli_fetch_array($update)) {
     </div>
 </div>
 
-
-<?php include("template/footer.php"); ?>

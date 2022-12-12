@@ -1,6 +1,5 @@
 <?php
 
-include("seccion/sesiones.php");
 
 $id_categoria = $_GET['id_categoria'];
 
@@ -16,17 +15,6 @@ while ($row = mysqli_fetch_array($update)) {
 }
 
 ?>
-
-
-<!-- Sidebar -->
-<?php include("template/menu.php") ?>
-<!-- End of Sidebar -->
-
-
-
-<!-- Topbar -->
-<?php include("template/header.php") ?>
-<!-- End of Topbar -->
 
 
 
@@ -76,5 +64,3 @@ while ($row = mysqli_fetch_array($update)) {
     </div>
 </div>
 <br><br><br><br><br>
-
-<?php include("template/footer.php"); ?>

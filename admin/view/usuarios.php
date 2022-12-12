@@ -1,5 +1,4 @@
 <?php
-include("seccion/sesiones.php");
 
 if ($tipo_usuario == 1) {
     $where = "";
@@ -13,13 +12,7 @@ $rel = mysqli_query($mysqli, $sql2);
 
 ?>
 
-<!-- Sidebar -->
-<?php include("template/menu.php") ?>
-<!-- End of Sidebar -->
 
-<!-- Topbar -->
-<?php include("template/header.php") ?>
-<!-- End of Topbar -->
 
 <div class="tabcontent">
     <!-- Begin Page Content -->
@@ -76,39 +69,39 @@ $rel = mysqli_query($mysqli, $sql2);
                                     <td><?php echo $row['correo']; ?></td>
                                     <td><?php echo $row['rol']; ?></td>
                                     <td>
-                                        <img style="width: 80px;" src="<?php echo "img/imagenesUsuarios/" . $row['imagen']; ?>" alt="">
+                                        <img style="width: 80px;" src="<?= SERVERURL . "img/imagenesUsuarios/" . $row['imagen']; ?>" alt="">
                                     </td>
 
                                     <?php if ($id_usuario == $row['id_usuario']) { ?>
                                         <td>
-                                            <a style="color: #fff;" href="editarUsuario.php?id_usuario=<?php echo $row['id_usuario']; ?> " class="btn btn-warning btn-circle">
-                                                <i class="bi bi-pencil"></i>
-                                            </a>
-
-                                            <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-                                                <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $row['id_usuario']; ?>" />
-                                                <button type="submit" name="ver" style="color: #fff;" class="btn btn-success btn-circle">
-                                                    <a href="#" style="color: #fff;" data-toggle="modal" data-target="#ver"><i class="bi bi-eye"></i></a>
-                                                </button>
+                                          
+                                            <form action="<?= SERVERURL ?>editarUsuario" method="post">
+                                                <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $row['id_usuario']; ?> ">
+                                                <button style="color: #fff;" class="btn btn-warning btn-circle" type="submit" name="btn_editar_perfil"><i class="bi bi-pencil"></i></button>
                                             </form>
+
+                                            <form action="<?= SERVERURL ?>perfilUsuario" method="post">
+                                                <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $row['id_usuario']; ?> ">
+                                                <button style="color: #fff;" class="btn btn-success btn-circle" type="submit" name="btn_editar_perfil"><i class="bi bi-eye"></i></button>
+                                            </form>
+                                        
                                         </td>
 
                                     <?php } else { ?>
 
                                         <td>
+                                            <form method="post" action="<?= SERVERURL ?>editarUsuario">
+                                                <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $row['id_usuario']; ?>" />
+                                                <button style="color: #fff;" class="btn btn-warning btn-circle" type="submit" name="btn_editar_perfil"><i class="bi bi-pencil"></i></button>
+                                            </form>
 
-                                            <a style="color: #fff;" href="editarUsuario.php?id_usuario=<?php echo $row['id_usuario']; ?> " class="btn btn-warning btn-circle">
-                                                <i class="bi bi-pencil"></i>
-                                            </a>
-
-                                            <form method="post" action="seccion/controlUsuarios.php">
+                                            <form method="post" action="<?= SERVERURL ?>seccion/controlUsuarios.php">
                                                 <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $row['id_usuario']; ?>" />
                                                 <button class="btn btn-danger btn-circle" type="submit" name="btn_eliminar"><i class="bi bi-trash3"></i></button>
                                             </form>
 
-                                            <a style="color: #fff;" href="perfilUsuario.php?id_usuario=<?php echo $row['id_usuario']; ?> " class="btn btn-success btn-circle">
-                                                <i class="bi bi-eye"></i>
-                                            </a>
+
+
 
                                         </td>
                                     <?php } ?>
@@ -160,7 +153,7 @@ $rel = mysqli_query($mysqli, $sql2);
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="seccion/controlUsuarios.php" enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" action="<?=SERVERURL?>seccion/controlUsuarios.php" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <div class="col-sm-10">
@@ -217,12 +210,3 @@ $rel = mysqli_query($mysqli, $sql2);
         </div>
     </div>
 </div>
-
-<!-- fin modal agregar -->
-
-
-<!--Ver usuario-->
-
-<!-- Fin ver usuario -->
-
-<?php include("template/footer.php"); ?>
