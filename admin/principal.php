@@ -165,14 +165,17 @@ $password_bd = $row["password"];
                     parseFloat(markerElem.getAttribute('lng')),
                 );
                 const contentString =
-                    '<div id="content" style="width: 300px;height: 300px; text-align:center;">' +
-
-                    '<p style="color: #495057; font-size: 22px;"><i class="fa fa-fw fa-map-marker"></i>' + direccion + '</p>' +
-
-                    '<div>' +
-                    "<img alt='90' width='300' class='rounded mx-auto d-block' src='http://localhost/sjx/admin/img/imagenesPlantas/" + imagen + "' >" + "<br>" +
-                    '<button id="boton1" value="cilck" type="button" style="border: none; border-radius: 12px; font-size: 16px;padding: 12px 12px; width: 80%;color: #fff; background-color: #556ee6; border-color: #556ee6;">Ver mas</button>" ' +
-                    "</div>" +
+                    '<div class="border-form-mapa"  style="margin: 0px; padding: 0px; width: 300px;height: 300px; text-align:center; ">' +
+                    
+                    '<p style="color: #495057; font-size: 22px;"><i class="fa fa-fw fa-map-marker"></i> <strong>' + direccion + '</strong></p>' +
+                    '<hr>'+
+                    "<img alt='90' style='border: 3px solid #556ee6; border-radius: 8px; box-shadow: 12px 14px 22px -16px rgba(0,0,0.6);' width='300' class='rounded mx-auto d-block' src='http://localhost/sjx/admin/img/imagenesPlantas/" + imagen + "' >" + "<br>" +
+                    '<hr>'+
+                    "<form  action='http://localhost/sjx/admin/editarPlanta' method='post'>" +
+                    "<input type='hidden' name='id_planta' value='" + id_planta + "'>" +
+                    "<input class='btn_planta' style='border: none; border-radius: 12px; font-size: 18px;padding: 12px 12px; width: 80%;color: #fff; background-color: #556ee6; border-color: #556ee6; box-shadow: 12px 14px 22px -16px rgba(0,0,0.6);'  type='submit' value='Ver mas'>" +
+                    "</form>" +
+                    '<br><br>'+
                     "</div>";
 
                 //const image = "img/soldadoss.png";

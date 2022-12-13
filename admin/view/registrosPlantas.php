@@ -75,11 +75,14 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                                     </td>
                                     <td>
                                         <div class="btn-group btn-group-toggle">
-                                            <a href="editarPlanta?id_planta=<?php echo $row['id_planta']; ?> " class="btn btn-warning btn-circle">
-                                                <i class="bi bi-arrow-repeat"></i>
-                                            </a>
+                                            
+                                            <form method="post" action='http://localhost/sjx/admin/editarPlanta'>
+                                                <input type="hidden" name="id_planta" id="id_planta" value="<?php echo $row['id_planta']; ?>" />
+                                                <button class="btn btn-warning btn-circle" type="submit" name="btn_eliminar"><i class="bi-arrow-repeat"></i></button>
+                                            </form>
+                                           
 
-                                            <form method="post" action="seccion/controlPlantas.php">
+                                            <form method="post" action="http://localhost/sjx/admin/seccion/controlPlantas.php">
                                                 <input type="hidden" name="id_planta" id="id_planta" value="<?php echo $row['id_planta']; ?>" />
                                                 <button class="btn btn-danger btn-circle" type="submit" name="btn_eliminar"><i class="bi bi-trash3"></i></button>
                                             </form>
@@ -254,7 +257,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
             </div>
             <div class="modal-body">
                 <form method="post" action="seccion/controlPlantas.php" enctype="multipart/form-data">
-                
+
                     <input type="text" style="background: #fff;" name="id_planta" id="id_planta" value="<?= $id_planta ?>">
                     <label for="">Dia de baja</label>
 
@@ -294,4 +297,3 @@ $rel = mysqli_query($mysqli, $sqlMapa);
         </div>
     </div>
 </div>
-

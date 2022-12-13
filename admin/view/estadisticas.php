@@ -15,7 +15,7 @@
                     <div class="">
 
                         <canvas id="grafica"></canvas>
-                        <script type="text/javascript" src="vendor/js/script.js"></script>
+                        <script type="text/javascript" src="<?=SERVERURL?>vendor/js/script.js"></script>
                     </div>
                     <hr>
                     Resultados de recolecta de informacion.
@@ -40,7 +40,7 @@
                 <?php include("seccion/datos_grafica.php") ?>
 
                 <div class="card-body">
-                    <form action="seccion/controlPlantas.php" method="post">
+                    <form action="http://localhost/sjx/admin/seccion/controlPlantas.php" method="post">
                         <?php include("seccion/datos_grafica.php"); ?>
                         <label for="">Localidades con mayor plantas</label>
                         <?php foreach ($mayor as $r) { ?>
@@ -151,7 +151,7 @@ $rel = mysqli_query($mysqli, $sql2);
                                         <td><?php echo $row['anio_ultimo']; ?></td>
 
                                         <td>
-                                            <form method="post" action="seccion/controlPlantas.php">
+                                            <form method="post" action="http://localhost/sjx/admin/seccion/controlPlantas.php">
                                                 <input type="hidden" name="id_mayor_indice" id="id_mayor_indice" value="<?php echo $row['id_mayor_indice']; ?>" />
                                                 <button class="btn btn-danger btn-circle" type="submit" name="btn_eliminar_reporte"><i class="bi bi-trash3"></i></button>
                                             </form>

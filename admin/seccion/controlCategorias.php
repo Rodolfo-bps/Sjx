@@ -14,7 +14,7 @@ if (isset($_REQUEST['btn_guardar_categoria'])) {
     $ejecutar = mysqli_query($mysqli, $sql);
 
 
-    header("location: ../categorias.php");
+    header("location: http://localhost/sjx/admin/categorias");
 }
 
 
@@ -25,7 +25,7 @@ if (isset($_REQUEST['btn_eliminar_categoria'])) {
     $sql = ("DELETE FROM categorias WHERE id_categoria = '$id_categoria'");
     $ejecutar = mysqli_query($mysqli, $sql);
 
-    header("location: ../categorias.php");
+    header("location: http://localhost/sjx/admin/categorias");
 }
 
 
@@ -38,5 +38,5 @@ if (isset($_REQUEST['btn_actualizar_categoria'])) {
     $sqlUser = "UPDATE categorias SET nombre_categoria = '$nombre_categoria', color_categoria = '$color_categoria' WHERE id_categoria = '$id_categoria'";
     $ejecutar = mysqli_query($mysqli, $sqlUser);
 
-    header("location: ../categorias.php");
+    header("location: http://localhost/sjx/admin/categorias");
 }

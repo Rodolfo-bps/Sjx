@@ -34,7 +34,7 @@ include_once("seccion/sesiones.php");
     <link rel="stylesheet" type="text/css" href="<?= SERVERURL ?>vendor/datatables/datatables.min.css" />
     <!--datables estilo bootstrap 4 CSS-->
     <link rel="stylesheet" type="text/css" href="<?= SERVERURL ?>vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= SERVERURL ?>vendor/main.css">
+    <link rel="stylesheet" type="text/css" href="<?= SERVERURL ?>vendor/main.css">
 
     <!--font awesome con CDN-->  
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  

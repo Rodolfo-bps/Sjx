@@ -20,7 +20,7 @@ $rel = mysqli_query($mysqli, $sql2);
                 <div class="card-body">
                     <div class="">
                      
-                        <form method="post" action="seccion/controlCategorias.php" enctype="multipart/form-data">
+                        <form method="post" action="http://localhost/sjx/admin/seccion/controlCategorias.php" enctype="multipart/form-data">
                             <div class="input-group mb-2 mr-sm-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
@@ -100,10 +100,12 @@ $rel = mysqli_query($mysqli, $sql2);
 
                                         <td colspan="">
                                             <div class=" ">
-                                                <a href="editarCategorias.php?id_categoria=<?php echo $row['id_categoria']; ?> " class="btn btn-warning btn-circle">
-                                                    <i class="bi bi-arrow-repeat"></i>
-                                                </a>
-                                                <form method="post" action="seccion/controlCategorias.php">
+                                            <form method="post" action="http://localhost/sjx/admin/editarCategorias">
+                                                    <input type="hidden" name="id_categoria" id="id_categoria" value="<?php echo $row['id_categoria']; ?>" />
+                                                    <button class="btn btn-warning btn-circle" type="submit" name="btn_eliminar_categoria"><i class="bi bi-arrow-repeat"></i></button>
+                                                </form>
+                                            
+                                                <form method="post" action="http://localhost/sjx/admin/seccion/controlCategorias.php">
                                                     <input type="hidden" name="id_categoria" id="id_categoria" value="<?php echo $row['id_categoria']; ?>" />
                                                     <button class="btn btn-danger btn-circle" type="submit" name="btn_eliminar_categoria"><i class="bi bi-trash3"></i></button>
                                                 </form>

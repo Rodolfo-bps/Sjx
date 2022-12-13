@@ -1,7 +1,7 @@
 <?php
 
 
-$id_categoria = $_GET['id_categoria'];
+$id_categoria = $_POST['id_categoria'];
 
 $updateSQL = "SELECT * FROM categorias WHERE id_categoria = '$id_categoria' ";
 $update = mysqli_query($mysqli, $updateSQL);

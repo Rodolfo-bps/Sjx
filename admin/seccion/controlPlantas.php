@@ -25,8 +25,8 @@ if (isset($_REQUEST['btn_guardar'])) {
                 VALUES (NULL, '$direccion', '$localidad', '$descripcion', '$imagen', '$estado' , '$lat', '$lng', '$categoria');";
     $ejecutar = mysqli_query($mysqli, $sql);
 
+    header("location: http://localhost/sjx/admin/registrosPlantas");
 
-    header("location: ../registrosPlantas.php");
 }
 
 
@@ -52,7 +52,7 @@ if (isset($_REQUEST['btn_eliminar'])) {
         }
     }
 
-    header("location: ../registrosPlantas.php");
+    header("location: http://localhost/sjx/admin/registrosPlantas");
 }
 
 
@@ -109,7 +109,7 @@ if (isset($_REQUEST['btn_actualizar'])) {
 
 
 
-    header("location: ../registrosPlantas.php");
+    header("location: http://localhost/sjx/admin/registrosPlantas");
 }
 
 
@@ -128,7 +128,7 @@ if (isset($_REQUEST['btn_reporte_planta'])) {
     $ejecutar = mysqli_query($mysqli, $sql);
 
 
-    header("location: ../estadisticas.php");
+    header("location: http://localhost/sjx/admin/estadisticas");
 }
 
 
@@ -140,7 +140,7 @@ if (isset($_REQUEST['btn_eliminar_reporte'])) {
     $ejecutar = mysqli_query($mysqli, $sql);
 
 
-    header("location: ../estadisticas.php");
+    header("location: http://localhost/sjx/admin/estadisticas");
 }
 
 
@@ -156,5 +156,5 @@ if (isset($_REQUEST['btn_guardar_estado'])) {
     $ejecutar = mysqli_query($mysqli, $sqlUser);
 
 
-    header("location: ../estadisticas.php");
+    header("location: http://localhost/sjx/admin/estadisticas");
 }

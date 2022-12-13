@@ -4,7 +4,7 @@ https://parzibyte.me/blog
 */
 (async () => {
     // Llamar a nuestra API. Puedes usar cualquier librería para la llamada, yo uso fetch, que viene nativamente en JS
-    const respuestaRaw = await fetch("seccion/obtener_datos_ajax.php");
+    const respuestaRaw = await fetch("http://localhost/sjx/admin/seccion/obtener_datos_ajax.php");
     // Decodificar como JSON
     const respuesta = await respuestaRaw.json();
     // Ahora ya tenemos las etiquetas y datos dentro de "respuesta"
@@ -12,7 +12,7 @@ https://parzibyte.me/blog
     const $grafica = document.querySelector("#grafica");
     const etiquetas = respuesta.etiquetas; // <- Aquí estamos pasando el valor traído usando AJAX
     // Podemos tener varios conjuntos de datos. Comencemos con uno
-    const datosVentas2020 = {
+     const datosVentas2020 = {
         label: "Distribucion de planta",
         // Pasar los datos igualmente desde PHP
         data: respuesta.datos, // <- Aquí estamos pasando el valor traído usando AJAX

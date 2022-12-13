@@ -8,7 +8,7 @@ $rel = mysqli_query($mysqli, $localidades);
 // Valores con PHP. Estos podrían venir de una base de datos o de cualquier lugar del servidor
 $etiquetas =
     [
-        "Barranca Salada", "Barrio San Pedro", "Cañada Estaca", "Canada San Miguel", "El Carrizal",
+        "Barranca Salada", "Barrio San Pedro", "Canada Estaca", "Canada San Miguel", "El Carrizal",
         "El Cuajilote", "El Mosco", "Gabino Barreda", "La Huertilla", "San Jeronimo Primera Seccion",
         "San Jeronimo Segunda Seccion",  "Santo Domingo Tonahuixtla", "Canada Sandia"
     ];

@@ -2,7 +2,7 @@
 
 
 
-$id_planta = $_GET['id_planta'];
+$id_planta = $_POST['id_planta'];
 
 $updateSQL = "SELECT * FROM mapa WHERE id_planta = '$id_planta' ";
 $update = mysqli_query($mysqli, $updateSQL);
@@ -130,7 +130,7 @@ while ($row = mysqli_fetch_array($update)) {
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="registrosPlantas.php" class="btn btn-default">Regresar </a>
+                        <a href="<?= SERVERURL."registrosPlantas"?>" class="btn btn-default">Regresar </a>
                         <button type="submit" class="btn btn-info pull-right" name="btn_actualizar">Actualizar</button>
                     </div>
                     <!-- /.box-footer -->
