@@ -28,7 +28,8 @@ if (isset($_REQUEST['btn_eliminar_categoria'])) {
     header("location: http://localhost/sjx/admin/categorias");
 }
 
-
+/*comentario de url2 jejej
+ */
 if (isset($_REQUEST['btn_actualizar_categoria'])) {
     //metodo post
     $id_categoria = $_POST['id_categoria'];
