@@ -27,7 +27,7 @@ if (isset($_REQUEST['btn_eliminar_categoria'])) {
 
     header("location: ../categorias.php");
 }
-
+/*HOLA DESDE DEV2  */
 
 if (isset($_REQUEST['btn_actualizar_categoria'])) {
     //metodo post
