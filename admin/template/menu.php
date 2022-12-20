@@ -17,7 +17,7 @@ include_once("seccion/sesiones.php");
 
     <title><?= NAME_PAGE  ?></title>
 
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <!-- Custom fonts for this template-->
@@ -36,9 +36,9 @@ include_once("seccion/sesiones.php");
     <link rel="stylesheet" type="text/css" href="<?= SERVERURL ?>vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="<?= SERVERURL ?>vendor/main.css">
 
-    <!--font awesome con CDN-->  
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
-      
+    <!--font awesome con CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
 
 </head>
 </head>
@@ -72,7 +72,7 @@ include_once("seccion/sesiones.php");
             <hr class="sidebar-divider">
             <!-- Heading -->
             <div class="sidebar-heading">
-                Configuracion
+                Configuración
             </div>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -82,7 +82,7 @@ include_once("seccion/sesiones.php");
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
+                        <h6 class="collapse-header">Usuarios:</h6>
                         <a class="collapse-item" class="collapse-item" href="<?= SERVERURL  ?>perfilUsuario/">Mi perfil</a>
                         <?php if ($tipo_usuario == 1) { ?>
 
@@ -98,24 +98,24 @@ include_once("seccion/sesiones.php");
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Datos de biznaga
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Plantas</span>
+                    <span>Biznaga</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="<?= SERVERURL  ?>plantas/">Mapa de Plantas</a>
+                        <h6 class="collapse-header">Biznaga:</h6>
+                        <a class="collapse-item" href="<?= SERVERURL  ?>plantas/">Mapa de Biznaga</a>
                         <a class="collapse-item" href="<?= SERVERURL  ?>registrosPlantas/">Registros</a>
-                        <a class="collapse-item" href="<?= SERVERURL  ?>estadisticas/">Estadisiticas</a>
+                        <a class="collapse-item" href="<?= SERVERURL  ?>estadisticas/">Estadísticas </a>
                         <!--<a class="collapse-item" href="galeria?pagina=1">Galeria</a>-->
                         <?php if ($tipo_usuario == 1) { ?>
-                            <a class="collapse-item" href="<?= SERVERURL  ?>categorias/">Categorias</a>
+                            <a class="collapse-item" href="<?= SERVERURL  ?>categorias/">Categorías</a>
                         <?php } ?>
 
                     </div>
@@ -127,7 +127,7 @@ include_once("seccion/sesiones.php");
             <li class="nav-item ">
                 <a class="nav-link" href="seccion/logout.php">
                     <i class="bi bi-box-arrow-right"></i>
-                    <span>Cerrar Sesion</span>
+                    <span>Cerrar Sesión</span>
                 </a>
             </li>
 

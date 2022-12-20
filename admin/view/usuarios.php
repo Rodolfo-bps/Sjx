@@ -74,7 +74,7 @@ $rel = mysqli_query($mysqli, $sql2);
 
                                     <?php if ($id_usuario == $row['id_usuario']) { ?>
                                         <td>
-                                          
+
                                             <form action="<?= SERVERURL ?>editarUsuario" method="post">
                                                 <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $row['id_usuario']; ?> ">
                                                 <button style="color: #fff;" class="btn btn-warning btn-circle" type="submit" name="btn_editar_perfil"><i class="bi bi-pencil"></i></button>
@@ -84,7 +84,7 @@ $rel = mysqli_query($mysqli, $sql2);
                                                 <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $row['id_usuario']; ?> ">
                                                 <button style="color: #fff;" class="btn btn-success btn-circle" type="submit" name="btn_editar_perfil"><i class="bi bi-eye"></i></button>
                                             </form>
-                                        
+
                                         </td>
 
                                     <?php } else { ?>
@@ -132,7 +132,7 @@ $rel = mysqli_query($mysqli, $sql2);
                     </div>
                     <div class="col-md-4">
                         <h4>
-                            Numero de usuarios <span class="text-success"><strong><?= $numUser ?></strong></span>
+                            Número de usuarios <span class="text-success"><strong><?= $numUser ?></strong></span>
                         </h4>
                     </div>
                 </div>
@@ -153,7 +153,7 @@ $rel = mysqli_query($mysqli, $sql2);
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="<?=SERVERURL?>seccion/controlUsuarios.php" enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" action="<?= SERVERURL ?>seccion/controlUsuarios.php" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <div class="col-sm-10">

@@ -1,7 +1,7 @@
 <section id="registros" class="divider">
     <div class="container">
         <div class="content-center">
-            <h2>Registros de las <b>biznagas</b></h2>
+            <h2>Registros de <b>biznagas</b></h2>
             <p>Aunque el acitrón es delicioso, su consumo está prohibido en México, pues las biznagas, plantas de donde se obtiene la pulpa para este alimento se encuentran en peligro de extinción.</p>
         </div>
         <div class="row">
@@ -11,26 +11,26 @@
                         <tr>
                             <th>Dirección</th>
                             <th>Localidad</th>
-                            <th>Descripcion</th>
+                            <th>Descripción</th>
                             <th>Estado</th>
                             <th>Latitud</th>
                             <th>Longitud</th>
-                            <th>Categoria</th>
-                            <th>Fecha de Registro</th>
-                            <th>Fecha de Actualizacion</th>
+                            <th>Categoría</th>
+                            <th>Fecha de registro</th>
+                            <th>Fecha de actualización </th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>Dirección</th>
                             <th>Localidad</th>
-                            <th>Descripcion</th>
+                            <th>Descripción</th>
                             <th>Estado</th>
                             <th>Latitud</th>
                             <th>Longitud</th>
-                            <th>Categoria</th>
-                            <th>Fecha de Registro</th>
-                            <th>Fecha de Actualizacion</th>
+                            <th>Categoría</th>
+                            <th>Fecha de registro</th>
+                            <th>Fecha de actualización </th>
                         </tr>
                     </tfoot>
                     <tbody>

@@ -37,11 +37,11 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                             <tr>
                                 <th>Dirección</th>
                                 <th>Localidad</th>
-                                <th>Descripcion</th>
+                                <th>Descripción </th>
                                 <th>Estado</th>
                                 <th>Latitud</th>
                                 <th>Longitud</th>
-                                <th>Categoria</th>
+                                <th>Categorías</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -49,11 +49,11 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                             <tr>
                                 <th>Dirección</th>
                                 <th>Localidad</th>
-                                <th>Descripcion</th>
+                                <th>Descripción </th>
                                 <th>Estado</th>
                                 <th>Latitud</th>
                                 <th>Longitud</th>
-                                <th>Categoria</th>
+                                <th>Categorías</th>
                                 <th>Acciones</th>
                             </tr>
                         </tfoot>
@@ -75,12 +75,12 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                                     </td>
                                     <td>
                                         <div class="btn-group btn-group-toggle">
-                                            
+
                                             <form method="post" action='http://localhost/sjx/admin/editarPlanta'>
                                                 <input type="hidden" name="id_planta" id="id_planta" value="<?php echo $row['id_planta']; ?>" />
                                                 <button class="btn btn-warning btn-circle" type="submit" name="btn_eliminar"><i class="bi-arrow-repeat"></i></button>
                                             </form>
-                                           
+
 
                                             <form method="post" action="http://localhost/sjx/admin/seccion/controlPlantas.php">
                                                 <input type="hidden" name="id_planta" id="id_planta" value="<?php echo $row['id_planta']; ?>" />
@@ -111,7 +111,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
 
                         <div class="col-md-4">
                             <h4>
-                                Numero de plantas <span class="text-success"><strong><?= $numUser ?></strong></span>
+                                Número de plantas <span class="text-success"><strong><?= $numUser ?></strong></span>
                             </h4>
 
 

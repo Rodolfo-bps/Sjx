@@ -25,12 +25,12 @@ while ($row = mysqli_fetch_array($update)) {
 
         <!-- Page Heading -->
         <div class=" d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Actualizar Categoria</h1>
+            <h1 class="h3 mb-0 text-gray-800">Actualizar Categoría</h1>
 
         </div>
         <div class="alert alert-danger" role="alert">
-            Cambiar la categoria puede afectar los datos de las plantas<br>
-            Asegurese de que no tenga registros con esta categoria
+            Cambiar la categoría  puede afectar los datos de las plantas<br>
+            Asegúrese de que no tenga registros con esta categoría.
         </div>
         <!-- DataTales Example -->
         <div class="card shadow col-md-3">

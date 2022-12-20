@@ -1,7 +1,3 @@
-
-
-
-
 <div class="container">
     <div class="row">
         <!-- Area Chart -->
@@ -15,10 +11,10 @@
                     <div class="">
 
                         <canvas id="grafica"></canvas>
-                        <script type="text/javascript" src="<?=SERVERURL?>vendor/js/script.js"></script>
+                        <script type="text/javascript" src="<?= SERVERURL ?>vendor/js/script.js"></script>
                     </div>
                     <hr>
-                    Resultados de recolecta de informacion.
+                    Resultados de recolecta de información.
                 </div>
             </div>
 
@@ -48,7 +44,7 @@
                         <?php } ?>
                         <br>
                         <?php
-                        $fechaActual = date('d-m-Y');
+                        $fechaActual = date('Y-m-d');
 
                         ?>
                         <input style="background: white;" type="hidden" class="form-control" name="fecha" id="fecha" value="<?= $fechaActual ?>">
@@ -60,17 +56,17 @@
                         <br>
 
 
-                        <label for="">Registros en los ultimos 7 dias</label>
+                        <label for="">Registros en los últimos 7 días</label>
                         <input style="background: white;" type="text" readonly class="form-control" name="dia_ultimo" id="dia_ultimo" value="<?php echo $sqlDias; ?>">
 
                         <br>
 
-                        <label for="">Registros en el ultimo mes</label>
+                        <label for="">Registros en el último mes</label>
                         <input style="background: white;" type="text" readonly class="form-control" name="mes_ultimo" id="mes_ultimo" value="<?php echo $sqlMeses; ?>">
 
                         <br>
 
-                        <label for="">Registros en el ultimo año</label>
+                        <label for="">Registros en el último año</label>
                         <input style="background: white;" type="text" readonly class="form-control" name="anio_ultimo" id="anio_ultimo" value="<?php echo $sqlAnio; ?>">
 
                         <br>
@@ -121,21 +117,21 @@ $rel = mysqli_query($mysqli, $sql2);
                                     <th>Mayor Plantas</th>
                                     <th>Fecha de Registro</th>
                                     <th>Menor Plantas</th>
-                                    <th>Ultimo dia</th>
-                                    <th>Ultimo mes</th>
-                                    <th>Ultimo anio</th>
+                                    <th>Último día</th>
+                                    <th>Último mes</th>
+                                    <th>Último anio</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>#</th>
-                                    <th>localidad con Mayor Plantas</th>
+                                    <th>Mayor Plantas</th>
                                     <th>Fecha de Registro</th>
-                                    <th>localidad con Menor Plantas</th>
-                                    <th>Ultimo dia</th>
-                                    <th>Ultimo mes</th>
-                                    <th>Ultimo anio</th>
+                                    <th>Menor Plantas</th>
+                                    <th>Último día</th>
+                                    <th>Último mes</th>
+                                    <th>Último anio</th>
                                     <th>Acciones</th>
                                 </tr>
                             </tfoot>
@@ -172,8 +168,3 @@ $rel = mysqli_query($mysqli, $sql2);
         </div>
     </div>
 </div>
-
-
-
-
-

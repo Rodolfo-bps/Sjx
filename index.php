@@ -1,5 +1,6 @@
 <?php
 include("admin/config/conexion.php");
+include("paginas/grafica.php");
 
 $sqlMapa = "SELECT * FROM mapa";
 $rel = mysqli_query($mysqli, $sqlMapa);
