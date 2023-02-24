@@ -52,7 +52,7 @@ while ($row = mysqli_fetch_array($update)) {
 
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <a href="categorias.php" class="btn btn-default">Regresar </a>
+                            <a href="<?= SERVERURL."categorias"?>" class="btn btn-default">Regresar </a>
                             <button type="submit" class="btn btn-info pull-right" name="btn_actualizar_categoria">Actualizar</button>
                         </div>
                         <!-- /.box-footer -->
