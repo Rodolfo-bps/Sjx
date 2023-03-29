@@ -4,16 +4,15 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Bienvenido <strong><?= $nombre_usuario . " " . $apellidos ?></strong></h1>
+            <h1 class="h3 mb-0 text-gray-800">
+                Bienvenido <strong><?= $nombre_usuario . " " . $apellidos ?></strong>
+            </h1>
         </div>
-
         <?php
-
         if ($password_bd == $pass_c) { ?>
             <div class="alert alert-danger" role="alert">
                 Cambia tu contraseña
             </div>
-
         <?php } ?>
 
 
@@ -27,8 +26,10 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Número de Usuarios</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $numUser ?></div>
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Número de Usuarios</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <?= $numUser ?></div>
                             </div>
                             <div class="col-auto">
                                 <h2>

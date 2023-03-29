@@ -1,7 +1,6 @@
 <?php
 
 include_once("../config/conexion.php");
-
 //agregar
 if (isset($_REQUEST['btn_guardar_categoria'])) {
     $nombre_categoria = $_POST['nombre_categoria'];
@@ -34,8 +33,9 @@ if (isset($_REQUEST['btn_actualizar_categoria'])) {
     $id_categoria = $_POST['id_categoria'];
     $nombre_categoria = $_POST['nombre_categoria'];
     $color_categoria = $_POST['color_categoria'];
-   
-    $sqlUser = "UPDATE categorias SET nombre_categoria = '$nombre_categoria', color_categoria = '$color_categoria' WHERE id_categoria = '$id_categoria'";
+
+    $sqlUser = "UPDATE categorias SET nombre_categoria = '$nombre_categoria', color_categoria 
+    = '$color_categoria' WHERE id_categoria = '$id_categoria'";
     $ejecutar = mysqli_query($mysqli, $sqlUser);
 
     header("location: http://localhost/sjx/admin/categorias");

@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -51,84 +50,90 @@ if ($sqlDanger = mysqli_query($mysqli, $sqlDanger)) {
 
                                     //num de botones
                                     $imagenes_x_pagina = 3;
-
-                                    $paginas = $numPlant / $imagenes_x_pagina;
-
-                                    //decimal a entero
-                                    $paginas = ceil($paginas);
+                                    $paginas = ceil($numPlant / $imagenes_x_pagina);
 
                                     /*============================ */
-                                    if (!$_GET['galeria.php?pagina=1']) {
+                                    if (!$_POST) {
                                         header("location:galeria.php?pagina=1");
                                     }
 
-                                    if ($_GET["pagina"] > $paginas || $_GET["pagina"] <= 0) {
+                                    if ($_POST["pagina"] > $paginas || $_POST["pagina"] <= 0) {
                                         header("location:galeria.php?pagina=1");
                                     }
 
                                     // determinar los numero de paginacion
-
-                                    $iniciar = ($_GET['pagina'] - 1) * $imagenes_x_pagina;
+                                    $iniciar = ($_POST['pagina'] - 1) * $imagenes_x_pagina;
                                     $sqlImg = ("SELECT * FROM mapa LIMIT $iniciar, $imagenes_x_pagina");
                                     $resultado = mysqli_query($mysqli, $sqlImg);
-
-                                    //$resultado_img = $resultado->fetch_all(); 
-
                                     ?>
+
 
                                     <?php foreach ($resultado as $proyecto) { ?>
                                         <div class="col-md-4" id="paginated-list">
                                             <div class="card mb-4 shadow-sm">
-                                                <img src="img/imagenesPlantas/<?php echo $proyecto['imagen'] ?>" width="100%" height="225">
+                                                <img src="admin/img/imagenesPlantas/<?php echo $proyecto['imagen'] ?>" width="100%" height="225">
                                                 <div class="card-body">
                                                     <p class="card-text"><?php echo $proyecto['descripcion']; ?></p>
 
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="btn-group">
-                                                           
-                                                            <a href="verPlanta.php?id_planta=<?php echo $proyecto['id_planta']; ?> " target="_blank" class="btn btn-sm btn-outline-secondary ">Ver mas</a>
-
-                                                        </div><br>
+                                                            <form action="planta.php" method="post">
+                                                                <input type="hidden" name="id_planta" id="id_planta" value="<?php echo $proyecto["id_planta"]; ?>">
+                                                                <input type="submit" target="_blank" class="btn btn-sm btn-outline-secondary" value="Ver mas">
+                                                            </form>
+                                                        </div>
                                                         <small class="text-muted">9 mins</small>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     <?php } ?>
+
+
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-md-4">
-                                            </div>
+                                            <div class="col-md-4"></div>
                                             <div class="col-md-4">
                                                 <nav aria-label="Page navigation example">
                                                     <ul class="pagination justify-content-center">
-                                                        <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : ''; ?> "><a class="page-link" href="galeria.php?pagina=<?php echo $_GET['pagina'] - 1; ?>">Anterior</a></li>
-                                                        <?php for ($i = 0; $i < $paginas; $i++) { ?>
-                                                            <li class="page-item <?php echo $_GET['pagina'] == $i + 1  ? 'active' : ''; ?>"><a class="page-link" href="galeria.php?pagina=<?php echo $i + 1; ?>"><?php echo $i + 1; ?></a></li>
+                                                        <li class="page-item <?php echo $_POST['pagina'] <= 1 ? 'disabled' : ''; ?>">
+                                                            <form method="post" action="album.php">
+                                                                <input type="hidden" name="pagina" value="<?php echo $_POST['pagina'] - 1; ?>">
+                                                                <button type="submit" class="page-link">Anterior</button>
+                                                            </form>
+                                                        </li>
+                                                        <?php
+                                                        $inicio = max(1, $_POST['pagina'] - 2);
+                                                        $fin = min($inicio + 4, $paginas);
+                                                        for ($i = $inicio; $i <= $fin; $i++) { ?>
+                                                            <li class="page-item <?php echo $_POST['pagina'] == $i ? 'active' : ''; ?>">
+                                                                <form method="post" action="album.php">
+                                                                    <input type="hidden" name="pagina" value="<?php echo $i; ?>">
+                                                                    <button type="submit" class="page-link"><?php echo $i; ?></button>
+                                                                </form>
+                                                            </li>
                                                         <?php } ?>
-                                                        <li class="page-item <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : ''; ?> "><a class="page-link" href="galeria.php?pagina=<?php echo $_GET['pagina'] + 1; ?>">Siguiente</a></li>
+                                                        <li class="page-item <?php echo $_POST['pagina'] >= $paginas ? 'disabled' : ''; ?>">
+                                                            <form method="post" action="album.php">
+                                                                <input type="hidden" name="pagina" value="<?php echo $_POST['pagina'] + 1; ?>">
+                                                                <button type="submit" class="page-link">Siguiente</button>
+                                                            </form>
+                                                        </li>
                                                     </ul>
                                                 </nav>
                                             </div>
-                                            <div class="col-md-4">
-                                            </div>
+
+
+
                                         </div>
+
+
                                     </div>
-
-
-
-
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
+                    <!-- /.container-fluid -->
                 </div>
             </div>
-            <!-- /.container-fluid -->
         </div>
-    </div>
-</div>
-
-

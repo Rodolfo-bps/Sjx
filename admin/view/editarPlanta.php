@@ -1,14 +1,8 @@
 <?php
-
-
-
 $id_planta = $_POST['id_planta'];
-
 $updateSQL = "SELECT * FROM mapa WHERE id_planta = '$id_planta' ";
 $update = mysqli_query($mysqli, $updateSQL);
-
 while ($row = mysqli_fetch_array($update)) {
-
     $idPlanta = $row[0];
     $localidad = $row[1];
     $direccion = $row[2];
@@ -24,17 +18,13 @@ while ($row = mysqli_fetch_array($update)) {
 }
 
 ?>
-
-
-
-
 <div class="tabcontent">
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
         <!-- Page Heading -->
         <div class=" d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Actualizar Usuario</h1>
+            <h1 class="h3 mb-0 text-gray-800">Actualizar Planta</h1>
         </div>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -51,7 +41,6 @@ while ($row = mysqli_fetch_array($update)) {
                             <input type="text" class="form-control" id="direccion" name="direccion" value="<?php echo $direccion; ?>">
                         </div>
                         <div class="form-group">
-
                             <select name="localidad" id="localidad" class="form-control">
                                 <option value="<?php echo $localidad ?>"><?php echo $localidad ?></option>
                                 <option value="Barranca Salda">Barranca Salda</option>
@@ -94,17 +83,15 @@ while ($row = mysqli_fetch_array($update)) {
 
                         <div class="form-group">
                             <label for="inputEmail3" class="col-smd-2 control-label">Imagen</label><br>
-                            <img src="<?= SERVERURL."img/imagenesPlantas/" . $imagen ?>" alt="" height="70">
+                            <img src="<?= SERVERURL . "img/imagenesPlantas/" . $imagen ?>" alt="" height="70">
 
                             <label for="inputEmail3" class="col-smd-2 control-label"><?php echo $imagen; ?></label>/
                             <input type="file" class="form-control" id="imagen" name="imagen" value="<?php echo $imagen; ?>">
                         </div>
                         <div class="form-group">
                             <?php
-
                             $sqlCategorias = ("SELECT * FROM `categorias`");
                             $categorias = mysqli_query($mysqli, $sqlCategorias);
-
                             ?>
                             <select name="categoria" id="categoria" class="form-control">
                                 <option value="<?= $categoria ?>"><?= $categoria ?></option>
@@ -112,10 +99,10 @@ while ($row = mysqli_fetch_array($update)) {
                                 <?php while ($row = $categorias->fetch_assoc()) {
                                     if ($categoria == $row['nombre_categoria']) {
                                 ?>
-
                                     <?php
                                     } else { ?>
-                                        <option value="<?php echo $row['nombre_categoria']; ?>"><?php echo $row['nombre_categoria']; ?></option>
+                                        <option value="<?php echo $row['nombre_categoria']; ?>">
+                                            <?php echo $row['nombre_categoria']; ?></option>
                                 <?php
                                     }
                                 }
@@ -124,13 +111,13 @@ while ($row = mysqli_fetch_array($update)) {
                         </div>
 
                     </div>
-                  
+
                     <div class="form-group">
                         <input type="text" hidden class="form-control" id="fecha_actualizacion" name="fecha_actualizacion" value="<?php echo $fecha_actualizacion = date('Y-m-d'); ?>">
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="<?= SERVERURL."registrosPlantas"?>" class="btn btn-default">Regresar </a>
+                        <a href="<?= SERVERURL . "registrosPlantas" ?>" class="btn btn-default">Regresar </a>
                         <button type="submit" class="btn btn-info pull-right" name="btn_actualizar">Actualizar</button>
                     </div>
                     <!-- /.box-footer -->
@@ -139,4 +126,3 @@ while ($row = mysqli_fetch_array($update)) {
         </div>
     </div>
 </div>
-

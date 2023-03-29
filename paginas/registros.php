@@ -2,7 +2,10 @@
     <div class="container">
         <div class="content-center">
             <h2>Registros de <b>biznagas</b></h2>
-            <p>Aunque el acitrón es delicioso, su consumo está prohibido en México, pues las biznagas, plantas de donde se obtiene la pulpa para este alimento se encuentran en peligro de extinción.</p>
+            <p>Aunque el acitrón es delicioso, 
+                su consumo está prohibido en México, pues las biznagas, 
+                plantas de donde se obtiene la pulpa para este alimento 
+                se encuentran en peligro de extinción.</p>
         </div>
         <div class="row">
             <div class="pricing-container">
@@ -40,7 +43,9 @@
                                 <td><?php echo $row['localidad']; ?></td>
                                 <td><?php echo $row['descripcion']; ?></td>
                                 <td>
-                                    <p class="btn btn-sm <?php echo $row['estado'] == 'activo' ? 'btn-success' : 'btn-danger'; ?>"><?php echo $row['estado']; ?></p>
+                                    <p class="btn btn-sm 
+                                    <?php echo $row['estado'] == 'activo' ? 'btn-success' : 'btn-danger'; ?>">
+                                    <?php echo $row['estado']; ?></p>
                                 </td>
                                 <td><?php echo $row['lat']; ?></td>
                                 <td><?php echo $row['lng']; ?></td>

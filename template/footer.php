@@ -17,9 +17,11 @@
             </li>
             <li class="list-inline-item"><a href="#"><img src="assets/images/dribbble.svg" class="img-fluid"></a>
             </li>-->
-            <li class="list-inline-item"><a href="https://www.facebook.com/rododvb/"><img src="assets/images/facebook.svg" class="img-fluid"></a>
+            <li class="list-inline-item"><a href="https://www.facebook.com/rododvb/">
+                <img src="assets/images/facebook.svg" class="img-fluid"></a>
             </li>
         </ul>
-        <small>©<?php echo date('Y'); ?> All Rights Reserved. Created by <strong>Rodolfo D.V.</strong></small>
+        <small>©<?php echo date('Y'); ?> All Rights Reserved. Created by 
+        <strong>Rodolfo D.V.</strong></small>
     </div>
 </footer>

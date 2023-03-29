@@ -8,9 +8,12 @@ $rel = mysqli_query($mysqli, $localidades);
 // Valores con PHP. Estos podrían venir de una base de datos o de cualquier lugar del servidor
 $etiquetas =
     [
-        "Barranca Salada", "Barrio San Pedro", "Canada Estaca", "Canada San Miguel", "El Carrizal",
-        "El Cuajilote", "El Mosco", "Gabino Barreda", "La Huertilla", "San Jeronimo Primera Seccion",
-        "San Jeronimo Segunda Seccion",  "Santo Domingo Tonahuixtla", "Canada Sandia"
+        "Barranca Salada", "Barrio San Pedro", "Canada Estaca",
+        "Canada San Miguel", "El Carrizal",
+        "El Cuajilote", "El Mosco", "Gabino Barreda", "La Huertilla",
+        "San Jeronimo Primera Seccion",
+        "San Jeronimo Segunda Seccion",  "Santo Domingo Tonahuixtla",
+        "Canada Sandia"
     ];
 
 $localidad = [];
@@ -56,21 +59,29 @@ while ($row = $rel->fetch_assoc()) {
         $sjPrimera += 1;
     } else if ($localidad == $etiquetas[10]) {
         $sjSegunda += 1;
-    } 
-     else if ($localidad == $etiquetas[11]) {
+    } else if ($localidad == $etiquetas[11]) {
         $sdTona += 1;
     } else if ($localidad == $etiquetas[12]) {
         $cSandia += 1;
     }
 }
 
-$datosVentas = [$bSalada, $bsPedro, $cEstaca, $csMiguel, $eCarrizal, $eCuajilote, $eMosco, $gBarreda, $lHuertilla, $sjPrimera, $sjSegunda, $sdTona, $cSandia];
+$datosVentas = [
+    $bSalada, $bsPedro, $cEstaca, $csMiguel,
+    $eCarrizal, $eCuajilote, $eMosco, $gBarreda, $lHuertilla,
+    $sjPrimera, $sjSegunda, $sdTona, $cSandia
+];
 
 $valores =
     [
-        "Barranca Salada" => $bSalada, "Barrio San Pedro" => $bsPedro, "Canada Estaca" => $cEstaca, "Canada San Miguel" => $csMiguel, "El Carrizal" => $eCarrizal,
-        "El Cuajilote" => $eCuajilote, "El Mosco" => $eMosco, "Gabino Barreda" =>  $gBarreda, "La Huertilla" => $lHuertilla, "San Jeronimo Primera Seccion" => $sjPrimera,
-        "San Jeronimo Segunda Seccion" => $sjSegunda,  "Santo Domingo Tonahuixtla" => $sdTona, "Canada Sandia" => $cSandia
+        "Barranca Salada" => $bSalada, "Barrio San Pedro" =>
+        $bsPedro, "Canada Estaca" => $cEstaca, "Canada San Miguel" =>
+        $csMiguel, "El Carrizal" => $eCarrizal,
+        "El Cuajilote" => $eCuajilote, "El Mosco" => $eMosco, "Gabino Barreda" =>
+        $gBarreda, "La Huertilla" => $lHuertilla,
+        "San Jeronimo Primera Seccion" => $sjPrimera,
+        "San Jeronimo Segunda Seccion" => $sjSegunda,
+         "Santo Domingo Tonahuixtla" => $sdTona, "Canada Sandia" => $cSandia
     ];
 
 $maxPlantas = max($valores);

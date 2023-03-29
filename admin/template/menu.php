@@ -1,10 +1,7 @@
 <?php
 include_once("config/config.php");
 include_once("seccion/sesiones.php");
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -45,10 +42,9 @@ include_once("seccion/sesiones.php");
 
 <body id="page-top">
     <!-- Page Wrapper -->
+    <!-- La siguiente sección crea un contenedor para la barra lateral y una lista de navegación que se utiliza para mostrar los elementos de la barra lateral-->
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-
             <li class="nav-item">
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="principal.php">
                     <div class="sidebar-brand-icon rotate-n-15">
@@ -58,8 +54,9 @@ include_once("seccion/sesiones.php");
                 </a>
             </li>
             <br>
-
-
+            <?php
+            // Este elemento es un encabezado de la barra lateral que se utiliza para organizar los elementos relacionados entre sí
+            ?>
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
@@ -74,7 +71,8 @@ include_once("seccion/sesiones.php");
             <div class="sidebar-heading">
                 Configuración
             </div>
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Pages Collapse Menu
+        // Este elemento es un enlace que muestra una lista desplegable de elementos cuando se hace clic en él-->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="bi bi-people"></i>
@@ -84,7 +82,10 @@ include_once("seccion/sesiones.php");
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Usuarios:</h6>
                         <a class="collapse-item" class="collapse-item" href="<?= SERVERURL  ?>perfilUsuario/">Mi perfil</a>
-                        <?php if ($tipo_usuario == 1) { ?>
+
+                        <?php
+                        // Este elemento es un enlace a la página de administración de usuarios que solo es visible para los usuarios con permisos de administrador
+                        if ($tipo_usuario == 1) { ?>
 
                             <a class="collapse-item" class="collapse-item" href="<?= SERVERURL  ?>usuarios/">Usuarios</a>
                         <?php } ?>
@@ -95,12 +96,10 @@ include_once("seccion/sesiones.php");
             <!-- Nav Item - Charts -->
             <!-- Divider -->
             <hr class="sidebar-divider">
-
             <!-- Heading -->
             <div class="sidebar-heading">
                 Datos de biznaga
             </div>
-
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -113,7 +112,7 @@ include_once("seccion/sesiones.php");
                         <a class="collapse-item" href="<?= SERVERURL  ?>plantas/">Mapa de Biznaga</a>
                         <a class="collapse-item" href="<?= SERVERURL  ?>registrosPlantas/">Registros</a>
                         <a class="collapse-item" href="<?= SERVERURL  ?>estadisticas/">Estadísticas </a>
-                        <!--<a class="collapse-item" href="galeria?pagina=1">Galeria</a>-->
+                       <!-- <a class="collapse-item" href="galeria?pagina=1">Galeria</a>-->
                         <?php if ($tipo_usuario == 1) { ?>
                             <a class="collapse-item" href="<?= SERVERURL  ?>categorias/">Categorías</a>
                         <?php } ?>
@@ -121,16 +120,13 @@ include_once("seccion/sesiones.php");
                     </div>
                 </div>
             </li>
-
             <hr class="sidebar-divider my-0">
-
             <li class="nav-item ">
                 <a class="nav-link" href="seccion/logout.php">
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Cerrar Sesión</span>
                 </a>
             </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
             <!-- Sidebar Toggler (Sidebar) -->

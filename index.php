@@ -1,11 +1,8 @@
 <?php
 include("admin/config/conexion.php");
 include("paginas/grafica.php");
-
 $sqlMapa = "SELECT * FROM mapa";
 $rel = mysqli_query($mysqli, $sqlMapa);
-
-
 ?>
 <?php include_once("template/head.php"); ?>
 <style>
@@ -38,134 +35,11 @@ $rel = mysqli_query($mysqli, $sqlMapa);
     }
 </style>
 <?php include_once("template/header.php"); ?>
-
-    
-
-<!--Mapa-->
 <?php include_once("paginas/mapa.php"); ?>
-
-
-<!--GALERIA-->
 <?php include_once("paginas/galeria.php"); ?>
-
-
-<!--TABLA DE RESULTADOS-->
 <?php include_once("paginas/registros.php"); ?>
-
-
-<!--PENDIENTE-->
-<!--<section id="testimonial" class=" bgLightGrey" >
-    <div class="container">
-        <div class="content-center">
-            <h2>A few words from <b>our clients…</b></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ea consequuntur, odit veniam mollitia
-                aliquam reiciendis dignissimos, vitae sapiente neque, cum dolorum.</p>
-        </div>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="carousel-container">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ea consequuntur, odit
-                            veniam mollitia aliquam reiciendis dignissimos, vitae sapiente neque, cum dolorum.
-                        </p>
-                        <div class="rating">
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                            </ul>
-                        </div>
-                        <div class="testimonial-user">
-                            <div class="row">
-                                <div class="col-md-3 col-3">
-                                    <img src="assets/images/member-01.jpg" class="img-fluid" alt="">
-                                </div>
-                                <div class="col-md-9 col-9">
-                                    <h6>Marissa Mayer</h6>
-                                    <span>Yahoo CEO</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-container">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ea consequuntur, odit
-                            veniam mollitia aliquam reiciendis dignissimos, vitae sapiente neque, cum dolorum.</p>
-                        <div class="rating">
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                            </ul>
-                        </div>
-                        <div class="testimonial-user">
-                            <div class="row">
-                                <div class="col-md-3 col-3">
-                                    <img src="assets/images/member-02.jpg" class="img-fluid" alt="">
-                                </div>
-                                <div class="col-md-9 col-9">
-                                    <h6>Marry Barra</h6>
-                                    <span>General Motors CEO</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-container">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ea consequuntur, odit
-                            veniam mollitia aliquam reiciendis dignissimos, vitae sapiente neque, cum dolorum.</p>
-                        <div class="rating">
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                                <li class="list-inline-item"><i class="icon ion-md-star"></i></li>
-                            </ul>
-                        </div>
-                        <div class="testimonial-user">
-                            <div class="row">
-                                <div class="col-md-3 col-3">
-                                    <img src="assets/images/member-03.jpg" class="img-fluid" alt="">
-                                </div>
-                                <div class="col-md-9 col-9">
-                                    <h6>Elon Musk</h6>
-                                    <span>Tesla CEO</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <div class="control-button">
-                    <img src="assets/images/arrow-borderless-left.svg" class="img-fluid">
-                </div>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <div class="control-button">
-                    <img src="assets/images/arrow-borderless-right.svg" class="img-fluid">
-                </div>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-</section>-->
-
-<!--DATOS ESTADISTICOS-->
 <?php include_once("paginas/resultados.php"); ?>
-
 <?php include_once("template/footer.php"); ?>
-
-
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="assets/js/jquery.js"></script>

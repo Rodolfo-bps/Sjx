@@ -22,8 +22,11 @@ $rel = mysqli_query($mysqli, $sqlMapa);
         <!-- Page Heading -->
         <!-- Page Heading -->
         <div class=" d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800"><i class="bi bi-geo-alt" style="font-size: 2rem;"></i> Plantas</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#agregarPlanta"><i class="bi bi-geo-alt"></i> Agregar Planta</a>
+            <h1 class="h3 mb-0 text-gray-800"><i class="bi bi-geo-alt" style="font-size: 2rem;">
+        </i> Plantas</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" 
+            data-toggle="modal" data-target="#agregarPlanta">
+                <i class="bi bi-geo-alt"></i> Agregar Planta</a>
         </div>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -32,7 +35,8 @@ $rel = mysqli_query($mysqli, $sqlMapa);
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered tabla" style="font-size: 13px;" id="example" width="100%" cellspacing="0">
+                    <table class="table table-bordered tabla" style="font-size: 13px;" 
+                    id="example" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Dirección</th>
@@ -64,7 +68,8 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                                     <td><?php echo $row['localidad']; ?></td>
                                     <td><?php echo $row['descripcion']; ?></td>
                                     <td>
-                                        <p class="btn btn-sm <?php echo $row['estado'] == 'activo' ? 'btn-success' : 'btn-danger'; ?>"><?php echo $row['estado']; ?></p>
+                                        <p class="btn btn-sm <?php echo $row['estado'] == 'activo' ? 'btn-success' : 'btn-danger'; ?>">
+                                        <?php echo $row['estado']; ?></p>
                                     </td>
                                     <td><?php echo $row['lat']; ?></td>
                                     <td><?php echo $row['lng']; ?></td>
@@ -99,29 +104,18 @@ $rel = mysqli_query($mysqli, $sqlMapa);
 
                     <div class="row">
                         <?php
-
                         //saber numero de usuarios
                         $sqlUser = "SELECT * FROM mapa";
-
                         if ($resulUser = mysqli_query($mysqli, $sqlUser)) {
                             $numUser = mysqli_num_rows($resulUser);
                         }
-
                         ?>
-
                         <div class="col-md-4">
                             <h4>
                                 Número de plantas <span class="text-success"><strong><?= $numUser ?></strong></span>
                             </h4>
-
-
-
-
                         </div>
                         <br><br>
-
-
-
                     </div>
 
                 </div>

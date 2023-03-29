@@ -1,16 +1,18 @@
 <?php
 
 include("config/conexion.php");
-
 $localidades = ("SELECT * FROM mapa");
 $rel = mysqli_query($mysqli, $localidades);
 
 // Valores con PHP. Estos podrían venir de una base de datos o de cualquier lugar del servidor
 $etiquetas =
     [
-        "Barranca Salada", "Barrio San Pedro", "Canada Estaca", "Cañada San Miguel", "El Carrizal",
-        "El Cuajilote", "El Mosco", "Gabino Barreda", "La Huertilla", "San Jeronimo Primera Seccion",
-        "San Jeronimo Segunda Seccion",  "Santo Domingo Tonahuixtla", "Canada Sandia"
+        "Barranca Salada", "Barrio San Pedro", "Canada Estaca",
+        "Cañada San Miguel", "El Carrizal",
+        "El Cuajilote", "El Mosco", "Gabino Barreda",
+        "La Huertilla", "San Jeronimo Primera Seccion",
+        "San Jeronimo Segunda Seccion",  "Santo Domingo Tonahuixtla",
+        "Canada Sandia"
     ];
 
 $localidad = [];
@@ -56,7 +58,6 @@ while ($row = $rel->fetch_assoc()) {
         $sjPrimera += 1;
     } else if ($localidad == $etiquetas[10]) {
         $sjSegunda += 1;
-    
     } else if ($localidad == $etiquetas[11]) {
         $sdTona += 1;
     } else if ($localidad == $etiquetas[12]) {
@@ -64,13 +65,22 @@ while ($row = $rel->fetch_assoc()) {
     }
 }
 
-$datosVentas = [$bSalada, $bsPedro, $cEstaca, $csMiguel, $eCarrizal, $eCuajilote, $eMosco, $gBarreda, $lHuertilla, $sjPrimera, $sjSegunda,  $sdTona, $cSandia];
+$datosVentas = [
+    $bSalada, $bsPedro, $cEstaca, $csMiguel,
+    $eCarrizal, $eCuajilote, $eMosco, $gBarreda, $lHuertilla,
+    $sjPrimera, $sjSegunda,  $sdTona, $cSandia
+];
 
 $valores =
     [
-        "Barranca Salada" => $bSalada, "Barrio San Pedro" => $bsPedro, "Canada Estaca" => $cEstaca, "Canada San Miguel" => $csMiguel, "El Carrizal" => $eCarrizal,
-        "El Cuajilote" => $eCuajilote, "El Mosco" => $eMosco, "Gabino Barreda" =>  $gBarreda, "La Huertilla" => $lHuertilla, "San Jeronimo Primera Seccion" => $sjPrimera,
-        "San Jeronimo Segunda Seccion" => $sjSegunda,  "Santo Domingo Tonahuixtla" => $sdTona, "Canada Sandia" => $cSandia
+        "Barranca Salada" => $bSalada, "Barrio San Pedro" =>
+        $bsPedro, "Canada Estaca" => $cEstaca,
+        "Canada San Miguel" => $csMiguel, "El Carrizal" => $eCarrizal,
+        "El Cuajilote" => $eCuajilote, "El Mosco" => $eMosco,
+        "Gabino Barreda" =>  $gBarreda, "La Huertilla" => $lHuertilla,
+        "San Jeronimo Primera Seccion" => $sjPrimera,
+        "San Jeronimo Segunda Seccion" => $sjSegunda,
+        "Santo Domingo Tonahuixtla" => $sdTona, "Canada Sandia" => $cSandia
     ];
 
 $maxPlantas = max($valores);
@@ -95,14 +105,16 @@ $fecha = date("y-m-d");
 
 //obtener los ultimos 7 dias
 $dia = date('Y-m-d', strtotime($fecha . '- 7 days'));
-$sqlDias = ("SELECT fecha_registro FROM mapa WHERE fecha_registro BETWEEN '$dia' AND '$fecha'");
+$sqlDias = ("SELECT fecha_registro FROM mapa WHERE fecha_registro 
+BETWEEN '$dia' AND '$fecha'");
 if ($sqlDias = mysqli_query($mysqli, $sqlDias)) {
     $sqlDias = mysqli_num_rows($sqlDias);
 }
 
 //obtener los del mes
 $mes = date('Y-m-d', strtotime($fecha . '- 1 month'));
-$sqlMeses = ("SELECT fecha_registro FROM mapa WHERE fecha_registro BETWEEN '$mes' AND '$fecha'");
+$sqlMeses = ("SELECT fecha_registro FROM mapa WHERE 
+fecha_registro BETWEEN '$mes' AND '$fecha'");
 if ($sqlMeses = mysqli_query($mysqli, $sqlMeses)) {
     $sqlMeses = mysqli_num_rows($sqlMeses);
 }
@@ -111,7 +123,8 @@ if ($sqlMeses = mysqli_query($mysqli, $sqlMeses)) {
 //obtener los del anio
 $anio = date('Y-m-d', strtotime($fecha . '- 1 year'));
 
-$sqlAnio = ("SELECT fecha_registro FROM mapa WHERE fecha_registro BETWEEN '$anio' AND '$fecha'");
+$sqlAnio = ("SELECT fecha_registro FROM mapa WHERE fecha_registro 
+BETWEEN '$anio' AND '$fecha'");
 if ($sqlAnio = mysqli_query($mysqli, $sqlAnio)) {
     $sqlAnio = mysqli_num_rows($sqlAnio);
 }

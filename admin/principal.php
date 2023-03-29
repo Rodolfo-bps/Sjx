@@ -1,13 +1,9 @@
 <?php
 
 include("seccion/sesiones.php");
-
 include("config/config.php");
-
-
 //saber numero de usuarios
 $sqlUser = "SELECT * FROM usuarios";
-
 if ($resulUser = mysqli_query($mysqli, $sqlUser)) {
     $numUser = mysqli_num_rows($resulUser);
 }
@@ -70,9 +66,6 @@ $password_bd = $row["password"];
 <!-- Sidebar -->
 <?php include("template/menu.php") ?>
 <!-- End of Sidebar -->
-
-
-
 <!-- Topbar -->
 <?php include("template/header.php") ?>
 <!-- End of Topbar -->
@@ -89,7 +82,6 @@ $password_bd = $row["password"];
             $views = explode("/", $_GET['view']);
             include 'view/' . $views[0] . '.php';
         } else {
-
         }
 
         ?>
@@ -109,7 +101,8 @@ $password_bd = $row["password"];
 
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+</script>
 <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
 </script>
@@ -166,16 +159,16 @@ $password_bd = $row["password"];
                 );
                 const contentString =
                     '<div class="border-form-mapa"  style="margin: 0px; padding: 0px; width: 300px;height: 300px; text-align:center; ">' +
-                    
+
                     '<p style="color: #495057; font-size: 22px;"><i class="fa fa-fw fa-map-marker"></i> <strong>' + direccion + '</strong></p>' +
-                    '<hr>'+
+                    '<hr>' +
                     "<img alt='90' style='border: 3px solid #556ee6; border-radius: 8px; box-shadow: 12px 14px 22px -16px rgba(0,0,0.6);' width='300' class='rounded mx-auto d-block' src='http://localhost/sjx/admin/img/imagenesPlantas/" + imagen + "' >" + "<br>" +
-                    '<hr>'+
+                    '<hr>' +
                     "<form  action='http://localhost/sjx/admin/editarPlanta' method='post'>" +
                     "<input type='hidden' name='id_planta' value='" + id_planta + "'>" +
                     "<input class='btn_planta' style='border: none; border-radius: 12px; font-size: 18px;padding: 12px 12px; width: 80%;color: #fff; background-color: #556ee6; border-color: #556ee6; box-shadow: 12px 14px 22px -16px rgba(0,0,0.6);'  type='submit' value='Ver mas'>" +
                     "</form>" +
-                    '<br><br>'+
+                    '<br><br>' +
                     "</div>";
 
                 //const image = "img/soldadoss.png";

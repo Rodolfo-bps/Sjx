@@ -1,24 +1,15 @@
 <?php
-
-
 $id_categoria = $_POST['id_categoria'];
-
 $updateSQL = "SELECT * FROM categorias WHERE id_categoria = '$id_categoria' ";
 $update = mysqli_query($mysqli, $updateSQL);
 
 while ($row = mysqli_fetch_array($update)) {
-
     $id_categoria = $row[0];
     $nombre_categoria = $row[1];
     $color_categoria = $row[2];
     $fecha_creacion = $row[3];
 }
-
 ?>
-
-
-
-
 <div class="tabcontent">
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -26,10 +17,9 @@ while ($row = mysqli_fetch_array($update)) {
         <!-- Page Heading -->
         <div class=" d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Actualizar Categoría</h1>
-
         </div>
         <div class="alert alert-danger" role="alert">
-            Cambiar la categoría  puede afectar los datos de las plantas<br>
+            Cambiar la categoría puede afectar los datos de las plantas<br>
             Asegúrese de que no tenga registros con esta categoría.
         </div>
         <!-- DataTales Example -->
@@ -49,10 +39,9 @@ while ($row = mysqli_fetch_array($update)) {
                         <div class="form-group">
                             <input type="color" class="form-control" id="color_categoria" name="color_categoria" value="<?php echo $color_categoria; ?>">
                         </div>
-
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <a href="<?= SERVERURL."categorias"?>" class="btn btn-default">Regresar </a>
+                            <a href="<?= SERVERURL . "categorias" ?>" class="btn btn-default">Regresar </a>
                             <button type="submit" class="btn btn-info pull-right" name="btn_actualizar_categoria">Actualizar</button>
                         </div>
                         <!-- /.box-footer -->

@@ -1,6 +1,5 @@
+
 Options All -Indexes
-
-
-
 RewriteEngine On
 RewriteRule ^([a-zA-Z0-9/]+)$ principal.php?view=$1
+

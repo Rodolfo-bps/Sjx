@@ -1,7 +1,5 @@
 <?php
 include_once("../config/conexion.php");
-
-
 //insertar datos
 if (isset($_REQUEST['btn_guardar'])) {
     //metodo post
@@ -30,8 +28,10 @@ if (isset($_REQUEST['btn_guardar'])) {
         $tipo_usuario = 2;
     }
 
-    $sql = "INSERT INTO usuarios (nombre_usuario, nombre, apellidos, correo, password,rol, tipo_usuario, imagen) 
-    VALUES ('$nombre_usuario', '$nombre','$apellidos','$correo','$password','$rol', '$tipo_usuario' ,'$imagen')";
+    $sql = "INSERT INTO usuarios (nombre_usuario, nombre, apellidos, correo, 
+    password,rol, tipo_usuario, imagen) 
+    VALUES ('$nombre_usuario', '$nombre','$apellidos','$correo','$password',
+    '$rol', '$tipo_usuario' ,'$imagen')";
     $ejecutar = mysqli_query($mysqli, $sql);
 
     //si se ejecuta de manera eficiente
@@ -44,15 +44,11 @@ if (isset($_REQUEST['btn_guardar'])) {
 
 //btn eliminar datos
 if (isset($_REQUEST['btn_eliminar'])) {
-
     //metodo post
     $id_usuario = $_POST['id_usuario'];
-
-
     //borrar imagen
     $borrarSQL = ("SELECT imagen FROM `usuarios` WHERE id_usuario = '$id_usuario'");
     $imagenes = mysqli_query($mysqli, $borrarSQL);
-
     $nombreImagen = [];
 
     while ($imagen = mysqli_fetch_array($imagenes)) {
@@ -87,7 +83,8 @@ if (isset($_REQUEST['btn_actualizar'])) {
     $rol = $_POST['rol'];
     $imagen = $_FILES['imagen']['name'];
 
-    $sqlUser = "UPDATE usuarios SET nombre_usuario = '$nombre_usuario', nombre = '$nombre', apellidos = '$apellidos', 
+    $sqlUser = "UPDATE usuarios SET nombre_usuario = '$nombre_usuario', nombre = 
+    '$nombre', apellidos = '$apellidos', 
     correo = '$correo' WHERE id_usuario = '$id_usuario'";
     $ejecutar = mysqli_query($mysqli, $sqlUser);
 
@@ -112,7 +109,8 @@ if (isset($_REQUEST['btn_actualizar'])) {
         if (isset($nombreImagen[0])) {
             if (file_exists("../img/imagenesUsuarios/" . $nombreImagen[0])) {
                 unlink("../img/imagenesUsuarios/" . $nombreImagen[0]);
-                $sql = "UPDATE usuarios SET imagen = '$nombreArchivo' WHERE id_usuario = '$id_usuario'";
+                $sql = "UPDATE usuarios SET imagen = '$nombreArchivo' WHERE 
+                id_usuario = '$id_usuario'";
                 $ejecutar2 = mysqli_query($mysqli, $sql);
             }
         }

@@ -4,7 +4,9 @@
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <h3><strong>SJX</strong></h3>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
                     SJX
                 </button>
 
@@ -22,10 +24,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#registros">Registros</a>
                         </li>
-                        <!--
-                        <li class="nav-item">
-                            <a class="nav-link" href="#testimonial">Pricing</a>
-                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="#resultados">Resultados</a>
                         </li>

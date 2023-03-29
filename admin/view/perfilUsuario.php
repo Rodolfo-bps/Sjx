@@ -1,10 +1,8 @@
 <?php
 
 if (isset($_SESSION['id_usuario'])) {
-
     $sql = ("SELECT * FROM usuarios WHERE id_usuario='$id_usuario' ");
     $resultado = mysqli_query($mysqli, $sql);
-
     while ($row = mysqli_fetch_array($resultado)) {
         $id = $row[0];
         $nombre_usuario = $row[1];
@@ -42,8 +40,8 @@ if (isset($_SESSION['id_usuario'])) {
                             <div class="form-row">
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Usuario</label>
-                                    <input type="text" readonly class="form-control" id="nombre_usuario" name="nombre_usuario" value="<?= $nombre_usuario ?>">
-
+                                    <input type="text" readonly class="form-control" id="nombre_usuario" name="nombre_usuario" 
+                                    value="<?= $nombre_usuario ?>">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom02">Nombre</label>

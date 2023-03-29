@@ -1,6 +1,4 @@
 <?php
-
-
 $id_planta = $_GET['id_planta'];
 
 $sql = "SELECT * FROM mapa WHERE id_planta = '$id_planta' ";

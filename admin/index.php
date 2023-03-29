@@ -6,7 +6,9 @@ if ($_POST) {
     $nombre_usuario = $_POST['nombre_usuario'];
     $password = $_POST['password'];
 
-    $sql = ("SELECT id_usuario, nombre_usuario, nombre, password, rol, tipo_usuario FROM usuarios WHERE nombre_usuario = '$nombre_usuario'");
+    $sql = ("SELECT id_usuario, nombre_usuario, nombre, 
+    password, rol, tipo_usuario FROM usuarios WHERE nombre_usuario 
+    = '$nombre_usuario'");
     $resultado = $mysqli->query($sql);
 
 
@@ -109,8 +111,10 @@ if ($_POST) {
 
 
                                         <div class="modal-footer">
-                                            <a href="../index.php" style="border-radius: 18px; " type="button" class="btn btn-danger pull-left">Atras</a>
-                                            <button style="border-radius: 18px;;" type="submit" class="btn btn-primary" name="btn_guardar">Iniciar Sesion</button>
+                                            <a href="../index.php" style="border-radius: 18px; " 
+                                            type="button" class="btn btn-danger pull-left">Atras</a>
+                                            <button style="border-radius: 18px;;" type="submit" 
+                                            class="btn btn-primary" name="btn_guardar">Iniciar Sesion</button>
                                         </div>
 
                                 </div>

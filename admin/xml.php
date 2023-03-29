@@ -17,10 +17,7 @@ $result = mysqli_query($mysqli, $query);
 if (!$result) {
   die('Invalidproyecto query: ' . mysqli_error());
 }
-
 header("Content-type: text/xml");
-
-
 echo "<?xml version='1.0' ?>";
 echo '<markers>';
 $ind = 0;
