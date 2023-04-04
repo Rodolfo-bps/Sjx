@@ -1,8 +1,13 @@
 <?php
 include("admin/config/conexion.php");
+
 include("paginas/grafica.php");
 $sqlMapa = "SELECT * FROM mapa";
 $rel = mysqli_query($mysqli, $sqlMapa);
+
+$sqlBlog = "SELECT nombre_blog FROM blog";
+$rel2 = mysqli_query($mysqli, $sqlBlog);
+
 ?>
 <?php include_once("template/head.php"); ?>
 <style>
@@ -34,8 +39,18 @@ $rel = mysqli_query($mysqli, $sqlMapa);
         color: white;
     }
 </style>
+<?php
+$resultados = array();
+while ($row2 = $rel2->fetch_assoc()) {
+
+    array_push($resultados, $row2);
+}
+
+?>
+
 <?php include_once("template/header.php"); ?>
 <?php include_once("paginas/mapa.php"); ?>
+
 <?php include_once("paginas/galeria.php"); ?>
 <?php include_once("paginas/registros.php"); ?>
 <?php include_once("paginas/resultados.php"); ?>

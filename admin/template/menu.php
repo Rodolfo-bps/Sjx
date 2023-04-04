@@ -46,11 +46,11 @@ include_once("seccion/sesiones.php");
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <li class="nav-item">
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="principal.php">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= NAME_PAGE."inicio" ?>">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="bi bi-clipboard2-data"></i>
                     </div>
-                    <div class="sidebar-brand-text mx-1"><?= NAME_PAGE ?></div>
+                    <div class="sidebar-brand-text mx-1"><?= NAME_PAGE?></div>
                 </a>
             </li>
             <br>
@@ -103,7 +103,7 @@ include_once("seccion/sesiones.php");
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="bi-flower3"></i>
                     <span>Biznaga</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -112,7 +112,7 @@ include_once("seccion/sesiones.php");
                         <a class="collapse-item" href="<?= SERVERURL  ?>plantas/">Mapa de Biznaga</a>
                         <a class="collapse-item" href="<?= SERVERURL  ?>registrosPlantas/">Registros</a>
                         <a class="collapse-item" href="<?= SERVERURL  ?>estadisticas/">Estadísticas </a>
-                       <!-- <a class="collapse-item" href="galeria?pagina=1">Galeria</a>-->
+                        <!-- <a class="collapse-item" href="galeria?pagina=1">Galeria</a>-->
                         <?php if ($tipo_usuario == 1) { ?>
                             <a class="collapse-item" href="<?= SERVERURL  ?>categorias/">Categorías</a>
                         <?php } ?>
@@ -122,11 +122,20 @@ include_once("seccion/sesiones.php");
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item ">
-                <a class="nav-link" href="seccion/logout.php">
+                <a class="nav-link" href="<?= SERVERURL  ?>registrosBlog/">
+                    <i class="bi bi-book"></i>
+                    <span>Blog</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item ">
+                <a class="nav-link" href="<?= SERVERURL  ?>seccion/logout.php">
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Cerrar Sesión</span>
                 </a>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
             <!-- Sidebar Toggler (Sidebar) -->

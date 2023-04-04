@@ -81,7 +81,7 @@ if (isset($_REQUEST['btn_editar_perfil'])) {
                     </div>
 
                     <div class="modal-footer">
-                        <a href="usuarios.php" type="buttom" class="btn btn-danger pull-left" data-dismiss="modal">
+                        <a href="<?= SERVERURL . "usuarios" ?>" type="buttom" class="btn btn-danger pull-left" data-dismiss="modal">
                             <i class="bi bi-x-circle-fill"></i> Cancelar</a>
                         <button type="submit" class="btn btn-primary" name="btn_actualizar"><i class="bi bi-check2-circle"></i> Actualizar</button>
                     </div>

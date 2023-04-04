@@ -22,14 +22,7 @@ if ($sqlActive = mysqli_query($mysqli, $sqlActive)) {
                 <div class="col-md-6 mt-4">
                     <h3>Información  recolectada del Municipio </h3>
                     <p>
-                        Se debe ampliar el conocimiento de las cactáceas 
-                        y demás plantas suculentas mediante diversas estrategias 
-                        educativas dirigidas a los diferentes sectores de la población, 
-                        realizando actividades orientadas a conservar el hábitat, 
-                        fomentar la formación de jardines de cactáceas, concientizar a la 
-                        sociedad mexicana sobre la importancia de la conservación de la 
-                        riqueza de esta flora de Nuevo León y integrar archivos fotográficos 
-                        y de localidades de las plantas en su hábitat. (Sánchez et al. 2010, pág. 3).
+                    <?php echo $resultados[3]['nombre_blog']; ?>
                     </p>
                 </div>
                 <div class="col-md-6 mt-4">
@@ -47,9 +40,9 @@ if ($sqlActive = mysqli_query($mysqli, $sqlActive)) {
                             <div class="form-group">
                                 <label for="">Localidad con menor registros</label>
                                 <strong>
+                                    <ul></ul>
                                     <input style="background: white; color: green;" type="text" readonly 
-                                    class="form-control" value="<?php foreach ($menor as $r) {
-                                                                                                                                                 } ?>">
+                                    class="form-control" value="<?php foreach ($menor as $r) { echo $r; } ?>">
                                 </strong>
 
                             </div>

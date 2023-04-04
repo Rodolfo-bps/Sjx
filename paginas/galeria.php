@@ -2,11 +2,7 @@
     <div class="container">
         <div class="content-center">
             <h2>Biznagas del Municipio de <b>San Jerónimo Xayacatlán</b></h2>
-            <p>Las tasas de crecimiento en estas plantas son muy bajas y que
-                además el empobrecimiento biológico de las comunidades desérticas
-                 y semidesérticas de México es causado por la extracción ilegal de 
-                 ejemplares adultos completos y a la comercialización de su parénquima 
-                 para la elaboración del acitrón (Gomez et al. 2021, pág. 119).</p>
+            <p><?php echo $resultados[2]['nombre_blog']; ?></p>
         </div>
         <div class="row">
             <?php

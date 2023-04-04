@@ -2,10 +2,7 @@
     <div class="container">
         <div class="content-center">
             <h2>Registros de <b>biznagas</b></h2>
-            <p>Aunque el acitrón es delicioso, 
-                su consumo está prohibido en México, pues las biznagas, 
-                plantas de donde se obtiene la pulpa para este alimento 
-                se encuentran en peligro de extinción.</p>
+            <p><?php echo $resultados[3]['nombre_blog']; ?></p>
         </div>
         <div class="row">
             <div class="pricing-container">

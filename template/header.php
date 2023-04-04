@@ -43,7 +43,7 @@
     <duv class="container">
         <div class="content-center">
             <h1 class="mt-5" style="color: #000;">San Jerónimo Xayacatlán</h1>
-            <p style="color: #000;">El municipio de San Jerónimo Xayacatlán se localiza en la parte centro-sur del Estado de Puebla. Sus colindancias son: Al Norte con los municipios de Santa Inés Ahuatempan, Tepexi de Rodríguez, y Coyotepec, al sur colinda con el municipio de Petlalcingo, al Oeste colinda con el municipio de Totoltepec de Guerrero y al Poniente colinda con los municipios de Xayacatlán de Bravo y Acatlán.</p>
+            <p style="color: #000;"><?php echo $resultados[0]['nombre_blog']; ?></p>
         </div>
     </duv>
 </section>
