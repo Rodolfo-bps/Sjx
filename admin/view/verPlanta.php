@@ -14,6 +14,8 @@ while ($row = $update->fetch_assoc()) {
     $estado = $row['estado'];
     $latitud = $row['lat'];
     $longitud = $row['lng'];
+    $altura = $row['altura'];
+    $anchura = $row['anchura'];
 }
 
 ?>
@@ -26,7 +28,7 @@ while ($row = $update->fetch_assoc()) {
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class=" d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Informacion de Usuario</h1>
+            <h1 class="h3 mb-0 text-gray-800">Informacion de la biznaga</h1>
         </div>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -67,6 +69,12 @@ while ($row = $update->fetch_assoc()) {
                         </div>
                         <div class="form-group">
                             <input readonly type="text" class="form-control" id="lng" name="lng" value="<?php echo $longitud; ?>">
+                        </div>
+                        <div class="form-group">
+                            <input readonly type="text" class="form-control" id="altura" name="altura" value="<?php echo $altura; ?>">
+                        </div>
+                        <div class="form-group">
+                            <input readonly type="text" class="form-control" id="anchura" name="anchura" value="<?php echo $anchura; ?>">
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-smd-2 control-label">Imagen</label><br>

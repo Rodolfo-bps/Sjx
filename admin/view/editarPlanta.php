@@ -11,10 +11,12 @@ while ($row = mysqli_fetch_array($update)) {
     $estado = $row[5];
     $latitud = $row[6];
     $longitud = $row[7];
-    $categoria = $row[8];
-    $fecha_registro = $row[9];
-    $fecha_baja = $row[10];
-    $fecha_actualizacion = $row[11];
+    $altura = $row[8];
+    $anchura = $row[9];
+    $especie = $row[10];
+    $fecha_registro = $row[11];
+    $fecha_baja = $row[12];
+    $fecha_actualizacion = $row[13];
 }
 
 ?>
@@ -80,6 +82,12 @@ while ($row = mysqli_fetch_array($update)) {
                         <div class="form-group">
                             <input type="text" class="form-control" id="lng" name="lng" value="<?php echo $longitud; ?>">
                         </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lat" name="lat" value="<?php echo $altura; ?>">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lng" name="lng" value="<?php echo $anchura; ?>">
+                        </div>
 
                         <div class="form-group">
                             <label for="inputEmail3" class="col-smd-2 control-label">Imagen</label><br>
@@ -97,7 +105,7 @@ while ($row = mysqli_fetch_array($update)) {
                                 <option value="<?= $categoria ?>"><?= $categoria ?></option>
 
                                 <?php while ($row = $categorias->fetch_assoc()) {
-                                    if ($categoria == $row['nombre_categoria']) {
+                                    if ($especie == $row['nombre_categoria']) {
                                 ?>
                                     <?php
                                     } else { ?>

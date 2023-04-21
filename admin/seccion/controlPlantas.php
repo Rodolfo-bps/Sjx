@@ -11,7 +11,9 @@ if (isset($_REQUEST['btn_guardar'])) {
     $estado = $_POST['estado'];
     $lat = $_POST['lat'];
     $lng = $_POST['lng'];
-    $categoria = $_POST['categoria'];
+    $altura = $_POST['altura'];
+    $anchura = $_POST['anchura'];
+    $especie = $_POST['especie'];
 
     //no se repita la imagen
     $fecha = new DateTime();
@@ -21,8 +23,8 @@ if (isset($_REQUEST['btn_guardar'])) {
     move_uploaded_file($imagen_temporal, "../img/imagenesPlantas/" . $imagen);
 
     //insertar
-    $sql = "INSERT INTO mapa (id_planta, direccion, localidad ,descripcion, imagen, estado ,lat, lng, categoria) 
-                VALUES (NULL, '$direccion', '$localidad', '$descripcion', '$imagen', '$estado' , '$lat', '$lng', '$categoria');";
+    $sql = "INSERT INTO mapa (id_planta, direccion, localidad ,descripcion, imagen, estado ,lat, lng, altura, anchura, especie) 
+                VALUES (NULL, '$direccion', '$localidad', '$descripcion', '$imagen', '$estado' , '$lat', '$lng', '$altura', '$anchura','$especie');";
     $ejecutar = mysqli_query($mysqli, $sql);
 
     header("location: http://localhost/sjx/admin/registrosPlantas");
@@ -65,7 +67,9 @@ if (isset($_REQUEST['btn_actualizar'])) {
     $estado = $_POST['estado'];
     $lat = $_POST['lat'];
     $lng = $_POST['lng'];
-    $categoria = $_POST['categoria'];
+    $altura = $_POST['altura'];
+    $anchura = $_POST['anchura'];
+    $especie = $_POST['especie'];
     $fecha_actualizacion = $_POST['fecha_actualizacion'];
     $imagen = $_FILES['imagen']['name'];
 
@@ -77,7 +81,7 @@ if (isset($_REQUEST['btn_actualizar'])) {
     }
 
     $sqlUser = "UPDATE mapa SET direccion = '$direccion', localidad = '$localidad' ,descripcion = '$descripcion', estado = '$estado' , lat = '$lat', 
-     lng = '$lng', categoria = '$categoria', fecha_actualizacion = '$fecha_actualizacion' WHERE id_planta = '$id_planta'";
+     lng = '$lng', altura = '$altura', anchura = '$anchura', categoria = '$categoria', fecha_actualizacion = '$fecha_actualizacion' WHERE id_planta = '$id_planta'";
     $ejecutar = mysqli_query($mysqli, $sqlUser);
 
     if ($imagen != "") {

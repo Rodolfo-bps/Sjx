@@ -23,9 +23,8 @@ $rel = mysqli_query($mysqli, $sqlMapa);
         <!-- Page Heading -->
         <div class=" d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800"><i class="bi bi-geo-alt" style="font-size: 2rem;">
-        </i> Plantas</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" 
-            data-toggle="modal" data-target="#agregarPlanta">
+                </i> Plantas</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#agregarPlanta">
                 <i class="bi bi-geo-alt"></i> Agregar Planta</a>
         </div>
         <!-- DataTales Example -->
@@ -35,8 +34,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered tabla" style="font-size: 13px;" 
-                    id="example" width="100%" cellspacing="0">
+                    <table class="table table-bordered tabla" style="font-size: 13px;" id="example" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Dirección</th>
@@ -45,7 +43,9 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                                 <th>Estado</th>
                                 <th>Latitud</th>
                                 <th>Longitud</th>
-                                <th>Categorías</th>
+                                <th>Altura</th>
+                                <th>Anchura</th>
+                                <th>Especie</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -57,7 +57,9 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                                 <th>Estado</th>
                                 <th>Latitud</th>
                                 <th>Longitud</th>
-                                <th>Categorías</th>
+                                <th>Altura</th>
+                                <th>Anchura</th>
+                                <th>Especie</th>
                                 <th>Acciones</th>
                             </tr>
                         </tfoot>
@@ -69,13 +71,14 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                                     <td><?php echo $row['descripcion']; ?></td>
                                     <td>
                                         <p class="btn btn-sm <?php echo $row['estado'] == 'activo' ? 'btn-success' : 'btn-danger'; ?>">
-                                        <?php echo $row['estado']; ?></p>
+                                            <?php echo $row['estado']; ?></p>
                                     </td>
                                     <td><?php echo $row['lat']; ?></td>
                                     <td><?php echo $row['lng']; ?></td>
-
+                                    <td><?php echo $row['altura']; ?></td>
+                                    <td><?php echo $row['anchura']; ?></td>
                                     <td>
-                                        <p class="btn btn-sm"><?php echo $row['categoria']; ?></p>
+                                        <p class="btn btn-sm"><?php echo $row['especie']; ?></p>
 
                                     </td>
                                     <td>
@@ -206,6 +209,20 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                         <input required type="text" class="form-control" id="lng" name="lng" placeholder="Longitud">
 
                     </div>
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
+                        </div>
+                        <input required type="text" class="form-control" id="altura" name="altura" placeholder="Altura">
+                    </div>
+
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
+                        </div>
+                        <input required type="text" class="form-control" id="anchura" name="anchura" placeholder="Anchura">
+
+                    </div>
 
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
@@ -217,7 +234,7 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                         $categorias = mysqli_query($mysqli, $sqlCategorias);
 
                         ?>
-                        <select required name="categoria" id="categoria" class="form-control">
+                        <select required name="especie" id="especie" class="form-control">
                             <?php while ($row = $categorias->fetch_assoc()) { ?>
 
                                 <option value="<?php echo $row['nombre_categoria']; ?>"><?php echo $row['nombre_categoria']; ?></option>
