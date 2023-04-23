@@ -1,3 +1,5 @@
+
+
 <section id="registros" class="divider">
     <div class="container">
         <div class="content-center">
@@ -15,7 +17,9 @@
                             <th>Estado</th>
                             <th>Latitud</th>
                             <th>Longitud</th>
-                            <th>Categoría</th>
+                            <th>Altura</th>
+                            <th>Anchura</th>
+                            <th>Especie</th>
                             <th>Fecha de registro</th>
                             <th>Fecha de actualización </th>
                         </tr>
@@ -28,7 +32,9 @@
                             <th>Estado</th>
                             <th>Latitud</th>
                             <th>Longitud</th>
-                            <th>Categoría</th>
+                            <th>Altura</th>
+                            <th>Anchura</th>
+                            <th>Especie</th>
                             <th>Fecha de registro</th>
                             <th>Fecha de actualización </th>
                         </tr>
@@ -42,11 +48,13 @@
                                 <td>
                                     <p class="btn btn-sm 
                                     <?php echo $row['estado'] == 'activo' ? 'btn-success' : 'btn-danger'; ?>">
-                                    <?php echo $row['estado']; ?></p>
+                                        <?php echo $row['estado']; ?></p>
                                 </td>
                                 <td><?php echo $row['lat']; ?></td>
                                 <td><?php echo $row['lng']; ?></td>
-                                <td><?php echo $row['categoria']; ?></td>
+                                <td><?php echo $row['altura']; ?></td>
+                                <td><?php echo $row['anchura']; ?></td>
+                                <td><?php echo $row['especie']; ?></td>
                                 <td><?php echo $row['fecha_registro']; ?></td>
                                 <td><?php echo $row['fecha_actualizacion']; ?></td>
                             </tr>

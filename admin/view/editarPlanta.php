@@ -1,4 +1,17 @@
 <?php
+
+// variable de formulario
+$id_planta = !empty($_POST['id_planta']) ? $_POST['id_planta'] : 0;
+// consultamos registro segun ID
+$r = mysqli_query($mysqli, "SELECT * FROM mapa WHERE id_planta = '$id_planta' ");
+// verificamos existencia de registro
+if (mysqli_num_rows($r) == false) {
+    exit("No se encontro un ID a editar: " . $id_planta);
+}
+// guardamos datos de registro en variable y liberamos consulta
+$datosPlanta = mysqli_fetch_array($r);
+mysqli_free_result($r);
+/*
 $id_planta = $_POST['id_planta'];
 $updateSQL = "SELECT * FROM mapa WHERE id_planta = '$id_planta' ";
 $update = mysqli_query($mysqli, $updateSQL);
@@ -18,7 +31,7 @@ while ($row = mysqli_fetch_array($update)) {
     $fecha_baja = $row[12];
     $fecha_actualizacion = $row[13];
 }
-
+*/
 ?>
 <div class="tabcontent">
     <!-- Begin Page Content -->
@@ -37,14 +50,14 @@ while ($row = mysqli_fetch_array($update)) {
                 <form class="form-horizontal" method="POST" action="seccion/controlPlantas.php" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
-                            <input type="text" style="background: #fff;" readonly class="form-control" id="id_planta" name="id_planta" value="<?php echo $idPlanta ?>">
+                            <input type="text" style="background: #fff;" readonly class="form-control" id="id_planta" name="id_planta" value="<?= $datosPlanta['id_planta'] ?>">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="direccion" name="direccion" value="<?php echo $direccion; ?>">
+                            <input type="text" class="form-control" id="direccion" name="direccion" value="<?= $datosPlanta['direccion'] ?>">
                         </div>
                         <div class="form-group">
                             <select name="localidad" id="localidad" class="form-control">
-                                <option value="<?php echo $localidad ?>"><?php echo $localidad ?></option>
+                                <option value="<?= $datosPlanta['localidad'] ?>"><?= $datosPlanta['localidad'] ?></option>
                                 <option value="Barranca Salda">Barranca Salda</option>
                                 <option value="Barrio San Pedro">Barrio San Pedro</option>
                                 <option value="Cañada Estaca">Cañada Estaca</option>
@@ -62,11 +75,11 @@ while ($row = mysqli_fetch_array($update)) {
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>">
+                            <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?= $datosPlanta['descripcion'] ?>">
                         </div>
                         <div class="form-group">
                             <select name="estado" id="estado" class="form-control">
-                                <?php if ($estado == "activo") { ?>
+                                <?php if ($datosPlanta['estado'] == "activo") { ?>
                                     <option value="activo">Activo</option>
                                     <option value="inactivo">Inactivo</option>
                                 <?php } else { ?>
@@ -77,24 +90,24 @@ while ($row = mysqli_fetch_array($update)) {
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="lat" name="lat" value="<?php echo $latitud; ?>">
+                            <input type="text" class="form-control" id="lat" name="lat" value="<?= $datosPlanta['lat'] ?>">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="lng" name="lng" value="<?php echo $longitud; ?>">
+                            <input type="text" class="form-control" id="lng" name="lng" value="<?= $datosPlanta['lng'] ?>">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="lat" name="lat" value="<?php echo $altura; ?>">
+                            <input type="text" class="form-control" id="lat" name="lat" value="<?= $datosPlanta['altura'] ?>">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="lng" name="lng" value="<?php echo $anchura; ?>">
+                            <input type="text" class="form-control" id="lng" name="lng" value="<?= $datosPlanta['anchura'] ?>">
                         </div>
 
                         <div class="form-group">
                             <label for="inputEmail3" class="col-smd-2 control-label">Imagen</label><br>
-                            <img src="<?= SERVERURL . "img/imagenesPlantas/" . $imagen ?>" alt="" height="70">
+                            <img src="<?= SERVERURL . "img/imagenesPlantas/" . $datosPlanta['imagen'] ?>" alt="" height="70">
 
-                            <label for="inputEmail3" class="col-smd-2 control-label"><?php echo $imagen; ?></label>/
-                            <input type="file" class="form-control" id="imagen" name="imagen" value="<?php echo $imagen; ?>">
+                            <label for="inputEmail3" class="col-smd-2 control-label"><?= $datosPlanta['imagen'] ?></label>/
+                            <input type="file" class="form-control" id="imagen" name="imagen" value="<?= $datosPlanta['imagen'] ?>">
                         </div>
                         <div class="form-group">
                             <?php
@@ -102,10 +115,10 @@ while ($row = mysqli_fetch_array($update)) {
                             $categorias = mysqli_query($mysqli, $sqlCategorias);
                             ?>
                             <select name="categoria" id="categoria" class="form-control">
-                                <option value="<?= $categoria ?>"><?= $categoria ?></option>
+                                <option value="<?= $datosPlanta['especie'] ?>"><?= $datosPlanta['especie'] ?></option>
 
                                 <?php while ($row = $categorias->fetch_assoc()) {
-                                    if ($especie == $row['nombre_categoria']) {
+                                    if ($datosPlanta['especie'] == $row['nombre_categoria']) {
                                 ?>
                                     <?php
                                     } else { ?>
@@ -121,7 +134,7 @@ while ($row = mysqli_fetch_array($update)) {
                     </div>
 
                     <div class="form-group">
-                        <input type="text" hidden class="form-control" id="fecha_actualizacion" name="fecha_actualizacion" value="<?php echo $fecha_actualizacion = date('Y-m-d'); ?>">
+                        <input type="text" hidden class="form-control" id="fecha_actualizacion" name="fecha_actualizacion" value="<?= $datosPlanta['fecha_actualizacion'] = date('Y-m-d'); ?>">
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">

@@ -1,3 +1,17 @@
+<?php
+
+/*
+$vistaPagina =  !empty($vistaPagina) ? true : false;
+if($vistaPagina==false) { 
+    header('location: ../index.php');
+    exit("No se tiene permitido el acceso a esta pagina..."); 
+}
+
+*/
+
+?>
+
+
 <section id="team" class="bgLightGrey">
     <div class="container">
         <div class="content-center">
@@ -15,7 +29,7 @@
                         <div class="member-details">
                             <h5><?php echo $proyecto['descripcion']; ?></h5>
                             <span><?php echo $proyecto['direccion']; ?></span>
-                            <form action="planta.php" method="post">
+                            <form action="planta" method="post">
                                 <input type="hidden" name="id_planta" id="id_planta" value="<?php echo $proyecto["id_planta"]; ?>">
                                 <input type="submit" target="_blank" class="btn btn-sm btn-success" style="opacity: 0.7;" value="Ver más">
                             </form>
@@ -30,7 +44,7 @@
             </div>
             <div class="col-md-4 text-center">
                 <br><br>
-                <a href="album.php" target="_blank" class="btn btn-primary">Ver más</a>
+                <a href="album" target="_blank" class="btn btn-primary">Ver más</a>
             </div>
             <div class="col-md-4">
             </div>

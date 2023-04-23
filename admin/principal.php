@@ -80,10 +80,16 @@ $password_bd = $row["password"];
         <?php
         if (isset($_GET['view'])) {
             $views = explode("/", $_GET['view']);
-            include 'view/' . $views[0] . '.php';
+            $view_file = 'view/' . $views[0] . '.php';
+            if (file_exists($view_file)) {
+                include $view_file;
+            } else {
+                http_response_code(404);
+                echo '<div class="alert alert-danger" role="alert">Error: Página no encontrada</div>';
+            }
         } else {
+            
         }
-
         ?>
     </div>
     <!-- /.container-fluid -->

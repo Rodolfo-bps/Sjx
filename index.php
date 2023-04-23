@@ -1,4 +1,18 @@
 <?php
+/*
+$vistaPagina = true; // sirve para ocultar una pagina que no se debe de mostrar fuera del index
+$nav_ver =  !empty($_GET["ver"]) ? $_GET["ver"] : '';
+
+if(!empty($nav_ver)){
+    $ruta = "paginas/".$nav_ver.".php";
+    $permitidos = ['principal','miperfil'];
+    if(file_exists($ruta) && in_array($nav_ver,$permitidos)) {
+        require($ruta);
+    }
+    else { echo "no existe seccion ".$nav_ver; }
+}
+*/
+
 include("admin/config/conexion.php");
 
 include("paginas/grafica.php");
@@ -39,6 +53,7 @@ $rel2 = mysqli_query($mysqli, $sqlBlog);
         color: white;
     }
 </style>
+
 <?php
 $resultados = array();
 while ($row2 = $rel2->fetch_assoc()) {
@@ -46,15 +61,25 @@ while ($row2 = $rel2->fetch_assoc()) {
     array_push($resultados, $row2);
 }
 
+
+include_once("template/header.php");
+
+if (isset($_GET['paginas'])) {
+    $views = explode("/", $_GET['paginas']);
+    $view_file = 'paginas/' . $views[0] . '.php';
+    if (file_exists($view_file)) {
+        include_once $view_file;
+    } else {
+        http_response_code(404);
+        echo '<h1 style="color:red;" class="alert alert-danger" role="alert">Error: Página no encontrada</h1>';
+    }
+} else {
+}
+
+
+
+include_once("template/footer.php");
 ?>
-
-<?php include_once("template/header.php"); ?>
-<?php include_once("paginas/mapa.php"); ?>
-
-<?php include_once("paginas/galeria.php"); ?>
-<?php include_once("paginas/registros.php"); ?>
-<?php include_once("paginas/resultados.php"); ?>
-<?php include_once("template/footer.php"); ?>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="assets/js/jquery.js"></script>
@@ -176,6 +201,7 @@ while ($row2 = $rel2->fetch_assoc()) {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaOVTpren6ll6u11yVp4OMXe9e41Efsq0&callback=initMap" defer>
 </script>
+
 </body>
 
 </html>

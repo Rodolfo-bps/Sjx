@@ -1,23 +1,16 @@
 <?php
 
 if (isset($_SESSION['id_usuario'])) {
-    $sql = ("SELECT * FROM usuarios WHERE id_usuario='$id_usuario' ");
-    $resultado = mysqli_query($mysqli, $sql);
-    while ($row = mysqli_fetch_array($resultado)) {
-        $id = $row[0];
-        $nombre_usuario = $row[1];
-        $nombre = $row[2];
-        $apellidos = $row[3];
-        $correo = $row[4];
-        $password = $row[5];
-        $rol = $row[6];
-        $tipo_usuario = $row[7];
-        $imagen = $row[8];
+    $id = $_SESSION['id_usuario'];
+    $r = mysqli_query($mysqli, "SELECT * FROM usuarios WHERE id_usuario = '$id' ");
+    // verificamos existencia de registro
+    if (mysqli_num_rows($r) == false) {
+        exit("No se encontro un ID a editar: " . $id);
     }
+    // guardamos datos de registro en variable y liberamos consulta
+    $datosPerfil = mysqli_fetch_array($r);
+    mysqli_free_result($r);
 }
-
-
-
 
 ?>
 
@@ -35,37 +28,37 @@ if (isset($_SESSION['id_usuario'])) {
                     <div class="card-body">
                         <form class="needs-validation" novalidate>
                             <div class="col-md-3 mb-">
-                                <img src="<?= SERVERURL . "img/imagenesUsuarios/" . $imagen ?>" alt="" width="50%" height="50%">
+                                <img src="<?= SERVERURL . "img/imagenesUsuarios/" . $datosPerfil['imagen'] ?>" alt="" width="50%" height="50%">
                             </div><br>
                             <div class="form-row">
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Usuario</label>
                                     <input type="text" readonly class="form-control" id="nombre_usuario" name="nombre_usuario" 
-                                    value="<?= $nombre_usuario ?>">
+                                    value="<?= $datosPerfil['nombre_usuario'] ?>">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom02">Nombre</label>
-                                    <input type="text" readonly class="form-control" id="nombre" id="nombre" value="<?= $nombre ?>">
+                                    <input type="text" readonly class="form-control" id="nombre" id="nombre" value="<?= $datosPerfil['nombre'] ?>">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Apellidos</label>
-                                    <input type="text" readonly class="form-control" id="apellidos" name="apellidos" value="<?= $apellidos ?>">
+                                    <input type="text" readonly class="form-control" id="apellidos" name="apellidos" value="<?= $datosPerfil['apellidos'] ?>">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom02">Correo</label>
-                                    <input type="email" readonly class="form-control" id="correo" name="correo" value="<?= $correo ?>">
+                                    <input type="email" readonly class="form-control" id="correo" name="correo" value="<?= $datosPerfil['correo'] ?>">
 
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom02">Rol</label>
-                                    <input type="text" readonly class="form-control" id="rol" name="rol" value="<?= $rol ?>">
+                                    <input type="text" readonly class="form-control" id="rol" name="rol" value="<?= $datosPerfil['rol'] ?>">
                                 </div>
                             </div>
 
 
                         </form>
                         <form action="<?=SERVERURL?>editarUsuario" method="post">
-                            <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $id; ?> ">
+                            <input type="hidden" id="id_usuario" name="id_usuario" value="<?= $datosPerfil['id_usuario'] ?> ">
                             <button class="btn btn-primary" type="submit" name="btn_editar_perfil">Editar</button>
                         </form>
                     </div>

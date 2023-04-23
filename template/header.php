@@ -12,23 +12,24 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#hero">Inicio</a>
+                            <a class="nav-link" href="http://localhost/sjx/principal">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#mapa">Mapa</a>
+                            <a class="nav-link" href="http://localhost/sjx/mapa">Mapa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#team">Galería</a>
+                            <a class="nav-link" href="http://localhost/sjx/galeria">Galería</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#registros">Registros</a>
+                            <a class="nav-link" href="http://localhost/sjx/registros">Registros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#resultados">Resultados</a>
+                            <a class="nav-link" href="http://localhost/sjx/resultados">Resultados</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin/index.php">Entrar</a>
+                            <a class="nav-link" href="http://localhost/sjx/admin/index">Entrar</a>
                         </li>
                     </ul>
                 </div>

@@ -1,4 +1,17 @@
 <?php
+// variable de formulario
+$id_categoria = !empty($_POST['id_categoria']) ? $_POST['id_categoria'] : 0;
+// consultamos registro segun ID
+$r = mysqli_query($mysqli, "SELECT * FROM categorias WHERE id_categoria = '$id_categoria' ");
+// verificamos existencia de registro
+if (mysqli_num_rows($r) == false) {
+    exit("No se encontro un ID a editar: " . $id_categoria);
+}
+// guardamos datos de registro en variable y liberamos consulta
+$datosEditar = mysqli_fetch_array($r);
+mysqli_free_result($r);
+
+/*
 $id_categoria = $_POST['id_categoria'];
 $updateSQL = "SELECT * FROM categorias WHERE id_categoria = '$id_categoria' ";
 $update = mysqli_query($mysqli, $updateSQL);
@@ -8,7 +21,7 @@ while ($row = mysqli_fetch_array($update)) {
     $nombre_categoria = $row[1];
     $color_categoria = $row[2];
     $fecha_creacion = $row[3];
-}
+}*/
 ?>
 <div class="tabcontent">
     <!-- Begin Page Content -->
@@ -32,12 +45,12 @@ while ($row = mysqli_fetch_array($update)) {
             <div class="card-body">
                 <form class="form-horizontal" method="POST" action="seccion/controlCategorias.php" enctype="multipart/form-data">
                     <div class="box-body">
-                        <input type="hidden" class="form-control" id="id_categoria" name="id_categoria" value="<?php echo $id_categoria ?>">
+                        <input type="hidden" class="form-control" id="id_categoria" name="id_categoria" value="<?= $datosEditar['id_categoria'] ?>">
                         <div class="form-group">
-                            <input type="text" style="background: #fff;" class="form-control" id="nombre_categoria" name="nombre_categoria" value="<?php echo $nombre_categoria ?>">
+                            <input type="text" style="background: #fff;" class="form-control" id="nombre_categoria" name="nombre_categoria" value="<?= $datosEditar['nombre_categoria'] ?>">
                         </div>
                         <div class="form-group">
-                            <input type="color" class="form-control" id="color_categoria" name="color_categoria" value="<?php echo $color_categoria; ?>">
+                            <input type="color" class="form-control" id="color_categoria" name="color_categoria" value="<?= $datosEditar['color_categoria'] ?>">
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">

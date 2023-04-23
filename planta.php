@@ -1,14 +1,10 @@
 <?php
+$id_planta =  !empty($_POST["id_planta"]) ? $_POST["id_planta"] : 0;
+if(empty($id_planta)) { header('location: index.php'); exit(); }
 
-if (isset($_POST)) {
-  $id = $_POST['id_planta'];
-
-}
-
+include_once("template/head.php");
 
 ?>
-
-<?php include_once("template/head.php"); ?>
 <style>
   .tabla {
     font-family: Arial, Helvetica, sans-serif;
