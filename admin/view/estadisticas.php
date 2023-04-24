@@ -17,15 +17,9 @@
                     Resultados de recolecta de información.
                 </div>
             </div>
-
-
             <!-- tabla -->
-
         </div>
         <!-- Pie Chart -->
-
-
-
         <div class="col-xl-4 col-lg-5">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -40,34 +34,26 @@
                         <?php include("seccion/datos_grafica.php"); ?>
                         <label for="">Localidades con mayor plantas</label>
                         <?php foreach ($mayor as $r) { ?>
-                            <input style="background: white;" type="text" readonly 
-                            class="form-control" name="mayor" id="mayor" 
-                            value="<?php echo $r; ?>">
+                            <input style="background: white;" type="text" readonly class="form-control" name="mayor" id="mayor" value="<?php echo $r; ?>">
                         <?php } ?>
                         <br>
                         <?php
                         $fechaActual = date('Y-m-d');
                         ?>
-                        <input style="background: white;" type="hidden" class="form-control" 
-                        name="fecha" id="fecha" value="<?= $fechaActual ?>">
+                        <input style="background: white;" type="hidden" class="form-control" name="fecha" id="fecha" value="<?= $fechaActual ?>">
                         <label for="">Localidades con menor plantas</label>
-                        <textarea style="background: white;" type="text" 
-                        readonly class="form-control" cols="30" rows="10" 
-                        name="menor" id="menor"><?php foreach ($menor as $r) {
-                                              echo " " . $r . " ";
-                                    } ?></textarea>
+                        <textarea style="background: white;" type="text" readonly class="form-control" cols="30" rows="10" name="menor" id="menor"><?php foreach ($menor as $r) {
+                                                                                                                                                        echo " " . $r . " ";
+                                                                                                                                                    } ?></textarea>
                         <br>
                         <label for="">Registros en los últimos 7 días</label>
-                        <input style="background: white;" type="text" readonly class="form-control" name="dia_ultimo" id="dia_ultimo" 
-                        value="<?php echo $sqlDias; ?>">
+                        <input style="background: white;" type="text" readonly class="form-control" name="dia_ultimo" id="dia_ultimo" value="<?php echo $sqlDias; ?>">
                         <br>
                         <label for="">Registros en el último mes</label>
-                        <input style="background: white;" type="text" readonly class="form-control" name="mes_ultimo" id="mes_ultimo" 
-                        value="<?php echo $sqlMeses; ?>">
+                        <input style="background: white;" type="text" readonly class="form-control" name="mes_ultimo" id="mes_ultimo" value="<?php echo $sqlMeses; ?>">
                         <br>
                         <label for="">Registros en el último año</label>
-                        <input style="background: white;" type="text" readonly class="form-control" name="anio_ultimo" id="anio_ultimo" 
-                        value="<?php echo $sqlAnio; ?>">
+                        <input style="background: white;" type="text" readonly class="form-control" name="anio_ultimo" id="anio_ultimo" value="<?php echo $sqlAnio; ?>">
                         <br>
                         <button type="submit" name="btn_reporte_planta" class="btn btn-primary pull-right">Crear Reporte</button>
                     </form>
@@ -143,13 +129,10 @@ $rel = mysqli_query($mysqli, $sql2);
                                         <td><?php echo $row['mes_ultimo']; ?></td>
                                         <td><?php echo $row['anio_ultimo']; ?></td>
                                         <td>
-                                            <form method="post" 
-                                            action="http://localhost/sjx/admin/seccion/controlPlantas.php">
-                                                <input type="hidden" name="id_mayor_indice" id="id_mayor_indice" 
-                                                value="<?php echo $row['id_mayor_indice']; ?>" />
-                                                <button class="btn btn-danger btn-circle" type="submit" 
-                                                name="btn_eliminar_reporte"><i class="bi bi-trash3"></i>
-                                            </button>
+                                            <form method="post" action="http://localhost/sjx/admin/seccion/controlPlantas.php">
+                                                <input type="hidden" name="id_mayor_indice" id="id_mayor_indice" value="<?php echo $row['id_mayor_indice']; ?>" />
+                                                <button class="btn btn-danger btn-circle" type="submit" name="btn_eliminar_reporte"><i class="bi bi-trash3"></i>
+                                                </button>
                                             </form>
 
 

@@ -11,27 +11,6 @@ if (mysqli_num_rows($r) == false) {
 // guardamos datos de registro en variable y liberamos consulta
 $datosPlanta = mysqli_fetch_array($r);
 mysqli_free_result($r);
-/*
-$id_planta = $_POST['id_planta'];
-$updateSQL = "SELECT * FROM mapa WHERE id_planta = '$id_planta' ";
-$update = mysqli_query($mysqli, $updateSQL);
-while ($row = mysqli_fetch_array($update)) {
-    $idPlanta = $row[0];
-    $localidad = $row[1];
-    $direccion = $row[2];
-    $descripcion = $row[3];
-    $imagen = $row[4];
-    $estado = $row[5];
-    $latitud = $row[6];
-    $longitud = $row[7];
-    $altura = $row[8];
-    $anchura = $row[9];
-    $especie = $row[10];
-    $fecha_registro = $row[11];
-    $fecha_baja = $row[12];
-    $fecha_actualizacion = $row[13];
-}
-*/
 ?>
 <div class="tabcontent">
     <!-- Begin Page Content -->
@@ -47,7 +26,7 @@ while ($row = mysqli_fetch_array($update)) {
                 <h6 class="m-0 font-weight-bold text-primary"></h6>
             </div>
             <div class="card-body">
-                <form class="form-horizontal" method="POST" action="seccion/controlPlantas.php" enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" action="<?= SERVERURL ?>seccion/controlPlantas.php" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <input type="text" style="background: #fff;" readonly class="form-control" id="id_planta" name="id_planta" value="<?= $datosPlanta['id_planta'] ?>">
@@ -55,6 +34,7 @@ while ($row = mysqli_fetch_array($update)) {
                         <div class="form-group">
                             <input type="text" class="form-control" id="direccion" name="direccion" value="<?= $datosPlanta['direccion'] ?>">
                         </div>
+
                         <div class="form-group">
                             <select name="localidad" id="localidad" class="form-control">
                                 <option value="<?= $datosPlanta['localidad'] ?>"><?= $datosPlanta['localidad'] ?></option>
@@ -96,10 +76,10 @@ while ($row = mysqli_fetch_array($update)) {
                             <input type="text" class="form-control" id="lng" name="lng" value="<?= $datosPlanta['lng'] ?>">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="lat" name="lat" value="<?= $datosPlanta['altura'] ?>">
+                            <input type="text" class="form-control" id="altura" name="altura" value="<?= $datosPlanta['altura'] ?>">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="lng" name="lng" value="<?= $datosPlanta['anchura'] ?>">
+                            <input type="text" class="form-control" id="anchura" name="anchura" value="<?= $datosPlanta['anchura'] ?>">
                         </div>
 
                         <div class="form-group">
@@ -114,7 +94,7 @@ while ($row = mysqli_fetch_array($update)) {
                             $sqlCategorias = ("SELECT * FROM `categorias`");
                             $categorias = mysqli_query($mysqli, $sqlCategorias);
                             ?>
-                            <select name="categoria" id="categoria" class="form-control">
+                            <select name="especie" id="especie" class="form-control">
                                 <option value="<?= $datosPlanta['especie'] ?>"><?= $datosPlanta['especie'] ?></option>
 
                                 <?php while ($row = $categorias->fetch_assoc()) {
@@ -135,6 +115,7 @@ while ($row = mysqli_fetch_array($update)) {
 
                     <div class="form-group">
                         <input type="text" hidden class="form-control" id="fecha_actualizacion" name="fecha_actualizacion" value="<?= $datosPlanta['fecha_actualizacion'] = date('Y-m-d'); ?>">
+
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">

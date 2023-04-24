@@ -81,7 +81,7 @@ aria-hidden="true">
             <div class="modal-body">Selecciona cancelar para permanecer.</div>
             <div class="modal-footer">
                 <button class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-primary" href="seccion/logout.php">Salir</a>
+                <a class="btn btn-primary" href="<?= SERVERURL  ?>seccion/logout.php">Salir</a>
             </div>
         </div>
     </div>

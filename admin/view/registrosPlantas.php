@@ -170,21 +170,18 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                             <option value="Cañada Sandia">Cañada Sandia</option>
                         </select>
                     </div>
-
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="bi bi-list"></i></div>
                         </div>
                         <input required type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción">
                     </div>
-
                     <div class="form-group has-feedback" bis_skin_checked="1">
                         <div class="btn btn-default btn-file" bis_skin_checked="1">
                             <i class="fas fa-paperclip"></i> Adjuntar Imagen de la planta
                             <input required type="file" id="imagen" name="imagen">
                         </div>
                     </div>
-
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
@@ -194,20 +191,17 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                             <option value="inactivo">Inactivo</option>
                         </select>
                     </div>
-
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
                         </div>
                         <input required type="text" class="form-control" id="lat" name="lat" placeholder="Latitud">
                     </div>
-
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
                         </div>
                         <input required type="text" class="form-control" id="lng" name="lng" placeholder="Longitud">
-
                     </div>
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
@@ -215,24 +209,19 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                         </div>
                         <input required type="text" class="form-control" id="altura" name="altura" placeholder="Altura">
                     </div>
-
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
                         </div>
                         <input required type="text" class="form-control" id="anchura" name="anchura" placeholder="Anchura">
-
                     </div>
-
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
                         </div>
                         <?php
-
                         $sqlCategorias = ("SELECT * FROM `categorias`");
                         $categorias = mysqli_query($mysqli, $sqlCategorias);
-
                         ?>
                         <select required name="especie" id="especie" class="form-control">
                             <?php while ($row = $categorias->fetch_assoc()) { ?>
@@ -241,9 +230,9 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                             <?php } ?>
 
                         </select>
-
-
                     </div>
+                    <?php $fecha = date("y-m-d"); ?>
+                    <input required type="hidden" class="form-control" id="fecha_registro" name="fecha_registro" value="<?php echo $fecha; ?>">
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>

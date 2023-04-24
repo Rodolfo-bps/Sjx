@@ -102,7 +102,6 @@ foreach ($valores as $valor => $key) {
 //obtener dia, mes y anio
 
 $fecha = date("y-m-d");
-
 //obtener los ultimos 7 dias
 $dia = date('Y-m-d', strtotime($fecha . '- 7 days'));
 $sqlDias = ("SELECT fecha_registro FROM mapa WHERE fecha_registro 
@@ -122,7 +121,6 @@ if ($sqlMeses = mysqli_query($mysqli, $sqlMeses)) {
 
 //obtener los del anio
 $anio = date('Y-m-d', strtotime($fecha . '- 1 year'));
-
 $sqlAnio = ("SELECT fecha_registro FROM mapa WHERE fecha_registro 
 BETWEEN '$anio' AND '$fecha'");
 if ($sqlAnio = mysqli_query($mysqli, $sqlAnio)) {

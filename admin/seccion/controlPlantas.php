@@ -14,6 +14,7 @@ if (isset($_REQUEST['btn_guardar'])) {
     $altura = $_POST['altura'];
     $anchura = $_POST['anchura'];
     $especie = $_POST['especie'];
+    $fecha_registro = $_POST['fecha_registro'];
 
     //no se repita la imagen
     $fecha = new DateTime();
@@ -23,8 +24,8 @@ if (isset($_REQUEST['btn_guardar'])) {
     move_uploaded_file($imagen_temporal, "../img/imagenesPlantas/" . $imagen);
 
     //insertar
-    $sql = "INSERT INTO mapa (id_planta, direccion, localidad ,descripcion, imagen, estado ,lat, lng, altura, anchura, especie) 
-                VALUES (NULL, '$direccion', '$localidad', '$descripcion', '$imagen', '$estado' , '$lat', '$lng', '$altura', '$anchura','$especie');";
+    $sql = "INSERT INTO mapa (id_planta, direccion, localidad ,descripcion, imagen, estado ,lat, lng, altura, anchura, especie, fecha_registro) 
+                VALUES (NULL, '$direccion', '$localidad', '$descripcion', '$imagen', '$estado' , '$lat', '$lng', '$altura', '$anchura','$especie', '$fecha_registro');";
     $ejecutar = mysqli_query($mysqli, $sql);
 
     header("location: http://localhost/sjx/admin/registrosPlantas");
@@ -80,9 +81,9 @@ if (isset($_REQUEST['btn_actualizar'])) {
         $ejecutar = mysqli_query($mysqli, $sqlUser);
     }
 
-    $sqlUser = "UPDATE mapa SET direccion = '$direccion', localidad = '$localidad' ,descripcion = '$descripcion', estado = '$estado' , lat = '$lat', 
-     lng = '$lng', altura = '$altura', anchura = '$anchura', categoria = '$categoria', fecha_actualizacion = '$fecha_actualizacion' WHERE id_planta = '$id_planta'";
-    $ejecutar = mysqli_query($mysqli, $sqlUser);
+    $sqlUser2 = "UPDATE mapa SET direccion = '$direccion', localidad = '$localidad' ,descripcion = '$descripcion', estado = '$estado' , lat = '$lat', 
+     lng = '$lng', altura = '$altura', anchura = '$anchura', especie = '$especie', fecha_actualizacion = '$fecha_actualizacion' WHERE id_planta = '$id_planta'";
+    $ejecutar2 = mysqli_query($mysqli, $sqlUser2);
 
     if ($imagen != "") {
         //no se repita la imagen
