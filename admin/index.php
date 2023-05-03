@@ -91,7 +91,7 @@ if ($_POST) {
                             <div class="col-lg-12">
                                 <div class="p-5" style="text-align: center; ">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Iniciar Sesion</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Iniciar Sesión</h1>
                                     </div>
                                     <span class=""></span>
                                     <form class="user" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">

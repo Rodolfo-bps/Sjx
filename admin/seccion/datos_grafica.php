@@ -135,3 +135,4 @@ if ($sqlNumero = mysqli_query($mysqli, $sqlNumero)) {
 
 $etiquetas = ["Ultimos 7 dias", "Ultimo Mes", "Ultimo Anio"];
 $datosYmd = [$sqlDias, $sqlMeses, $sqlAnio];
+

@@ -16,19 +16,17 @@
 </a>
 <!-- Logout Modal-->
 <!-- Este es el código para el modal de agregar un nuevo usuario -->
-<div class="modal modal-default fade" id="logoutModal1" tabindex="-1" r
-ole="dialog" aria-labelledby="exampleModalLabel" 
-aria-hidden="true">
-<!-- Aquí se establece el diseño y la estructura del modal -->
+<div class="modal modal-default fade" id="logoutModal1" tabindex="-1" r ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Aquí se establece el diseño y la estructura del modal -->
     <div class="modal-dialog">
         <div class="modal-content">
-              <!-- El encabezado del modal que muestra el título -->
+            <!-- El encabezado del modal que muestra el título -->
             <div class="modal-header">
                 <h4 class="alert alert-success alert-dismissible ">Agregar nuevo usuario</h4>
             </div>
-              <!-- El formulario para agregar el nuevo usuario -->
+            <!-- El formulario para agregar el nuevo usuario -->
             <form method="post" enctype="multipart/form-data" style="padding: 12px;">
-            <!-- Campo para ingresar el nombre de usuario -->
+                <!-- Campo para ingresar el nombre de usuario -->
                 <div class="form-group has-feedback" bis_skin_checked="1">
                     <input type="text" class="form-control" name="nom_usuarios" placeholder="Usuario">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -38,26 +36,26 @@ aria-hidden="true">
                     <input type="text" class="form-control" name="nom_user" placeholder="Nombre">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
-                 <!-- Campo para ingresar la contraseña del usuario -->
+                <!-- Campo para ingresar la contraseña del usuario -->
                 <div class="form-group has-feedback" bis_skin_checked="1">
                     <input type="password" class="form-control" name="pass_user" placeholder="Contraseña">
                     <span class="glyphicon glyphicon-eye-close form-control-feedback"></span>
                 </div>
-                 <!-- Campo para adjuntar una imagen de perfil -->
+                <!-- Campo para adjuntar una imagen de perfil -->
                 <div class="form-group has-feedback" bis_skin_checked="1">
                     <div class="btn btn-default btn-file" bis_skin_checked="1">
                         <i class="fas fa-paperclip"></i> Adjuntar Imagen de perfil
                         <input type="file" name="subirImgusuarios">
                     </div>
                 </div>
-                 <!-- Campo para seleccionar el rol del usuario -->
+                <!-- Campo para seleccionar el rol del usuario -->
                 <div class="form-group has-feedback">
                     <select name="rol_user" id="" class="form-control" required>
                         <option value="1">admin</option>
                         <option value="2">Usuario comun</option>
                     </select>
                 </div>
-                 <!-- El footer del modal con los botones para cerrar y guardar el formulario -->
+                <!-- El footer del modal con los botones para cerrar y guardar el formulario -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">cerrar</button>
                     <button type="submit" class="btn btn-primary" name="insertar">guardar</button>
@@ -73,7 +71,8 @@ aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Quieres cerrar sesion?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">¿Quieres cerrar sesión?
+                </h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -88,15 +87,15 @@ aria-hidden="true">
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="<?= SERVERURL?>vendor/jquery/jquery.min.js"></script>
-<script src="<?= SERVERURL?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= SERVERURL ?>vendor/jquery/jquery.min.js"></script>
+<script src="<?= SERVERURL ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Core plugin JavaScript-->
-<script src="<?= SERVERURL?>vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="<?= SERVERURL ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 <!-- Custom scripts for all pages-->
-<script src="<?= SERVERURL?>vendor/js/sb-admin-2.min.js"></script>
+<script src="<?= SERVERURL ?>vendor/js/sb-admin-2.min.js"></script>
 <!-- jQuery, Popper.js, Bootstrap JS -->
-<script src="<?= SERVERURL?>vendor/popper/popper.min.js"></script>
-<script src="<?= SERVERURL?>vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?= SERVERURL ?>vendor/popper/popper.min.js"></script>
+<script src="<?= SERVERURL ?>vendor/bootstrap/js/bootstrap.min.js"></script>
 <!-- datatables JS -->
 <script type="text/javascript" src="<?= SERVERURL  ?>vendor/datatables/datatables.min.js"></script>
 <!-- para usar botones en datatables JS -->

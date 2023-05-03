@@ -37,6 +37,11 @@ include_once("seccion/sesiones.php");
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 
+    <!-- Graficas en php -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
 </head>
 </head>
 
@@ -46,11 +51,11 @@ include_once("seccion/sesiones.php");
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <li class="nav-item">
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= NAME_PAGE."inicio" ?>">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= NAME_PAGE . "inicio" ?>">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="bi bi-clipboard2-data"></i>
                     </div>
-                    <div class="sidebar-brand-text mx-1"><?= NAME_PAGE?></div>
+                    <div class="sidebar-brand-text mx-1"><?= NAME_PAGE ?></div>
                 </a>
             </li>
             <br>

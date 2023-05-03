@@ -2,6 +2,7 @@
 
 include("seccion/sesiones.php");
 include("config/config.php");
+include_once("seccion/datos_grafica.php");
 //saber numero de usuarios
 $sqlUser = "SELECT * FROM usuarios";
 if ($resulUser = mysqli_query($mysqli, $sqlUser)) {
@@ -26,11 +27,6 @@ $sqlActive = "SELECT estado FROM mapa WHERE estado = '$estd'";
 if ($sqlActive = mysqli_query($mysqli, $sqlActive)) {
     $sqlActive = mysqli_num_rows($sqlActive);
 }
-
-
-
-
-
 
 $sql = "SELECT nombre, apellidos FROM usuarios WHERE id_usuario = '$id_usuario' ";
 $usuario = mysqli_query($mysqli, $sql);

@@ -10,7 +10,7 @@ $tipo_usuario = $_SESSION["tipo_usuario"];
     <div id="content">
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
             <h3>
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="principal.php">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="bi bi-clipboard2-data"></i>
                     </div>
