@@ -24,16 +24,89 @@ $fila_total = mysqli_fetch_assoc($resultado_total);
 $total_imagenes = $fila_total['total'];
 $paginas = ceil($total_imagenes / $imagenes_x_pagina);
 ?>
+
+<style>
+  #paginated-list .card {
+    width: 90%;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  #paginated-list .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(40, 167, 69, 0.3);
+  }
+
+  #paginated-list .card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+
+  #paginated-list .card-body {
+    padding: 1.25rem;
+  }
+
+  #paginated-list .card-text {
+    margin-bottom: 0.5rem;
+  }
+
+  #paginated-list .btn {
+    background-color: rgba(40, 167, 69, 0.7);
+    border-color: rgba(40, 167, 69, 0.7);
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+
+  #paginated-list .btn:hover {
+    background-color: rgba(40, 167, 69, 1);
+    border-color: rgba(40, 167, 69, 1);
+    transform: scale(1.05);
+
+  }
+
+  /*botones de paginacion */
+
+  .pagination .page-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .pagination .page-link {
+    background-color: #ffffff;
+    color: rgba(40, 167, 69, 1);
+    border: 2px solid rgba(40, 167, 69, 1);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  .pagination .page-link:hover {
+    background-color: rgba(40, 167, 69, 1);
+    color: #ffffff;
+  }
+
+  .pagination .page-item.disabled .page-link {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .pagination .page-item.active .page-link {
+    background-color: rgba(40, 167, 69, 1);
+    border-color: rgba(40, 167, 69, 1);
+    color: #ffffff;
+    transform: scale(1.05);
+  }
+</style>
 <section id="portfolio">
   <div class="container-fluid">
-    <div class="content-center">
-      <h2>Biznagas del Municipio de <b>San Jeronimo Xayacatlan</b></h2>
-      <p>Las tasas de crecimiento en estas plantas son muy bajas y que además
-        el empobrecimiento biológico de las comunidades desérticas y semidesérticas
-        de México es causado por la extracción ilegal de ejemplares adultos completos
-        y a la comercialización de su parénquima para la elaboración del acitrón
-        (Gomez et al. 2021, pág. 119).</p>
-    </div>
+
 
     <div class="row">
       <!-- Area Chart -->
@@ -42,7 +115,7 @@ $paginas = ceil($total_imagenes / $imagenes_x_pagina);
         <div class="card shadow mb-4">
           <div class="album py-5 bg-light">
             <div class="container">
-              <h1 class="text-center">Imagenes</h1><br>
+              <h3 class="text-center">Biznagas del Municipio de <b>San Jeronimo Xayacatlan</b></h3><br>
               <h5><strong style="color:green"> Numero de plantas:</strong> <strong style="color:red"><?= $numPlant ?></strong></h5>
 
               <div class="row">

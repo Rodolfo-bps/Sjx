@@ -1,12 +1,65 @@
 <header>
+    <style>
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-brand {
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .navbar-toggler {
+            border: none;
+            color: #000000;
+        }
+
+        .navbar-toggler:hover {
+            color: #28a745;
+            /* Color de éxito */
+        }
+
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item::before {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #000000;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover::before {
+            width: 100%;
+        }
+
+        .nav-link {
+            color: #000000;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #28a745;
+            /* Color de éxito */
+        }
+    </style>
 
     <body>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <h3><strong>SJX</strong></h3>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" 
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-                aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     SJX
                 </button>
 
@@ -39,12 +92,3 @@
 
 
 </header>
-
-<section id="hero">
-    <duv class="container">
-        <div class="content-center">
-            <h1 class="mt-5" style="color: #000;">San Jerónimo Xayacatlán</h1>
-            <p style="color: #000;"><?php echo $resultados[0]['nombre_blog']; ?></p>
-        </div>
-    </duv>
-</section>

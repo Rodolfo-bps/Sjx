@@ -1,3 +1,13 @@
+<style>
+    .footer-menu a {
+        color: #fff;
+        transition: color 0.3s ease;
+    }
+
+    .footer-menu a:hover {
+        color: #28a745 !important;
+    }
+</style>
 <footer class="bgDark">
     <div class="container">
         <h3><strong>SJX</strong></h3>
@@ -18,10 +28,10 @@
             <li class="list-inline-item"><a href="#"><img src="assets/images/dribbble.svg" class="img-fluid"></a>
             </li>-->
             <li class="list-inline-item"><a href="https://www.facebook.com/rododvb/">
-                <img src="assets/images/facebook.svg" class="img-fluid"></a>
+                    <img src="assets/images/facebook.svg" class="img-fluid"></a>
             </li>
         </ul>
-        <small>©<?php echo date('Y'); ?> All Rights Reserved. Created by 
-        <strong>Rodolfo D.V.</strong></small>
+        <small>©<?php echo date('Y'); ?> All Rights Reserved. Created by
+            <strong>Rodolfo D.V.</strong></small>
     </div>
 </footer>

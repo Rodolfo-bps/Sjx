@@ -1,4 +1,16 @@
 
+<style>
+    .card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+</style>
+
 <section id="mapa">
     <div class="container-fluid">
         <div class="content-center">

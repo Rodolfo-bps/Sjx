@@ -18,6 +18,53 @@ if ($sqlActive = mysqli_query($mysqli, $sqlActive)) {
 
 
 ?>
+<style>
+    /* Estilos para los divs */
+    .col-md-6 {
+        background-color: #fff;
+        box-shadow: 0px 2px 4px rgba(40, 167, 69, 0.3);
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Estilos para el campo "Localidad con menor registros" como lista */
+    #localidad-menor-registros ul {
+        list-style-type: square;
+        padding-left: 20px;
+        margin-top: 10px;
+    }
+
+    /* Estilos para los input dentro de los divs */
+    .input-resultados {
+        padding: 8px;
+        border: 1px solid #28a745;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #28a745;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .input-resultados:hover {
+        background-color: #28a745;
+        color: #fff;
+        border-color: #28a745;
+    }
+
+    .input-resultados:focus {
+        outline: none;
+        background-color: #28a745;
+        color: #fff;
+        border-color: #28a745;
+    }
+
+    .input-resultados:read-only {
+        background-color: #fff;
+        color: #28a745;
+        border-color: #fff;
+        cursor: default;
+    }
+</style>
 <section id="resultados">
     <div class="container">
         <div class="row">
@@ -27,7 +74,7 @@ if ($sqlActive = mysqli_query($mysqli, $sqlActive)) {
                     <?php echo $resultados[3]['nombre_blog']; ?>
                 </p>
             </div>
-            <div class="col-md-6 mt-4">
+            <div class="col-md-6 mt-4 input-resultados">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -41,10 +88,11 @@ if ($sqlActive = mysqli_query($mysqli, $sqlActive)) {
                         <div class="form-group">
                             <label for="">Localidad con menor registros</label>
                             <strong>
-                                <ul></ul>
-                                <input style="background: white; color: green;" type="text" readonly class="form-control" value="<?php foreach ($menor as $r) {
+                                <ul class="localidad-menor-registros">
+                                <?php foreach ($menor as $r) {
                                                                                                                                         echo $r;
-                                                                                                                                    } ?>">
+                                                                                                                                    } ?>
+                                </ul>
                             </strong>
 
                         </div>
