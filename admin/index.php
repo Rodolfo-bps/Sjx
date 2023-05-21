@@ -39,96 +39,7 @@ if ($_POST) {
 
 <!DOCTYPE html>
 <html lang="es">
-<style>
-    body {
-        background-image: url('img/imagenesPlantas/planta.jpg');
-        /* Reemplaza con la URL de tu imagen */
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
 
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-
-    .card {
-        width: 400px;
-        /* Ajusta el ancho del formulario según tu preferencia */
-        background-color: rgba(255, 255, 255, 0.8);
-        /* Cambia el valor de la transparencia (0.8) según tus preferencias */
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        /* Agrega una sombra suave al formulario */
-    }
-
-    .card-body {
-        padding: 40px;
-        /* Añade espacio interno alrededor del formulario */
-    }
-
-    .input-group-text {
-        background-color: transparent;
-        /* Hace transparente el fondo del icono del input */
-        border: none;
-        /* Elimina el borde del icono del input */
-        color: #555;
-        /* Cambia el color del icono del input */
-    }
-
-    .form-control {
-        border-radius: 8px;
-    }
-
-    .btn {
-        border-radius: 8px;
-        padding: 10px 20px;
-        font-weight: bold;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        /* Cambia el color de fondo del botón primario */
-        border-color: #007bff;
-        /* Cambia el color del borde del botón primario */
-        color: #fff;
-        /* Cambia el color del texto del botón primario */
-    }
-
-    .btn-primary:hover {
-        background-color: #0069d9;
-        /* Cambia el color de fondo al pasar el ratón por encima del botón primario */
-        border-color: #0062cc;
-        /* Cambia el color del borde al pasar el ratón por encima del botón primario */
-    }
-
-    .btn-danger {
-        background-color: #dc3545;
-        /* Cambia el color de fondo del botón de peligro */
-        border-color: #dc3545;
-        /* Cambia el color del borde del botón de peligro */
-        color: #fff;
-        /* Cambia el color del texto del botón de peligro */
-    }
-
-    .btn-danger:hover {
-        background-color: #c82333;
-        /* Cambia el color de fondo al pasar el ratón por encima del botón de peligro */
-        border-color: #bd2130;
-        /* Cambia el color del borde al pasar el ratón por encima del botón de peligro */
-    }
-
-    .h4 {
-        color: #333;
-        /* Cambia el color del título del formulario */
-        font-weight: bold;
-        margin-bottom: 30px;
-        /* Añade espacio inferior al título del formulario */
-    }
-</style>
 
 <head>
 
@@ -152,7 +63,7 @@ if ($_POST) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!--Iconos-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
+    <link rel="stylesheet" href="vendor/login.css">
 </head>
 
 <body>
@@ -204,48 +115,6 @@ if ($_POST) {
             </div>
         </div>
     </div>
-
-
-
-    <script>
-        // Función para reproducir el sonido de bienvenida
-        function reproducirSonido() {
-            var audio = new Audio('img/correcto.mp3'); // Reemplaza 'ruta_del_archivo_de_sonido' por la ruta real del archivo de sonido
-            audio.play();
-        }
-
-        // Función para mostrar la animación de bienvenida y redireccionar al usuario
-        function mostrarAnimacionBienvenida() {
-            // Mostrar animación de bienvenida
-            document.getElementById('bienvenida').style.display = 'block';
-
-            // Reproducir sonido de bienvenida
-            reproducirSonido();
-
-            // Redireccionar al usuario después de 5 segundos (5000 milisegundos)
-            setTimeout(function() {
-                window.location.href = 'ruta_de_redireccion'; // Reemplaza 'ruta_de_redireccion' por la ruta real de la página de destino
-            }, 5000); // Cambia el tiempo de espera según tus necesidades
-        }
-    </script>
-
-    <div id="bienvenida" style="display: none;">
-        <h2>Bienvenido, <?php echo $_SESSION['nombre_usuario']; ?>!</h2>
-    </div>
-
-    <?php if (isset($_SESSION['id_usuario'])) : ?>
-        <script>
-            // Ejecutar la función de animación de bienvenida si el inicio de sesión fue exitoso
-            mostrarAnimacionBienvenida();
-        </script>
-    <?php endif; ?>
-
-
-
-
-
-
-
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

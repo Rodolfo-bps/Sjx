@@ -45,9 +45,9 @@ if (isset($_REQUEST['btn_guardar'])) {
 //btn eliminar datos
 if (isset($_REQUEST['btn_eliminar'])) {
     //metodo post
-    $id_usuario = $_POST['id_usuario'];
+    $id = $_POST['id_usuario'];
     //borrar imagen
-    $borrarSQL = ("SELECT imagen FROM `usuarios` WHERE id_usuario = '$id_usuario'");
+    $borrarSQL = ("SELECT imagen FROM `usuarios` WHERE id_usuario = '$id'");
     $imagenes = mysqli_query($mysqli, $borrarSQL);
     $nombreImagen = [];
 
@@ -56,10 +56,11 @@ if (isset($_REQUEST['btn_eliminar'])) {
             $nombreImagen[] = $imagen[0];
             if (file_exists("../img/imagenesUsuarios/" . $nombreImagen[0])) {
                 unlink("../img/imagenesUsuarios/" . $nombreImagen[0]);
-                $sql = ("DELETE FROM usuarios WHERE id_usuario = '$id_usuario'");
+                $sql = ("DELETE FROM usuarios WHERE id_usuario = '$id'");
                 $ejecutar = mysqli_query($mysqli, $sql);
                 if ($ejecutar) {
-                    header("location: http://localhost/sjx/admin/usuarios");
+                    if ($id_usuario)
+                        header("location: http://localhost/sjx/admin/usuarios");
                 } else {
                     echo "Error en la consulta";
                 }
@@ -73,7 +74,8 @@ if (isset($_REQUEST['btn_eliminar'])) {
 
 if (isset($_REQUEST['btn_actualizar'])) {
     //metodo post
-    $id_usuario = $_POST['id_usuario'];
+    $id = $_POST['id_usuario'];
+    $id_sesion = $_POST['id_sesion'];
     $nombre_usuario = $_POST['nombre_usuario'];
     $nombre = $_POST['nombre'];
     $apellidos = $_POST['apellidos'];
@@ -85,7 +87,7 @@ if (isset($_REQUEST['btn_actualizar'])) {
 
     $sqlUser = "UPDATE usuarios SET nombre_usuario = '$nombre_usuario', nombre = 
     '$nombre', apellidos = '$apellidos', 
-    correo = '$correo' WHERE id_usuario = '$id_usuario'";
+    correo = '$correo' WHERE id_usuario = '$id'";
     $ejecutar = mysqli_query($mysqli, $sqlUser);
 
     if ($imagen != "") {
@@ -96,7 +98,7 @@ if (isset($_REQUEST['btn_actualizar'])) {
         $imagen_temporal = $_FILES['imagen']['tmp_name'];
         move_uploaded_file($imagen_temporal, "../img/imagenesUsuarios/" . $nombreArchivo);
         //borrar imagen
-        $sqlImg = ("SELECT imagen FROM `usuarios` WHERE id_usuario = '$id_usuario'");
+        $sqlImg = ("SELECT imagen FROM `usuarios` WHERE id_usuario = '$id'");
         $imagenes = mysqli_query($mysqli, $sqlImg);
 
         $nombreImagen = [];
@@ -110,14 +112,14 @@ if (isset($_REQUEST['btn_actualizar'])) {
             if (file_exists("../img/imagenesUsuarios/" . $nombreImagen[0])) {
                 unlink("../img/imagenesUsuarios/" . $nombreImagen[0]);
                 $sql = "UPDATE usuarios SET imagen = '$nombreArchivo' WHERE 
-                id_usuario = '$id_usuario'";
+                id_usuario = '$id'";
                 $ejecutar2 = mysqli_query($mysqli, $sql);
             }
         }
     }
 
 
-    $sqlPass =  ("SELECT password FROM usuarios WHERE id_usuario = '$id_usuario'");
+    $sqlPass =  ("SELECT password FROM usuarios WHERE id_usuario = '$id'");
     $resultadoPass = mysqli_query($mysqli, $sqlPass);
 
     $row = $resultadoPass->fetch_assoc();
@@ -125,10 +127,13 @@ if (isset($_REQUEST['btn_actualizar'])) {
     $pass_c = sha1($password);
 
     if ($password_bd == $pass_c) {
-        $sqlUser = "UPDATE usuarios password = '$passwordNew' WHERE id_usuario = '$id_usuario'";
+        $sqlUser = "UPDATE usuarios password = '$passwordNew' WHERE id_usuario = '$id'";
         $ejecutar = mysqli_query($mysqli, $sqlUser);
         header("location: logout.php");
     }
-
-    header("location: http://localhost/sjx/admin/principal");
+    if ($id_sesion == $id) {
+        header("location: http://localhost/sjx/admin/perfilUsuario");
+    } else {
+        header("location: http://localhost/sjx/admin/usuarios");
+    }
 }

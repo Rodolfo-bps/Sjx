@@ -1,27 +1,4 @@
-<?php
-$id_planta = $_GET['id_planta'];
-
-$sql = "SELECT * FROM mapa WHERE id_planta = '$id_planta' ";
-$update = mysqli_query($mysqli, $sql);
-
-while ($row = $update->fetch_assoc()) {
-
-    $idPlanta = $row['id_planta'];
-    $localidad = $row['localidad'];
-    $direccion = $row['direccion'];
-    $descripcion = $row['descripcion'];
-    $imagen = $row['imagen'];
-    $estado = $row['estado'];
-    $latitud = $row['lat'];
-    $longitud = $row['lng'];
-    $altura = $row['altura'];
-    $anchura = $row['anchura'];
-}
-
-?>
-
-
-
+<?php include "seccion/verPlanta.php"; ?>
 
 <div class="tabcontent">
     <!-- Begin Page Content -->
@@ -39,42 +16,42 @@ while ($row = $update->fetch_assoc()) {
                 <form class="form-horizontal" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
-                            <input readonly type="text" readonly class="form-control" id="id_planta" name="id_planta" value="<?php echo $idPlanta ?>">
+                            <input readonly type="text" readonly class="form-control" id="id_planta" name="id_planta" value="<?= $idPlanta ?>">
                         </div>
                         <div class="form-group">
-                            <input readonly type="text" class="form-control" id="direccion" name="direccion" value="<?php echo $direccion; ?>">
+                            <input readonly type="text" class="form-control" id="direccion" name="direccion" value="<?= $direccion ?>">
                         </div>
                         <div class="form-group">
                             <select readonly name="localidad" id="localidad" class="form-control">
-                                <option value="<?php echo $localidad ?>"><?php echo $localidad ?></option>
+                                <option value="<?= $localidad ?>"><?= $localidad ?></option>
                                
                             </select>
                         </div>
                         <div class="form-group">
-                            <input readonly type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>">
+                            <input readonly type="text" class="form-control" id="descripcion" name="descripcion" value="<?= $descripcion ?>">
                         </div>
                         <div class="form-group">
                             <select readonly name="estado" id="estado" class="form-control">
-                                <?php if ($estado == "activo") { ?>
+                                <?php if ($estado == "activo"): ?>
                                     <option value="activo">Activo</option>
                                     <option value="inactivo">Inactivo</option>
-                                <?php } else { ?>
+                                <?php else: ?>
                                     <option value="inactivo">Inactivo</option>
                                     <option value="activo">Activo</option>
-                                <?php } ?>
+                                <?php endif; ?>
                             </select>
                         </div>
                         <div class="form-group">
-                            <input readonly type="text" class="form-control" id="lat" name="lat" value="<?php echo $latitud; ?>">
+                            <input readonly type="text" class="form-control" id="lat" name="lat" value="<?= $latitud ?>">
                         </div>
                         <div class="form-group">
-                            <input readonly type="text" class="form-control" id="lng" name="lng" value="<?php echo $longitud; ?>">
+                            <input readonly type="text" class="form-control" id="lng" name="lng" value="<?= $longitud ?>">
                         </div>
                         <div class="form-group">
-                            <input readonly type="text" class="form-control" id="altura" name="altura" value="<?php echo $altura; ?>">
+                            <input readonly type="text" class="form-control" id="altura" name="altura" value="<?= $altura ?>">
                         </div>
                         <div class="form-group">
-                            <input readonly type="text" class="form-control" id="anchura" name="anchura" value="<?php echo $anchura; ?>">
+                            <input readonly type="text" class="form-control" id="anchura" name="anchura" value="<?= $anchura ?>">
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-smd-2 control-label">Imagen</label><br>

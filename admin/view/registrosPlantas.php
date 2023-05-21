@@ -1,11 +1,4 @@
-<?php
-
-$sqlMapa = "SELECT * FROM mapa";
-$rel = mysqli_query($mysqli, $sqlMapa);
-
-
-
-?>
+<?php include "seccion/categorias.php"; ?>
 
 <style>
     .rojo {
@@ -64,63 +57,47 @@ $rel = mysqli_query($mysqli, $sqlMapa);
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php while ($row = $rel->fetch_assoc()) { ?>
+                            <?php while ($row = $registrosPlantas->fetch_assoc()): ?>
                                 <tr>
-                                    <td><?php echo $row['direccion']; ?></td>
-                                    <td><?php echo $row['localidad']; ?></td>
-                                    <td><?php echo $row['descripcion']; ?></td>
+                                    <td><?= $row['direccion'] ?></td>
+                                    <td><?= $row['localidad'] ?></td>
+                                    <td><?= $row['descripcion'] ?></td>
                                     <td>
                                         <p class="btn btn-sm <?php echo $row['estado'] == 'activo' ? 'btn-success' : 'btn-danger'; ?>">
-                                            <?php echo $row['estado']; ?></p>
+                                            <?= $row['estado'] ?></p>
                                     </td>
-                                    <td><?php echo $row['lat']; ?></td>
-                                    <td><?php echo $row['lng']; ?></td>
-                                    <td><?php echo $row['altura']; ?></td>
-                                    <td><?php echo $row['anchura']; ?></td>
+                                    <td><?= $row['lat'] ?></td>
+                                    <td><?= $row['lng'] ?></td>
+                                    <td><?= $row['altura'] ?></td>
+                                    <td><?= $row['anchura'] ?></td>
                                     <td>
-                                        <p class="btn btn-sm"><?php echo $row['especie']; ?></p>
+                                        <p class="btn btn-sm"><?= $row['especie'] ?></p>
 
                                     </td>
                                     <td>
                                         <div class="btn-group btn-group-toggle">
-
                                             <form method="post" action='http://localhost/sjx/admin/editarPlanta'>
-                                                <input type="hidden" name="id_planta" id="id_planta" value="<?php echo $row['id_planta']; ?>" />
+                                                <input type="hidden" name="id_planta" id="id_planta" value="<?= $row['id_planta'] ?>" />
                                                 <button class="btn btn-warning btn-circle" type="submit" name="btn_eliminar"><i class="bi-arrow-repeat"></i></button>
                                             </form>
-
-
                                             <form method="post" action="http://localhost/sjx/admin/seccion/controlPlantas.php">
-                                                <input type="hidden" name="id_planta" id="id_planta" value="<?php echo $row['id_planta']; ?>" />
+                                                <input type="hidden" name="id_planta" id="id_planta" value="<?= $row['id_planta'] ?>" />
                                                 <button class="btn btn-danger btn-circle" type="submit" name="btn_eliminar"><i class="bi bi-trash3"></i></button>
                                             </form>
                                         </div>
-
-
                                     </td>
-
                                 </tr>
-                            <?php } ?>
-
+                            <?php endwhile; ?>
                         </tbody>
                     </table>
-
                     <div class="row">
-                        <?php
-                        //saber numero de usuarios
-                        $sqlUser = "SELECT * FROM mapa";
-                        if ($resulUser = mysqli_query($mysqli, $sqlUser)) {
-                            $numUser = mysqli_num_rows($resulUser);
-                        }
-                        ?>
                         <div class="col-md-4">
                             <h4>
-                                Número de plantas <span class="text-success"><strong><?= $numUser ?></strong></span>
+                                Número de plantas <span class="text-success"><strong><?= $numPlantas ?></strong></span>
                             </h4>
                         </div>
                         <br><br>
                     </div>
-
                 </div>
             </div>
         </div>

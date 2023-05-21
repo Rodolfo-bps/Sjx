@@ -1,17 +1,4 @@
-<?php
-
-if ($tipo_usuario == 1) {
-    $where = "";
-} else if ($tipo_usuario = 2) {
-    $where = "WHERE id_usuario = '$id_usuario'";
-}
-$sql2 = "SELECT * FROM usuarios $where";
-$rel = mysqli_query($mysqli, $sql2);
-
-
-?>
-
-
+<?php include "seccion/categorias.php"; ?>
 
 <div class="tabcontent">
     <!-- Begin Page Content -->
@@ -22,13 +9,13 @@ $rel = mysqli_query($mysqli, $sql2);
             <h1 class="h3 mb-0 text-gray-800"> Usuarios</h1>
             <?php
 
-            if ($tipo_usuario == 1) {
+            if ($tipo_usuario == 1) :
             ?>
                 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#agregar"><i class="bi bi-person-plus">
 
                     </i> Agregar Nuevo Usuario</a>
             <?php
-            }
+            endif;
             ?>
         </div>
         <!-- DataTales Example -->
@@ -64,37 +51,33 @@ $rel = mysqli_query($mysqli, $sql2);
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php while ($row = $rel->fetch_assoc()) { ?>
+                            <?php while ($row = $resultadoUsuarios->fetch_assoc()): ?>
                                 <tr>
-                                    <td><?php echo $row['id_usuario']; ?></td>
-                                    <td><?php echo $row['nombre_usuario']; ?></td>
-                                    <td><?php echo $row['nombre']; ?></td>
-                                    <td><?php echo $row['apellidos']; ?></td>
-                                    <td><?php echo $row['correo']; ?></td>
-                                    <td><?php echo $row['rol']; ?></td>
+                                    <td><?= $row['id_usuario'] ?></td>
+                                    <td><?= $row['nombre_usuario'] ?></td>
+                                    <td><?= $row['nombre'] ?></td>
+                                    <td><?= $row['apellidos'] ?></td>
+                                    <td><?= $row['correo'] ?></td>
+                                    <td><?= $row['rol'] ?></td>
                                     <td>
                                         <img style="width: 80px;" src="<?= SERVERURL
                                                                             . "img/imagenesUsuarios/" . $row['imagen']; ?>" alt="">
                                     </td>
 
-                                    <?php if ($id_usuario == $row['id_usuario']) { ?>
+                                    <?php if ($id_usuario == $row['id_usuario']): ?>
                                         <td>
-
                                             <form action="<?= SERVERURL ?>editarUsuario" method="post">
                                                 <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $row['id_usuario']; ?> ">
                                                 <button style="color: #fff;" class="btn btn-warning btn-circle" type="submit" name="btn_editar_perfil">
                                                     <i class="bi bi-pencil"></i></button>
                                             </form>
-
                                             <form action="<?= SERVERURL ?>perfilUsuario" method="post">
                                                 <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $row['id_usuario']; ?> ">
                                                 <button style="color: #fff;" class="btn btn-success btn-circle" type="submit" name="btn_editar_perfil">
                                                     <i class="bi bi-eye"></i></button>
                                             </form>
-
                                         </td>
-
-                                    <?php } else { ?>
+                                    <?php else: ?>
                                         <td>
                                             <form method="post" action="<?= SERVERURL ?>editarUsuario">
                                                 <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $row['id_usuario']; ?>" />
@@ -105,32 +88,15 @@ $rel = mysqli_query($mysqli, $sql2);
                                                 <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $row['id_usuario']; ?>" />
                                                 <button class="btn btn-danger btn-circle" type="submit" name="btn_eliminar"><i class="bi bi-trash3"></i></button>
                                             </form>
-
-
-
-
                                         </td>
-                                    <?php } ?>
-
+                                    <?php endif; ?>
                                 </tr>
-                            <?php } ?>
-
+                            <?php endwhile; ?>
                         </tbody>
                     </table>
                 </div>
 
                 <div class="row">
-                    <?php
-
-                    include("config/conexion.php");
-                    //saber numero de usuarios
-                    $sqlUser = "SELECT * FROM usuarios";
-
-                    if ($resulUser = mysqli_query($mysqli, $sqlUser)) {
-                        $numUser = mysqli_num_rows($resulUser);
-                    }
-
-                    ?>
 
                     <div class="col-md-4">
                     </div>
@@ -159,13 +125,11 @@ $rel = mysqli_query($mysqli, $sql2);
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="<?= SERVERURL ?>seccion/controlUsuarios.php" 
-                enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" action="<?= SERVERURL ?>seccion/controlUsuarios.php" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" 
-                                placeholder="Nombre de Usuario">
+                                <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" placeholder="Nombre de Usuario">
                             </div>
                         </div>
                         <div class="form-group">
@@ -186,8 +150,7 @@ $rel = mysqli_query($mysqli, $sql2);
                         <div class="form-group">
                             <div class="col-sm-10">
                                 <?php $pass = "Sjx101"; ?>
-                                <input type="password" class="form-control" id="password" name="password" value="<?= $pass ?>"
-                                 placeholder="Password">
+                                <input type="password" class="form-control" id="password" name="password" value="<?= $pass ?>" placeholder="Password">
                             </div>
                         </div>
                         <div class="form-group">

@@ -15,8 +15,6 @@
             </div>
         <?php } ?>
 
-
-
         <!-- Content Row -->
         <div class="row">
 

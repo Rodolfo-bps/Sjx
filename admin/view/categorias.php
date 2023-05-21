@@ -1,6 +1,5 @@
 <?php
-$sql2 = "SELECT * FROM categorias";
-$rel = mysqli_query($mysqli, $sql2);
+require ("seccion/categorias.php");
 ?>
 <div class="container">
     <div class="row">
@@ -75,43 +74,38 @@ $rel = mysqli_query($mysqli, $sql2);
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php while ($row = $rel->fetch_assoc()) { ?>
+                                <?php while ($row = $relCategorias->fetch_assoc()): ?>
                                     <tr>
-                                        <td><?php echo $row['id_categoria']; ?></td>
-                                        <td><?php echo $row['nombre_categoria']; ?></td>
-                                        <td><?php echo $row['color_categoria']; ?></td>
-                                        <td><?php echo $row['fecha_creacion']; ?></td>
+                                        <td><?= $row['id_categoria'] ?></td>
+                                        <td><?= $row['nombre_categoria'] ?></td>
+                                        <td><?= $row['color_categoria'] ?></td>
+                                        <td><?= $row['fecha_creacion'] ?></td>
 
                                         <td colspan="">
                                             <div class=" ">
                                                 <form method="post" action="http://localhost/sjx/admin/editarCategorias">
-                                                    <input type="hidden" name="id_categoria" id="id_categoria" value="<?php echo $row['id_categoria']; ?>" />
+                                                    <input type="hidden" name="id_categoria" id="id_categoria" value="<?= $row['id_categoria'] ?>" />
                                                     <button class="btn btn-warning btn-circle" type="submit" name="btn_eliminar_categoria"><i class="bi bi-arrow-repeat"></i></button>
                                                 </form>
 
                                                 <form method="post" action="http://localhost/sjx/admin/seccion/controlCategorias.php">
-                                                    <input type="hidden" name="id_categoria" id="id_categoria" value="<?php echo $row['id_categoria']; ?>" />
+                                                    <input type="hidden" name="id_categoria" id="id_categoria" value="<?= $row['id_categoria'] ?>" />
                                                     <button class="btn btn-danger btn-circle" type="submit" name="btn_eliminar_categoria"><i class="bi bi-trash3"></i></button>
                                                 </form>
                                             </div>
                                         </td>
                                     </tr>
-                                <?php } ?>
+                                <?php endwhile; ?>
                             </tbody>
                         </table>
                         <br>
                         <div class="row">
                             <?php
-                            //saber numero de usuarios
-                            $sqlUser = "SELECT * FROM categorias";
-
-                            if ($resulUser = mysqli_query($mysqli, $sqlUser)) {
-                                $numUser = mysqli_num_rows($resulUser);
-                            }
+                        
                             ?>
                             <div class="col-md-12">
                                 <h4>
-                                    Numero de Categorias <span class="text-success"><strong><?= $numUser ?></strong></span>
+                                    Numero de Categorias <span class="text-success"><strong><?= $numCategorias ?></strong></span>
                                 </h4>
                             </div>
                             <br><br>

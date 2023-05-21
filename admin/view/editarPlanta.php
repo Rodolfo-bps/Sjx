@@ -1,16 +1,6 @@
 <?php
 
-// variable de formulario
-$id_planta = !empty($_POST['id_planta']) ? $_POST['id_planta'] : 0;
-// consultamos registro segun ID
-$r = mysqli_query($mysqli, "SELECT * FROM mapa WHERE id_planta = '$id_planta' ");
-// verificamos existencia de registro
-if (mysqli_num_rows($r) == false) {
-    exit("No se encontro un ID a editar: " . $id_planta);
-}
-// guardamos datos de registro en variable y liberamos consulta
-$datosPlanta = mysqli_fetch_array($r);
-mysqli_free_result($r);
+include "seccion/editarPlanta.php";
 ?>
 <div class="tabcontent">
     <!-- Begin Page Content -->
@@ -59,14 +49,13 @@ mysqli_free_result($r);
                         </div>
                         <div class="form-group">
                             <select name="estado" id="estado" class="form-control">
-                                <?php if ($datosPlanta['estado'] == "activo") { ?>
+                                <?php if ($datosPlanta['estado'] == "activo") : ?>
                                     <option value="activo">Activo</option>
                                     <option value="inactivo">Inactivo</option>
-                                <?php } else { ?>
+                                <?php else: ?>
                                     <option value="inactivo">Inactivo</option>
                                     <option value="activo">Activo</option>
-
-                                <?php } ?>
+                                <?php endif; ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -90,10 +79,7 @@ mysqli_free_result($r);
                             <input type="file" class="form-control" id="imagen" name="imagen" value="<?= $datosPlanta['imagen'] ?>">
                         </div>
                         <div class="form-group">
-                            <?php
-                            $sqlCategorias = ("SELECT * FROM `categorias`");
-                            $categorias = mysqli_query($mysqli, $sqlCategorias);
-                            ?>
+                       
                             <select name="especie" id="especie" class="form-control">
                                 <option value="<?= $datosPlanta['especie'] ?>"><?= $datosPlanta['especie'] ?></option>
 

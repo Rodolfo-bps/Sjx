@@ -147,18 +147,17 @@ include_once("template/footer.php");
                     parseFloat(markerElem.getAttribute('lat')),
                     parseFloat(markerElem.getAttribute('lng')));
                 const contentString =
-                    '<div id="content" style="width: 300px;height: 300px; text-align:center;">' +
+                    '<div id="content" style="width: 300px; height: 300px; text-align: center; font-family: Arial, sans-serif; background-color: #f2f2f2; padding: 20px;">' +
+                    '<p style="color: #495057; font-size: 18px;"><i class="fa fa-fw fa-map-marker"></i>' + direccion + '</p>' +
+                    '<div style="margin-top: 20px;">' +
+                    '<img alt="90" style="display: block; margin: 0 auto; max-width: 100%; box-shadow: 0px 4px 8px rgba(76, 175, 80, 0.3);" src="admin/img/imagenesPlantas/' + imagen + '">' +
+                    '</div>' +
+                    '<form action="planta.php" method="post" style="margin-top: 20px;">' +
+                    '<input type="hidden" name="id_planta" value="' + id_planta + '">' +
+                    '<input class="btn_planta" style="display: block; margin: 0 auto; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; box-shadow: 0px 4px 8px rgba(76, 175, 80, 0.3);" type="submit" value="Ver más">' +
+                    '</form>' +
+                    '</div>';
 
-                    '<p style="color: #495057; font-size: 22px;"><i class="fa fa-fw fa-map-marker"></i>' + direccion + '</p>' +
-
-                    '<div>' +
-                    "<img alt='90'  class='rounded mx-auto d-block' src='admin/img/imagenesPlantas/" + imagen + "' >" + "<br>" +
-                    "<form action='planta.php' method='post'>" +
-                    "<input type='hidden' name='id_planta' value='" + id_planta + "'>" +
-                    "<input target='_blank' class='btn_planta'  type='submit' value='Ver mas'>" +
-                    "</form>" +
-                    "</div>" +
-                    "</div>";
 
                 //const image = "img/soldadoss.png";
                 //  var icon = customLabel[codigo] || {};
